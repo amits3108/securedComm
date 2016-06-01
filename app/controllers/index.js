@@ -1,5 +1,6 @@
 
-var win = Alloy.createController("authenctication/signUp").getView();
+//var win = Alloy.createController("authenctication/signUp").getView();
+var win = Alloy.createController("authenctication/login").getView();
 //var win = Alloy.createController("Main").getView();
 win.open();
 

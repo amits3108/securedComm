@@ -23,7 +23,7 @@ exports.replaceCentralView = function(params) {
 
 // function to accept option and return dialog
 
-exports.createOptionsdialog = function(opts){
+exports.createDailog = function(opts){
 	return Ti.UI.createOptionDialog(opts);
 };
 

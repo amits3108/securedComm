@@ -18,7 +18,7 @@ function registerAs() {
 		destructive : 0,
 		title : 'Register As'
 	};
-	var dialog = utils.createDailog(opts);
+	var dialog = Ti.UI.createOptionDialog(opts);
 	dialog.show();
 	dialog.addEventListener('click', function(e) {
 		if (e.index == 0) {
@@ -46,7 +46,7 @@ function tutorSelection() {
 		destructive : 0,
 		title : 'Register As'
 	};
-	var dialog2 = utils.createDailog(opts2).show();
+	var dialog2 = Ti.UI.createOptionDialog(opts2).show();
 	dialog2.addEventListener('click', function(e) {
 		if (e.index == 0) {
 			//homeTutor = "homeTutor";
@@ -73,7 +73,7 @@ function orgInstiuteSelection() {
 		title : 'Register As'
 	};
 
-	var dialog3 = utils.createDailog(opts3).show();
+	var dialog3 = Ti.UI.createOptionDialog(opts3).show();
 	dialog3.addEventListener('click', function(e) {
 		if (e.index == 0) {
 			//selfInstitute = "selfInstitute";
