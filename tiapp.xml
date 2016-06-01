@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.tutme</id>
+    <name>Tutme</name>
+    <version>1.0</version>
+    <publisher>amit_pc</publisher>
+    <url/>
+    <description/>
+    <copyright>2016 by amit_pc</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>70e30a4c-3b95-489a-9fff-90ce8c0b5b70</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest android:versionCode="1" android:versionName="1.0.0">
+            <uses-sdk android:minSdkVersion="21"/>
+            <application android:theme="@style/Theme.Appcelerator">
+                <meta-data
+                    android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDoilSf7mbueqjBG87qvnpsUlky_EpxmBo"/>
+            </application>
+        </manifest>
+    </android>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+        <module platform="android">com.tripvi.drawerlayout</module>
+        <module platform="iphone">ti.map</module>
+        <module platform="android">ti.map</module>
+    </modules>
+    <deployment-targets>
+        <target device="windows">false</target>
+        <target device="android">true</target>
+        <target device="blackberry">false</target>
+        <target device="ipad">false</target>
+        <target device="iphone">false</target>
+        <target device="mobileweb">false</target>
+    </deployment-targets>
+    <sdk-version>5.2.2.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">5747365affe802a6029e591b</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">xt9RVnf5Y6NI8mCrpGLVOsPIVwvAj7mG</property>
+    <property name="acs-oauth-key-development" type="string">pSw5uekGUnWJyrcOiUnV4o8lCJxMzD35</property>
+    <property name="acs-api-key-development" type="string">laO3aBjYiuotEDxKeFHTwfjdGXUPu8l3</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">PVFp4TdCAo2iokUXFX</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">S3y2y88KlwXxtsP0APzIZID3bXV1MExJ</property>
+    <property name="acs-oauth-key-production" type="string">3i49CxEBJBs2ZR6ZkkTjdbSLXxuFSNvh</property>
+    <property name="acs-api-key-production" type="string">Nlc8ZRifWtkW1pcuUdcyJnBbvJgo7ENV</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">fZS4mRImgEkCHDhfDv</property>
+    <property name="appc-org-id" type="string">100031363</property>
+    <property name="appc-creator-user-id" type="string">ad2f7178-c44d-4784-95b0-61c8238ab4d4</property>
+</ti:app>

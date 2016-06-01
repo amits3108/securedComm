@@ -1,0 +1,65 @@
+".container": {
+	layout: "vertical"
+}
+
+"#tutme":{
+	image:"/images/logo.png",
+	height: 50,
+	
+	top: 30,
+	//backgroundColor: "green"
+}
+
+
+"#emailAddress":{
+	hintText: "Email Address",
+	width: "80%",
+	//height: 20,
+	//left: 20,
+	//right: 20,
+	top: 50,
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
+}
+"#password":{
+	hintText: "Password",
+	width: "80%",
+	//height: 20,
+	//left: 20,
+	//right: 20,
+	top: 20,
+	passwordMask: true
+}
+"#Login":{
+	title: "Login",
+	height: 50,
+	top: 30,
+	width : 100,
+	backgroundColor: "#6299FF"
+}
+"#bottomView":{
+	//bottom: 0,
+	height: 70,
+	width: Titanium.UI.FILL,
+	left: 20 ,
+	right: 20,
+	top: 30
+}
+"#registerNow":{
+	text: "Register",
+	left: 0,
+	font:{
+		fontSize: 20,
+		fontWeight: 'bold',
+	},
+	color: "black"
+}
+"#forgotPassword":{
+	text: "Forgot\nPassword",
+	right: 0,
+	textAlign : 'center',
+	font:{
+		fontSize: 20,
+		fontWeight: 'bold',
+	},
+	color: "black"
+}
