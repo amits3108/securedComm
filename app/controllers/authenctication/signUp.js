@@ -5,11 +5,8 @@ var utils = require("utils");
 var network = require("network");
 $.signUpWin.addEventListener('open', function(e) {
 	var params = params || {};
-	Ti.API.info("========Params===============" + JSON.stringify(params));
+	Ti.API.info("========Params===============" + JSON.stringify(args));
 });
-/*$.register.addEventListener('click',function(e){
- utils.Loading.showSpinner();
- });*/
 var linkedin = social.create({
 	consumerSecret : "s7ZV7hViil2DaqPp",
 	consumerKey : "75c5prnmkejwoe",
@@ -20,9 +17,7 @@ $.linkedIn.addEventListener('click', function(e) {
 		message : "messageContent",
 		success : function(e) {
 			response = JSON.stringify(e);
-			//alert("Profile Link retrieved successfully.Thanks!"+e.siteStandardProfileRequest.url);
 			Ti.API.info(response.siteStandardProfileRequest + "****" + e.firstName + "response" + JSON.stringify(e));
-			//Ti.App.Properties.setString(e+"ProfileURL",e.siteStandardProfileRequest.url);
 		},
 		error : function(e) {
 			Ti.API.info("Error while posting" + JSON.stringify(e));

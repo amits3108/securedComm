@@ -5,90 +5,94 @@ var student,
     homeTutor,
     organisationalInstitue,
     selfInstitute = false;
-/*var dialog,
- dialog2,
- dialog3;
- */
+var dialog,
+    dialog2,
+    dialog3;
+
 function registerAs() {
-	var params;
 	var opts = {
 		cancel : 3,
 		options : ['Student', 'Tutor', 'Organisation', 'Cancel'],
 		selectedIndex : 3,
-		destructive : 0,
 		title : 'Register As'
 	};
-	var dialog = Ti.UI.createOptionDialog(opts);
-	dialog.show();
+	dialog = Ti.UI.createOptionDialog(opts);
 	dialog.addEventListener('click', function(e) {
+		//var params;
 		if (e.index == 0) {
-			//student = "student";
-			params = {
-				student : "student"
-			};
-			openSignUpScreen(params);
+			openSignUpScreen({
+				userType : "student"
+			});
 		} else if (e.index == 1) {
-			//dialog2.show();
-			tutorSelection();
+			tutorSelection({
+				userType : "tutor"
+			});
 		} else if (e.index == 2) {
-			//dialog3.show();
-			orgInstiuteSelection();
+			orgInstiuteSelection({
+				userType : "organization"
+			});
 		}
 	});
+	dialog.show();
 }
 
-function tutorSelection() {
-	var params;
+function tutorSelection(params) {
+	var params = params || {};
 	var opts2 = {
 		cancel : 2,
 		options : ['Tutor Home', 'Home Tutor', 'Cancel'],
 		selectedIndex : 2,
-		destructive : 0,
 		title : 'Register As'
 	};
-	var dialog2 = Ti.UI.createOptionDialog(opts2).show();
+	dialog2 = Ti.UI.createOptionDialog(opts2);
 	dialog2.addEventListener('click', function(e) {
+		//params = params.userType;
 		if (e.index == 0) {
-			//homeTutor = "homeTutor";
 			params = {
-				homeTutor : "homeTutor"
+				userType : params.userType,
+				tutorType : "homeTutor"
 			};
+			openSignUpScreen(params);
 		} else if (e.index == 1) {
-			//tutorHome = "tutorHome";
 			params = {
-				tutorHome : "tutorHome"
+				userType : params.userType,
+				tutorType : "tutorHome"
 			};
+			openSignUpScreen(params);
+		} else {
+
 		}
-		openSignUpScreen(params);
 	});
+	dialog2.show();
 }
 
-function orgInstiuteSelection() {
-	var params;
+function orgInstiuteSelection(params) {
+	var params = params || {};
 	var opts3 = {
 		cancel : 2,
 		options : ['Self Institute', 'Organisational Institue', 'Cancel'],
 		selectedIndex : 2,
-		destructive : 0,
 		title : 'Register As'
 	};
-
-	var dialog3 = Ti.UI.createOptionDialog(opts3).show();
+	dialog3 = Ti.UI.createOptionDialog(opts3);
 	dialog3.addEventListener('click', function(e) {
 		if (e.index == 0) {
-			//selfInstitute = "selfInstitute";
 			params = {
-				selfInstitute : "selfInstitute"
+				userType : params.userType,
+				instituteType : "selfInstitute"
 			};
+			openSignUpScreen(params);
 		} else if (e.index == 1) {
-			//organisationalInstitue = "organisationalInstitue";
 			params = {
-				organisationalInstitue : "organisationalInstitue"
+				userType : params.userType,
+				instituteType : "organisationalInstitue"
 			};
-		}
-		openSignUpScreen(params);
+			openSignUpScreen(params);
+		} else {
 
+		}
 	});
+	dialog3.show();
 }
 
 $.registerNow.addEventListener('click', function(e) {
