@@ -1,0 +1,28 @@
+
+
+"#name":{
+	hintText: "Name",
+	width: "200dp",
+	//height: 20,
+	//left: 20,
+	//right: 20,
+	top: 50,
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
+}
+
+
+"#emailAddress":{
+	hintText: "Email Address",
+	width: "80%",
+	//height: 20,
+	//left: 20,
+	//right: 20,
+	top: 50,
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
+}
+
+"#userProfileImage":{
+	width : 70,
+	height : 70,
+	backgroundColor : "green"
+}

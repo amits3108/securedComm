@@ -43,27 +43,27 @@ $.menuTable.addEventListener('click', function(e){
 	var title = null;
 	switch(index) {
 	case 0:
-		view = Alloy.createController("drawwer/profile").getView(),
+		view = Alloy.createController("drawer/profile").getView(),
 		title = "Profile";
 		break;
 	case 1 :
-		view = Alloy.createController("drawwer/Messages").getView(),
+		view = Alloy.createController("drawer/Messages").getView(),
 		title = "Messages";
 		break;
 	case 2 :
-		view = Alloy.createController("drawwer/Notifications").getView(),
+		view = Alloy.createController("drawer/Notifications").getView(),
 		title = "Notifications";
 		break;
 	case 3 :
-		view = Alloy.createController("drawwer/Settings").getView(),
+		view = Alloy.createController("drawer/Settings").getView(),
 		title = "Settings";
 		break;
 	case 4 :
-		view = Alloy.createController("drawwer/Problem").getView(),
+		view = Alloy.createController("drawer/Problem").getView(),
 		title = "Report Problem";
 		break;
 	case 5 :
-		view = Alloy.createController("drawwer/Help").getView(),
+		view = Alloy.createController("drawer/Help").getView(),
 		title = "Help";
 		break;
 	}

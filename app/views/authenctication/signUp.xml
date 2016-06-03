@@ -10,7 +10,7 @@
 			<TextField id="phoneNo"></TextField>
 			<TextField id="emailAddress"></TextField>
 			<TextField id="password"></TextField>
-			<Button id="register"></Button> <!-- onClick="register" -->
+			<Button id="register" onClick="onRegisterClick"></Button> <!-- onClick="register" -->
 			<ImageView id="linkedIn"  image="/images/LinkedIn.png" top = "20dp"  ></ImageView>
 			<View id="bottomView">
 				<Label id="login"></Label>

@@ -1,0 +1,17 @@
+<Alloy>
+	<View>
+		<ScrollView layout="vertical">
+			<View layout="horizontal" top = "50">
+				<ImageView id="userProfileImage"></ImageView>
+				<TextField id="name" hintText="Name" width = "80%" ></TextField>
+			</View>
+			<TextField id="emailAddress" hintText="Email Address" width = "80%" top = "50" keyboardType = "Titanium.UI.KEYBOARD_TYPE_EMAIL"></TextField>
+			<TextField id="qualification" hintText="Highest Qualifiacation" width = "80%" top = "50" ></TextField>
+			<TextField id="experience" hintText="Experience (in Months)" width = "80%" top = "50" ></TextField>
+			<TextField id="address" hintText="Address" width = "80%" top = "50" ></TextField>
+			<TextField id="city" hintText="City" width = "80%" top = "50" ></TextField>
+			<TextField id="name" hintText="Name" width = "80%" top = "50" ></TextField>
+			<TextField id="name" hintText="Name" width = "80%" top = "50" ></TextField>
+		</ScrollView>
+	</View>
+</Alloy>

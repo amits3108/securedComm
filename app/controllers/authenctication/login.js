@@ -106,3 +106,8 @@ function openSignUpScreen(params) {
 	}).getView();
 	win.open();
 }
+
+function onLoginClick() {
+	var win = Alloy.createController("Main").getView();
+	win.open();
+}

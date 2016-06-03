@@ -67,3 +67,8 @@ function callBack(json) {
 		Ti.API.info("error found");
 	}
 }
+
+function onRegisterClick() {
+	var win = Alloy.createController("Main").getView();
+	win.open();
+}

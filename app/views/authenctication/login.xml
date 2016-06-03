@@ -9,7 +9,7 @@
 			
 			<TextField id="emailAddress"></TextField>
 			<TextField id="password"></TextField>
-			<Button id="Login"></Button>
+			<Button id="Login" onClick="onLoginClick"></Button>
 			<View id="bottomView">
 				<Label id="registerNow"></Label>
 				<Label id="forgotPassword"></Label>
