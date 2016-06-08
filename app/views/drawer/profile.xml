@@ -1,17 +1,25 @@
 <Alloy>
-	<View>
-		<ScrollView layout="vertical">
-			<View layout="horizontal" top = "50">
+	<ScrollView id="scrollContainer" scrollType="vertical" >
+		<!--<View id="scrollContainer" backgroundColor="#B2DAF6">-->
+			<View layout="horizontal" width = "Ti.UI.FILL" height="Ti.UI.SIZE">
 				<ImageView id="userProfileImage"></ImageView>
-				<TextField id="name" hintText="Name" width = "80%" ></TextField>
+				<TextField id="name" hintText="Name"></TextField>
 			</View>
-			<TextField id="emailAddress" hintText="Email Address" width = "80%" top = "50" keyboardType = "Titanium.UI.KEYBOARD_TYPE_EMAIL"></TextField>
-			<TextField id="qualification" hintText="Highest Qualifiacation" width = "80%" top = "50" ></TextField>
-			<TextField id="experience" hintText="Experience (in Months)" width = "80%" top = "50" ></TextField>
-			<TextField id="address" hintText="Address" width = "80%" top = "50" ></TextField>
-			<TextField id="city" hintText="City" width = "80%" top = "50" ></TextField>
-			<TextField id="name" hintText="Name" width = "80%" top = "50" ></TextField>
-			<TextField id="name" hintText="Name" width = "80%" top = "50" ></TextField>
-		</ScrollView>
-	</View>
+			<TextField id="emailAddress" class="textFieldClass"/>
+			<TextField id="qualification" class="textFieldClass"/>
+			<TextField id="experience" class="textFieldClass"/>
+			<TextField id="address_permanent" class="textFieldClass"/>
+			<TextField id="address_correspondance" class="textFieldClass"/>
+			<TextField id="city" class="textFieldClass"/>
+			<TextField id="dateOfBirth" class="textFieldClass"/>
+			<TextField id="contactNo"class="textFieldClass"/>
+			<TextField id="linkedInprofile"class="textFieldClass"/>
+			<TextField id="canTravelTo"class="textFieldClass"/>
+			<TextField id="courses"class="textFieldClass"/>
+			<TextField id="subjects"class="textFieldClass"/>
+			<TextField id="sutaibleBatchTime"class="textFieldClass"/>
+			<TextField id="preferredLanguage"class="textFieldClass"/>
+			<TextField id="aboutYourSelf"class="textFieldClass"/>
+		<!--</View>-->
+	</ScrollView>
 </Alloy>

@@ -1,4 +1,4 @@
 <Alloy>
-	<View class="container" backgroundColor="gray ">
+	<View id="problems" class="container" backgroundColor="transparent">
 	</View>
 </Alloy>

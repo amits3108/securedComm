@@ -1,4 +1,4 @@
 <Alloy>
-	<View class="container">
+	<View class="container" backgroundColor="#B2DAF6">
 	</View>
 </Alloy>

@@ -1,4 +1,10 @@
-
+"#scrollContainer":{
+	layout: 'vertical',
+	height: Titanium.UI.SIZE,
+	width: '95%',
+	backgroundColor: "#FFFFFF",
+	borderRadius: 5
+}
 
 "#name":{
 	hintText: "Name",
@@ -10,19 +16,77 @@
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 
+"#userProfileImage":{
+	width: 80,
+	height: 80,
+	backgroundColor: "green",
+	image: "/images/profile.png"
+}
+
+".textFieldClass":{
+	width: Titanium.UI.FILL,
+	top: 10,
+	color: "#000"
+}
+
+/*"#emailAddress":{
+hintText: "Email Address",
+width: "80%",
+//height: 20,
+//left: 20,
+//right: 20,
+top: 50,
+keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
+}*/
 
 "#emailAddress":{
 	hintText: "Email Address",
-	width: "80%",
-	//height: 20,
-	//left: 20,
-	//right: 20,
-	top: 50,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
+"#qualification":{
+	hintText: "Highest Qualifiacation"
+}
 
-"#userProfileImage":{
-	width : 70,
-	height : 70,
-	backgroundColor : "green"
+"#experience":{
+	hintText: "Experience (in Months)"
+}
+"#address_permanent":{
+	hintText: "Permanent Address"
+}
+"#address_correspondance":{
+	hintText: "Correspondance Address"
+}
+"#city":{
+	hintText: "City"
+}
+
+"#dateOfBirth":{
+	hintText: "Date Of birth"
+}
+
+"#contactNo":{
+	hintText: "Mobile No",
+	keyboardType: Titanium.UI.TYPE_PHONE_PAD
+}
+"#linkedInprofile":{
+	hintText: "Lineked In Profile"
+}
+"#canTravelTo":{
+	hintText: "Can Travel to(Distance in kms.)",
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
+}
+"#courses":{
+	hintText: "Courses"
+}
+"#subjects":{
+	hintText: "Subjects"
+}
+"#sutaibleBatchTime":{
+	hintText: "Sutaible Batch No."
+}
+"#preferredLanguage":{
+	hintText: "Preferred Language"
+}
+"#aboutYourSelf":{
+	hintText: "About Yourself"
 }
