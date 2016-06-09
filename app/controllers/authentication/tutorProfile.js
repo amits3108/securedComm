@@ -2,18 +2,18 @@
 // directly or:
 var args = $.args;
 var appKey = require("appKey");
-function submitClick () {
+function submitClick() {
 	setProfileUpdateStatus();
-	var win = Alloy.createController ("slider/slider").getView ();
-	win.open ();
+	var win = Alloy.createController("slider/slider").getView();
+	win.open();
 }
 
-function onTutorProfileOpen () {
+function onTutorProfileOpen() {
 
 }
 
-function setProfileUpdateStatus(){
-	//NOTE: completed : tutorProfile update is completed. 
+function setProfileUpdateStatus() {
+	//NOTE: completed : tutorProfile update is completed.
 	//      pending : tutorProfile update is pending.
-	Alloy.Globals.setData(appKey.KEYS.TUTORPROFILEUPDATE,'completed');
+	Alloy.Globals.setData(appKey.KEYS.TUTORPROFILEUPDATE, 'completed');
 }

@@ -17,7 +17,7 @@
 	width: "90%",
 	//height: Titanium.UI.SIZE,
 	backgroundColor: "#fff",
-	//top :10
+	top :10
 }
 "#tutme":{
 	image: "/images/tutmeLogo.png",
@@ -59,7 +59,6 @@
 	text: "Tution Type",
 	color: Alloy.CFG.lightGray,
 	left: 3,
-	//top: 25
 }
 
 
@@ -71,7 +70,6 @@
 	backgroundColor: Alloy.CFG.themeColor,
 	//borderColor: Alloy.CFG.themeColor,
 	borderRadius: 3,
-	//left: 0,
 	top: 25,
 }
 
