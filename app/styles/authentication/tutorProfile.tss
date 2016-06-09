@@ -75,10 +75,6 @@
 	top: 25,
 }
 
-
-
-
-
 "#tutorLabel_button":{
 	title: "Tutor",
 	color : "#FFFFFF",

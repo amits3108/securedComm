@@ -58,11 +58,3 @@ exports.setLoginStatus = function() {
 		Alloy.Globals.setData(appKey.KEYS.LOGINSTATUS, true);
 	}
 };
-
-/*function Utils() {
- this.Loading = Alloy.createController("Widgets/Loading");
- }
- Utils.getInstance = function() {
- var singletonClass = new Utils();
- return singletonClass;
- };*/

@@ -1,12 +1,19 @@
-var appKey = require("appKey");
+var appKey = require ("appKey");
 //var win = Alloy.createController("authentication/signUp").getView();
 
-if (Alloy.Globals.getData(appKey.KEYS.LOGINSTATUS)) {
-	var win = Alloy.createController("slider/slider").getView();
-	win.open();
-} else {
-	var win = Alloy.createController("authentication/login").getView();
-	win.open();
+if (Alloy.Globals.getData (appKey.KEYS.LOGINSTATUS)) {
+	var win = Alloy.createController ("slider/slider").getView ();
+	win.open ();
+}
+else if (!Alloy.Globals.getData (appKey.KEYS.TUTORPROFILEUPDATE) || Alloy.Globals.getData (appKey.KEYS.TUTORPROFILEUPDATE) == 'pending') {
+	//TODO:  Need to be change with handling of student, organization and tutor
+	// profile handling
+	//Or Can remove this line as per functionality.
+	Alloy.createController ("authentication/tutorProfile").getView ().open ();
+}
+else {
+	var win = Alloy.createController ("authentication/login").getView ();
+	win.open ();
 }
 
 /*var openAndroidSlider = function() {
@@ -23,7 +30,8 @@ if (Alloy.Globals.getData(appKey.KEYS.LOGINSTATUS)) {
  // Load module
  var TiDrawerLayout = require('com.tripvi.drawerlayout');
 
- //var centralView = Alloy.createController('notifySliderContent/centerWindowView').createCenterView();
+ //var centralView =
+ // Alloy.createController('notifySliderContent/centerWindowView').createCenterView();
  //Alloy.Globals.slider.setCenterWindow(centralView);
  var centralView = Ti.UI.createView({
  height : Ti.UI.FILL,
@@ -31,7 +39,8 @@ if (Alloy.Globals.getData(appKey.KEYS.LOGINSTATUS)) {
  backgroundColor : "green"
  });
 
- //var leftMenuView = Alloy.createController('notifySliderContent/leftWindowView').getView();
+ //var leftMenuView =
+ // Alloy.createController('notifySliderContent/leftWindowView').getView();
  //Alloy.Globals.slider.setLeftWindow(leftMenuView);
  var leftMenuView = Ti.UI.createView({
  height : Ti.UI.FILL,

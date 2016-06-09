@@ -3,50 +3,15 @@
 }
 
 "#tutme":{
-	//image: "/images/visaimage.jpg",
 	height: 50,
 	width : "300dp",
-	// width: Titanium.UI.FILL,
-	//left: 20,
-	//right: 20,
 	top: 10,
 	//backgroundColor: "green"
-}
-
-"#selectionview":{
-	layout: "horizontal",
-	backgroundColor: "#AFEEEE",
-	height: Titanium.UI.SIZE,
-	width: "70%",
-	top: 50
-}
-
-"#student":{
-
-	text: "Student",
-	font:{
-		fontSize: 20,
-		fontWeight: 'bold',
-		color: "white"
-	}
-}
-
-"#tutor":{
-
-	text: "Tutor",
-	font:{
-		fontSize: 20,
-		fontWeight: 'bold',
-		color: "white"
-	}
 }
 
 "#name":{
 	hintText: "Name",
 	width: "80%",
-	//height: 20,
-	//left: 20,
-	//right: 20,
 	top: 50,
 	backgroundColor :'transparent',
 }
@@ -54,9 +19,6 @@
 "#phoneNo":{
 	hintText: "Phone No",
 	width: "80%",
-	//height: 20,
-	//left: 20,
-	//right: 20,
 	top: 20,
 	maxLength : 10,
 	backgroundColor :'transparent',
@@ -65,9 +27,6 @@
 "#emailAddress":{
 	hintText: "Email Address",
 	width: "80%",
-	//height: 20,
-	//left: 20,
-	//right: 20,
 	top: 20,
 	backgroundColor :'transparent',
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
@@ -75,9 +34,6 @@
 "#password":{
 	hintText: "Password",
 	width: "80%",
-	//height: 20,
-	//left: 20,
-	//right: 20,
 	top: 20,
 	backgroundColor :'transparent',
 	passwordMask: true
@@ -90,7 +46,6 @@
 	backgroundColor: Alloy.CFG.themeColor
 }
 "#bottomView":{
-	//bottom: 0,
 	height: 70,
 	width: Titanium.UI.FILL,
 	left: 20 ,
@@ -103,7 +58,6 @@
 	font:{
 		fontSize: 20,
 		fontWeight: 'bold',
-		
 	},
 	color: "black"
 }
@@ -114,7 +68,6 @@
 	font:{
 		fontSize: 20,
 		fontWeight: 'bold',
-		
 	},
 	color: "black"
 }

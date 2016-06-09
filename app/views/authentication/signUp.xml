@@ -1,25 +1,22 @@
 <Alloy>
 	<Window fullscreen="true" id = "signUpWin" class="container" backgroundColor="white">
-		<ScrollView layout="vertical"> 
+		<ScrollView layout="vertical">
 			<ImageView id="tutme" image="/images/tutmeLogo.png"></ImageView>
-			<!-- <View id="selectionview">
-				<Label id="student" right = 10></Label>
-				<Label id="tutor" left = 10></Label>
-			</View> -->
-			<TextField id="name"></TextField>
-			<View id = "sap"></View>
-			<TextField id="phoneNo"></TextField>
-			<View id = "sap"></View>
-			<TextField id="emailAddress"></TextField>
-			<View id = "sap"></View>
-			<TextField id="password"></TextField>
-			<View id = "sap"></View>
-			<Button id="register" onClick="onRegisterClick"></Button> <!-- onClick="register" -->
-			<ImageView id="linkedIn"  image="/images/LinkedIn.png" top = "20dp"  ></ImageView>
+			<TextField id="name"/>
+			<View id = "sap"/>
+			<TextField id="phoneNo"/>
+			<View id = "sap"/>
+			<TextField id="emailAddress"/>
+			<View id = "sap"/>
+			<TextField id="password"/>
+			<View id = "sap"/>
+			<Button id="register" onClick="onRegisterClick"/>
+			<!-- onClick="register" -->
+			<ImageView id="linkedIn"  image="/images/LinkedIn.png" top = "20dp"/>
 			<View id="bottomView">
-				<Label id="login"></Label>
-				<Label id="forgotPassword"></Label>
+				<Label id="login"/>
+				<Label id="forgotPassword"/>
 			</View>
-		</ScrollView> 
+		</ScrollView>
 	</Window>
 </Alloy>
