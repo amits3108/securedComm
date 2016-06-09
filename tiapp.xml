@@ -12,7 +12,8 @@
   <fullscreen>false</fullscreen>
   <navbar-hidden>false</navbar-hidden>
   <analytics>true</analytics>
-  <guid>0c0483f2-3f4e-45a0-9777-caebe689e3c3</guid>
+  <!--amit's windows<guid>2ffa08c6-5d49-421d-9888-3c164b8a11eb</guid>-->
+  <guid>0c0483f2-3f4e-45a0-9777-caebe689e3c3</guid><!--amit's mac-->
   <property name="ti.ui.defaultunit" type="string">dp</property>
   <ios>
     <plist>
@@ -42,7 +43,7 @@
   <android 
     xmlns:android="http://schemas.android.com/apk/res/android">
     <manifest android:versionCode="1" android:versionName="1.0.0">
-      <uses-sdk android:minSdkVersion="21"/>
+      <!--<uses-sdk android:minSdkVersion="21"/>-->
       <application android:theme="@style/Theme.Appcelerator">
         <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDoilSf7mbueqjBG87qvnpsUlky_EpxmBo"/>
       </application>
