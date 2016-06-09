@@ -1,4 +1,5 @@
 <Alloy>
-	<View class="container" backgroundColor="#B2DAF6">
+	<View class="container">
+		<Label text="Screen is Under Development" color="#000"></Label>
 	</View>
 </Alloy>

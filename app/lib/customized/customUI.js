@@ -1,14 +1,14 @@
 var courseRow= function (params) {
 	var params=params|| {};
 	var containerView=Ti.UI.createView ({
-		height:100,
+		height:130,
 		//width:Ti.UI.SIZE,
 		left:3,
 		right: 3,
 		backgroundColor:"#FFF",
 		layout:'vertical',
 		borderRadius:4,
-		//top:10
+		top:10
 	});
 	var courseName=Ti.UI.createLabel ({
 		text:params.courseName,

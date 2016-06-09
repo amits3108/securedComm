@@ -8,7 +8,9 @@
 			</View> -->
 			
 			<TextField id="emailAddress"></TextField>
+			<View id = "sap"></View>
 			<TextField id="password"></TextField>
+			<View id = "sap"></View>
 			<Button id="Login" onClick="onLoginClick"></Button>
 			<View id="bottomView">
 				<Label id="registerNow"></Label>

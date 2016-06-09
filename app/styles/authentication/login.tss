@@ -3,9 +3,9 @@
 }
 
 "#tutme":{
-	image:"/images/logo.png",
+	image:"/images/tutmeLogo.png",
 	height: 50,
-	
+	width : "300dp",
 	top: 30,
 	//backgroundColor: "green"
 }
@@ -18,11 +18,13 @@
 	//left: 20,
 	//right: 20,
 	top: 50,
+	backgroundColor :'transparent',
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 "#password":{
 	hintText: "Password",
 	width: "80%",
+	backgroundColor :'transparent',
 	//height: 20,
 	//left: 20,
 	//right: 20,
@@ -34,7 +36,7 @@
 	height: 50,
 	top: 30,
 	width : 100,
-	backgroundColor: "#6299FF"
+	backgroundColor: "#1BB4C6"
 }
 "#bottomView":{
 	//bottom: 0,
@@ -63,3 +65,9 @@
 	},
 	color: "black"
 }
+"#sap":{
+	backgroundColor : Alloy.CFG.themeColor,
+	height : '1dp',
+	top : '2dp',
+	width: "80%", 
+} 

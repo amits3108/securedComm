@@ -14,6 +14,7 @@
 	borderRadius: 3,
 	top: 8
 }
+
 "#name":{
 	text: "Ravi Shankar",
 	font: {
@@ -64,8 +65,8 @@
 	borderColor: "#000",
 	borderRadius: 3,
 	backgroundColor: 'transparent',
-	font : {
-		fontSize : 14
+	font: {
+		fontSize: 14
 	}
 }
 "#callImage":{
@@ -111,28 +112,28 @@
 	left: 20
 }
 "#coursesView":{
-	backgroundColor : "#E4E4E4",
-	width : "95%",
-	height : Titanium.UI.SIZE,
+	backgroundColor: "#E4E4E4",
+	width: "95%",
+	height: Titanium.UI.SIZE,
 	//scrollType : 'vertical',
 	top: 20,
-	scrollingEnabled : true,
+	scrollingEnabled: true,
 	//bubbleParent : false,
-	borderRadius : 4
+	borderRadius: 4
 }
 
 "#coursesScrollContainer":{
-	height : Titanium.UI.SIZE,
-	width : "95%",
+	height: Titanium.UI.SIZE,
+	width: "95%",
 	top: 15,
-	backgroundColor : "#E4E4E4",
-	layout  : 'vertical',
+	backgroundColor: "#E4E4E4",
+	layout: 'vertical',
 	bottom: 10,
-	borderRadius : 4
+	borderRadius: 4
 }
 
 "#coursesOffered":{
-	text : "Courses Offered",
+	text: "Courses Offered",
 	font: {
 		fontSize: 16
 	},

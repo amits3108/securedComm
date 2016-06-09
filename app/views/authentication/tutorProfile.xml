@@ -1,0 +1,31 @@
+<Alloy>
+	<Window class="container" title="Tutor Profile">
+		<ScrollView id="scrollContainer">
+			<ImageView id="tutme"></ImageView>
+			<!--<View class="labelViewContainer">
+				<Label id="tutorLabel"/>
+			</View>
+			<Label id="intro"/>
+			<TextArea id="introDetail"/>
+			<TextField id="location"></TextField>
+			<View class="labelViewContainer">
+				<Label id="addCourses"/>
+			</View>
+			<View class="labelViewContainer">
+				<Label id="addProfilePicture"/>
+			</View>
+			<View class="labelViewContainer">
+				<Label id="tutionType"/>
+			</View>-->
+			<Button id="tutorLabel_button"/>
+			<Label id="intro"/>
+			<TextArea id="introDetail"/>
+			<Button id="addCourses_button"/>
+			<Button id="addProfilePicture_button"/>
+			<View class="labelViewContainer">
+				<Label id="tutionType"/>
+			</View>
+			<Button id="submit"/>
+		</ScrollView>
+	</Window>
+</Alloy>

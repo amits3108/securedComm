@@ -5,10 +5,11 @@
 "#tutme":{
 	//image: "/images/visaimage.jpg",
 	height: 50,
+	width : "300dp",
 	// width: Titanium.UI.FILL,
 	//left: 20,
 	//right: 20,
-	top: 30,
+	top: 10,
 	//backgroundColor: "green"
 }
 
@@ -46,7 +47,8 @@
 	//height: 20,
 	//left: 20,
 	//right: 20,
-	top: 50
+	top: 50,
+	backgroundColor :'transparent',
 }
 
 "#phoneNo":{
@@ -55,7 +57,10 @@
 	//height: 20,
 	//left: 20,
 	//right: 20,
-	top: 20
+	top: 20,
+	maxLength : 10,
+	backgroundColor :'transparent',
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE
 }
 "#emailAddress":{
 	hintText: "Email Address",
@@ -64,6 +69,7 @@
 	//left: 20,
 	//right: 20,
 	top: 20,
+	backgroundColor :'transparent',
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 "#password":{
@@ -73,6 +79,7 @@
 	//left: 20,
 	//right: 20,
 	top: 20,
+	backgroundColor :'transparent',
 	passwordMask: true
 }
 "#register":{
@@ -80,7 +87,7 @@
 	height: 50,
 	top: 30,
 	width : 100,
-	backgroundColor: "#6299FF"
+	backgroundColor: Alloy.CFG.themeColor
 }
 "#bottomView":{
 	//bottom: 0,
@@ -111,3 +118,9 @@
 	},
 	color: "black"
 }
+"#sap":{
+	backgroundColor : Alloy.CFG.themeColor,
+	height : '1dp',
+	top : '2dp',
+	width: "80%", 
+} 

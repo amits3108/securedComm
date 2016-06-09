@@ -1,3 +1,5 @@
+var appKey = require("appKey");
+var Map = require('Map');
 exports.replaceCentralView = function(params) {
 	var slider = Alloy.Globals.slider;
 	var mainView = Alloy.Globals.centralView;
@@ -5,6 +7,7 @@ exports.replaceCentralView = function(params) {
 
 	if (mainView && mainView.windowView && mainView.children[0]) {
 		mainView.remove(mainView.windowView);
+		mainView.removeAllChildren();
 		mainView.windowView = null;
 	}
 	if (Alloy.Globals.actionBar) {
@@ -20,13 +23,11 @@ exports.replaceCentralView = function(params) {
 	replacedView = null;
 };
 
-
 // function to accept option and return dialog
 
-exports.createDailog = function(opts){
+exports.createDailog = function(opts) {
 	return Ti.UI.createOptionDialog(opts);
 };
-
 
 //   Floating Button
 
@@ -40,16 +41,28 @@ exports.addFloatingButton = function(params) {
 		bottom : 50,
 		borderRadius : 35,
 		viewShadowRadius : 4,
-		viewShadowColor : 'gray'
+		viewShadowColor : 'gray',
+		zIndex : '999'
 	});
 	parentView.add(floatingView);
+	floatingView.addEventListener('click', function(e) {
+		parentView.removeAllChildren();
+		Map.showMap({
+			view : parentView
+		});
+	});
 };
 
-
-function Utils() {
-	this.Loading = Alloy.createController("Widgets/Loading");
-}
-Utils.getInstance = function() {
-	var singletonClass = new Utils();
-	return singletonClass;
+exports.setLoginStatus = function() {
+	if (!Alloy.Globals.getData(appKey.KEYS.LOGINSTATUS)) {
+		Alloy.Globals.setData(appKey.KEYS.LOGINSTATUS, true);
+	}
 };
+
+/*function Utils() {
+ this.Loading = Alloy.createController("Widgets/Loading");
+ }
+ Utils.getInstance = function() {
+ var singletonClass = new Utils();
+ return singletonClass;
+ };*/

@@ -11,7 +11,7 @@
 		<item name="android:textColorPrimary">@color/textPrimary</item>
 	</style>
 	<color name="colorActivated">#caeeff</color>
-	<color name="primary">#6299FF</color>
+	<color name="primary">#1BB4C6</color>
 	<color name="primaryDark">#226BF1</color>
 	<color name="textPrimary">#000</color>
 	<color name="accent">#FFCCD4</color>

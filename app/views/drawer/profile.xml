@@ -1,6 +1,6 @@
 <Alloy>
-	<ScrollView id="scrollContainer" scrollType="vertical" >
-		<!--<View id="scrollContainer" backgroundColor="#B2DAF6">-->
+	<View backgroundColor="#B2DAF6" height="Ti.UI.SIZE">
+		<ScrollView id="scrollContainer" scrollType="vertical" >
 			<View layout="horizontal" width = "Ti.UI.FILL" height="Ti.UI.SIZE">
 				<ImageView id="userProfileImage"></ImageView>
 				<TextField id="name" hintText="Name"></TextField>
@@ -20,6 +20,7 @@
 			<TextField id="sutaibleBatchTime"class="textFieldClass"/>
 			<TextField id="preferredLanguage"class="textFieldClass"/>
 			<TextField id="aboutYourSelf"class="textFieldClass"/>
-		<!--</View>-->
-	</ScrollView>
+			<Button id="submit"/>
+		</ScrollView>
+	</View>
 </Alloy>

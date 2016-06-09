@@ -1,0 +1,124 @@
+".container": {
+	backgroundColor: "#ffffff",
+	fullScreen: true
+}
+
+".labelViewContainer":{
+	backgroundColor: "#ffffff",
+	top: 15,
+	height: 35,
+	width: Titanium.UI.FILL,
+	borderColor: Alloy.CFG.themeColor,
+	borderRadius: 3
+}
+"#scrollContainer":{
+	scrollType: 'vertical',
+	layout: 'vertical',
+	width: "90%",
+	//height: Titanium.UI.SIZE,
+	backgroundColor: "#fff",
+	//top :10
+}
+"#tutme":{
+	image: "/images/tutmeLogo.png",
+	height: 50,
+	width : "300dp",
+	top: 10
+}
+
+"#intro":{
+	text: "Intro",
+	color: "#989898",//"#B2DAF6",
+	left: 0,
+	top: 25
+}
+
+"#introDetail":{
+	hintText: "type intro here...",
+	width: Titanium.UI.FILL,//"90%",
+	top: 10,
+	height: 70,
+	scrollable: true,
+	borderColor: "#000",
+	borderRadius: 3,
+	backgroundColor: 'transparent',
+	font: {
+		fontSize: 14
+	}
+}
+"#location":{
+	hintText: "Location",
+	color: Alloy.CFG.lightGray,//"#B2DAF6",
+	//left: 0,
+	top: 25,
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.SIZE
+}
+
+"#tutionType":{
+	text: "Tution Type",
+	color: Alloy.CFG.lightGray,
+	left: 3,
+	//top: 25
+}
+
+
+"#submit":{
+	title: "Submit",
+	height: 35,
+	width: Titanium.UI.FILL,
+	color: "#FFFFFF",
+	backgroundColor: Alloy.CFG.themeColor,
+	//borderColor: Alloy.CFG.themeColor,
+	borderRadius: 3,
+	//left: 0,
+	top: 25,
+}
+
+
+
+
+
+"#tutorLabel_button":{
+	title: "Tutor",
+	color : "#FFFFFF",
+	font: {
+		fontSize: 15
+	},
+	backgroundColor: Alloy.CFG.themeColor,
+	top: 15,
+	height: 35,
+	width: Titanium.UI.FILL,
+	//borderColor: Alloy.CFG.themeColor,
+	borderRadius: 3
+}
+
+"#addCourses_button":{
+	title: "Add Courses",
+	textAlign : Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: Alloy.CFG.lightGray,
+	font: {
+		fontSize: 15
+	},
+	backgroundColor: "#ffffff",
+	top: 15,
+	height: 35,
+	width: Titanium.UI.FILL,
+	borderColor: Alloy.CFG.themeColor,
+	borderRadius: 3
+}
+
+"#addProfilePicture_button":{
+	title : "Add Profile Picture",
+	textAlign : Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color: Alloy.CFG.lightGray,
+	font: {
+		fontSize: 15
+	},
+	backgroundColor: "#ffffff",
+	top: 15,
+	height: 35,
+	width: Titanium.UI.FILL,
+	borderColor: Alloy.CFG.themeColor,
+	borderRadius: 3
+}

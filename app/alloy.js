@@ -9,3 +9,41 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+//Set Data In Application Local Storage
+var setData = function(key, values) {
+	Ti.API.info("setting " + key + " info");
+	var stringified = JSON.stringify(values);
+	Ti.App.Properties.setString(key, stringified);
+};
+
+//Get Data In Application Local Storage
+var getData = function(key) {
+	var stringifiedValue = Ti.App.Properties.getString(key, null);
+	if (stringifiedValue) {
+		return JSON.parse(stringifiedValue);
+	} else {
+		return null;
+	}
+};
+
+
+Alloy.CFG.themeColor = "#1BB4C6";
+Alloy.CFG.lightBlueColor ="#B2DAF6";
+
+var platformHeight = OS_IOS ? Ti.Platform.displayCaps.platformHeight - 20 : Ti.Platform.displayCaps.platformHeight;
+var os_version = Ti.Platform.version;
+
+Alloy.Globals.platformWidth = Ti.Platform.displayCaps.platformWidth;
+Alloy.Globals.platformHeight = platformHeight;
+Alloy.Globals.setData = setData;
+Alloy.Globals.getData = getData;
+
+
+//const baseURL = "";		//TODO : Stagging Server
+const baseURL = "api.tutme.in/index.php/user/";           //TODO : Development Server
+//const baseURL = "";					//TODO : Local Server
+
+Alloy.CFG.URL = {
+	register : baseURL + "register",
+	login : baseURL + "login",
+};

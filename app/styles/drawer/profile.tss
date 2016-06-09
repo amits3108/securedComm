@@ -3,7 +3,9 @@
 	height: Titanium.UI.SIZE,
 	width: '95%',
 	backgroundColor: "#FFFFFF",
-	borderRadius: 5
+	borderRadius: 5,
+	top: 10,
+	bottom : 10
 }
 
 "#name":{
@@ -13,7 +15,7 @@
 	//left: 20,
 	//right: 20,
 	top: 50,
-	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
+	
 }
 
 "#userProfileImage":{
@@ -26,7 +28,7 @@
 ".textFieldClass":{
 	width: Titanium.UI.FILL,
 	top: 10,
-	color: "#000"
+	backgroundColor :'transparent'
 }
 
 /*"#emailAddress":{
@@ -66,7 +68,7 @@ keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 
 "#contactNo":{
 	hintText: "Mobile No",
-	keyboardType: Titanium.UI.TYPE_PHONE_PAD
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE_PAD
 }
 "#linkedInprofile":{
 	hintText: "Lineked In Profile"
@@ -89,4 +91,19 @@ keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 "#aboutYourSelf":{
 	hintText: "About Yourself"
+}
+"#submit":{
+	title: "Submit",
+	backgroundColor: Alloy.CFG.themeColor,
+	backgroundSelectedColor: Alloy.CFG.lightBlueColor,
+	//borderColor: Alloy.CFG.themeColor,
+	height: 50,
+	width: "42%",
+	color: "#FFFFFF",
+	borderRadius: 8,
+	borderWidth: 3,
+	top: 10,
+	font:{
+		fontSize: "20sp"
+	}
 }

@@ -1,4 +1,5 @@
 var utils = require("utils");
+var validation = require("validation");
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var student,
     tutorHome,
@@ -101,13 +102,41 @@ $.registerNow.addEventListener('click', function(e) {
 });
 
 function openSignUpScreen(params) {
-	var win = Alloy.createController("authenctication/signUp", {
+	var win = Alloy.createController("authentication/signUp", {
 		params : params
 	}).getView();
 	win.open();
 }
 
 function onLoginClick() {
-	var win = Alloy.createController("Main").getView();
-	win.open();
+	var user = {};
+	var email = ($.emailAddress.value).trim();
+	var password = $.password.value;
+	var emailValid = validation.validateEmail({email :email });
+	if (email.length > 1 && emailValid) {
+		user.email = email.toLowerCase();
+		if (password.length > 1) {
+			var win = Alloy.createController("slider/slider").getView();
+			win.open();
+			utils.setLoginStatus();
+			//Ti.App.Properties.setObject('user', user);
+			/*if (Titanium.Network.online) {
+			 } else {
+			 alert("Internet is not available");
+			 }*/
+		} else {
+			alert("Please enter password");
+		}
+	} else {
+		alert("Please enter valid email address");
+		return false;
+	}
+}
+
+function validateEmail(email) {
+	var re = /^[a-zA-Z0-9]+([\.|\_|\-._%+-][a-zA-Z0-9]+)*@([^\W_]*)+([\.|\_|\-._%+-][a-zA-Z0-9]+)*[.]([a-zA-Z]{2,3}|[a-zA-Z]{2,3}[.][a-zA-Z]{2})$/;
+	if (!re.test(email)) {
+		return false;
+	} else
+		return true;
 }

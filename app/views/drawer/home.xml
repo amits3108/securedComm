@@ -1,7 +1,7 @@
 <Alloy>
-	<ScrollView backgroundColor="#B2DAF6" height="Ti.UI.SIZE" scrollType="vertical" >
-		<View id="scrollContainer">
-			<View layout="horizontal" height="Ti.UI.SIZE" width="Ti.UI.FILL">
+	<View backgroundColor="#B2DAF6" height="Ti.UI.SIZE">
+		<ScrollView id="scrollContainer" scrollType="vertical" >
+			<View layout="horizontal" height="100" width="Ti.UI.FILL">
 				<View width="30%">
 					<ImageView id="userProfileImage"/>
 				</View>
@@ -14,23 +14,21 @@
 			</View>
 			<Label id="intro"/>
 			<TextArea id="introDetail"/>
-			<View layout="horizontal" top="15">
+			<View layout="horizontal" height="20" top="15">
 				<ImageView id="callImage"/>
 				<Label id="mobilenumber"/>
 			</View>
-			<View layout="horizontal" top="10">
+			<View layout="horizontal" height="20" top="10">
 				<ImageView id="emailImage"/>
 				<Label id="emailid"/>
 			</View>
-			<View layout="horizontal" top="10">
+			<View layout="horizontal" height="20" top="10">
 				<ImageView id="locationImage"/>
 				<Label id="locDistance"/>
 			</View>
-			<!--<ScrollView id="coursesView">-->
-				<View id="coursesScrollContainer">
-					<Label id="coursesOffered"/>
-				</View>
-			<!--</ScrollView>-->
-		</View>
-	</ScrollView>
+			<View id="coursesScrollContainer">
+				<Label id="coursesOffered"/>
+			</View>
+		</ScrollView>
+	</View>
 </Alloy>
