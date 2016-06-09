@@ -1,0 +1,26 @@
+<Alloy>
+	<View backgroundColor="#B2DAF6" height="Ti.UI.SIZE">
+		<ScrollView id="scrollContainer" scrollType="vertical" >
+			<View layout="horizontal" width = "Ti.UI.FILL" height="Ti.UI.SIZE">
+				<ImageView id="userProfileImage"></ImageView>
+				<TextField id="name" hintText="Name"></TextField>
+			</View>
+			<TextField id="emailAddress" class="textFieldClass"/>
+			<TextField id="qualification" class="textFieldClass"/>
+			<TextField id="experience" class="textFieldClass"/>
+			<TextField id="address_permanent" class="textFieldClass"/>
+			<TextField id="address_correspondance" class="textFieldClass"/>
+			<TextField id="city" class="textFieldClass"/>
+			<TextField id="dateOfBirth" class="textFieldClass"/>
+			<TextField id="contactNo"class="textFieldClass"/>
+			<TextField id="linkedInprofile"class="textFieldClass"/>
+			<TextField id="canTravelTo"class="textFieldClass"/>
+			<TextField id="courses"class="textFieldClass"/>
+			<TextField id="subjects"class="textFieldClass"/>
+			<TextField id="sutaibleBatchTime"class="textFieldClass"/>
+			<TextField id="preferredLanguage"class="textFieldClass"/>
+			<TextField id="aboutYourSelf"class="textFieldClass"/>
+			<Button id="submit"/>
+		</ScrollView>
+	</View>
+</Alloy>

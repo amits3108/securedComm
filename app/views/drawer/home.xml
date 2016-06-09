@@ -1,0 +1,34 @@
+<Alloy>
+	<View backgroundColor="#B2DAF6" height="Ti.UI.SIZE">
+		<ScrollView id="scrollContainer" scrollType="vertical" >
+			<View layout="horizontal" height="100" width="Ti.UI.FILL">
+				<View width="30%">
+					<ImageView id="userProfileImage"/>
+				</View>
+				<View layout="vertical" width="70%">
+					<Label id="name"/>
+					<Label id="experience"/>
+					<Label id="location"/>
+					<ImageView id="stars"/>
+				</View>
+			</View>
+			<Label id="intro"/>
+			<TextArea id="introDetail"/>
+			<View layout="horizontal" height="20" top="15">
+				<ImageView id="callImage"/>
+				<Label id="mobilenumber"/>
+			</View>
+			<View layout="horizontal" height="20" top="10">
+				<ImageView id="emailImage"/>
+				<Label id="emailid"/>
+			</View>
+			<View layout="horizontal" height="20" top="10">
+				<ImageView id="locationImage"/>
+				<Label id="locDistance"/>
+			</View>
+			<View id="coursesScrollContainer">
+				<Label id="coursesOffered"/>
+			</View>
+		</ScrollView>
+	</View>
+</Alloy>
