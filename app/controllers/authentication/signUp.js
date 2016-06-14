@@ -103,7 +103,7 @@ function callBack(json) {
 
 function onRegisterClick() {
 	/*utils.setLoginStatus();
-	 var win = Alloy.createController("slider/slider").getView();
+	 var win = Alloy.createController("sliderContent/slider").getView();
 	 win.open();*/
 	//register();
 	openTutorProfile();

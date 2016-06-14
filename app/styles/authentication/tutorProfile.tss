@@ -1,6 +1,5 @@
 ".container": {
 	backgroundColor: "#ffffff",
-	fullScreen: true
 }
 
 ".labelViewContainer":{
@@ -102,6 +101,12 @@
 	borderRadius: 3
 }
 
+"#coursesDetail":{
+	backgroundColor : "yellow",
+	width : Titanium.UI.FILL,
+	height : Titanium.UI.SIZE
+}
+
 "#addProfilePicture_button":{
 	title : "Add Profile Picture",
 	textAlign : Titanium.UI.TEXT_ALIGNMENT_LEFT,
@@ -115,4 +120,10 @@
 	width: Titanium.UI.FILL,
 	borderColor: Alloy.CFG.themeColor,
 	borderRadius: 3
+}
+
+"#profilePicture":{
+	backgroundColor : "green",
+	width : Titanium.UI.FILL,
+	height : Titanium.UI.SIZE
 }

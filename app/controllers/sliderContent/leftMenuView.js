@@ -1,5 +1,7 @@
 var args = arguments[0] || {};
 var utils = require("utils");
+var appKey = require("appKey");
+
 //   Titles for Menu Items for Android 
 var leftData = [
     {title:'  Profile ',image:'/images/profile.png'},
@@ -39,37 +41,52 @@ for (var i=0; i<length; i++){
 	
 //$.menuTable.data = tblData;
 //   Event Listener on Menu Table
+var lastIndex = null;
 $.menuTable.addEventListener('click', function(e){
 	var index = e.index;
 	var view = null;
 	var title = null;
+	Alloy.Globals.slider && Alloy.Globals.slider.toggleLeftWindow();
+	if(lastIndex == index){
+		return;
+	}
 	switch(index) {
 	case 0:
-		view = Alloy.createController("drawer/home").getView(),
-		title = "Home";
+		//view = Alloy.createController("centralView/home").getView(),
+		//title = "Home";
+		//if (Alloy.Globals.getData(appKey.KEYS.LOGINSTATUS)) {
+		if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
+				view = Alloy.createController("centralView/studentDashBoard").getView();
+				title = "Student DashBoard";
+		} else {
+				view = Alloy.createController("centralView/tutorDashBoard").getView();
+				title = "Tutor DashBoard";
+		}
+	//}
+		
 		break;
 	case 1:
-		view = Alloy.createController("drawer/profile").getView(),
+		view = Alloy.createController("centralView/profile").getView(),
 		title = "Profile";
 		break;
 	case 2 :
-		view = Alloy.createController("drawer/Messages").getView(),
+		view = Alloy.createController("centralView/message").getView(),
 		title = "Messages";
 		break;
 	case 3 :
-		view = Alloy.createController("drawer/Notifications").getView(),
+		view = Alloy.createController("centralView/notifications").getView(),
 		title = "Notifications";
 		break;
 	case 4 :
-		view = Alloy.createController("drawer/Settings").getView(),
+		view = Alloy.createController("centralView/settings").getView(),
 		title = "Settings";
 		break;
 	case 5 :
-		view = Alloy.createController("drawer/Problem").getView(),
+		view = Alloy.createController("centralView/problem").getView(),
 		title = "Report Problem";
 		break;
 	case 6 :
-		view = Alloy.createController("drawer/Help").getView(),
+		view = Alloy.createController("centralView/help").getView(),
 		title = "Help";
 		break;
 	}
@@ -77,4 +94,5 @@ $.menuTable.addEventListener('click', function(e){
 			view : view,
 			title : title
 	});
+	lastIndex = index;
 });
