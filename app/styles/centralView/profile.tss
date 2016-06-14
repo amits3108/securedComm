@@ -11,9 +11,10 @@
 "#name":{
 	hintText: "Name",
 	width: "200dp",
+	backgroundColor : 'transparent',
 	//height: 20,
 	//left: 20,
-	//right: 20,
+	right : '5%',
 	top: 50,
 	
 }
@@ -21,12 +22,16 @@
 "#userProfileImage":{
 	width: 80,
 	height: 80,
-	backgroundColor: "green",
-	image: "/images/profile.png"
+	left : 10 ,
+	backgroundColor: Alloy.CFG.themeColor,
+	image: "/images/profile.png",
+	borderColor : 'grey',
+	borderWidth : "1dp",
+	borderRadius : 40
 }
 
 ".textFieldClass":{
-	width: Titanium.UI.FILL,
+	width: "80%",
 	top: 10,
 	backgroundColor :'transparent'
 }
@@ -50,7 +55,8 @@ keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 
 "#experience":{
-	hintText: "Experience (in Months)"
+	hintText: "Experience (in Months)",
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
 }
 "#address_permanent":{
 	hintText: "Permanent Address"
@@ -71,7 +77,8 @@ keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE_PAD
 }
 "#linkedInprofile":{
-	hintText: "Lineked In Profile"
+	title: "Lineked In Profile",
+	color : 'grey'
 }
 "#canTravelTo":{
 	hintText: "Can Travel to(Distance in kms.)",
@@ -106,4 +113,24 @@ keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 	font:{
 		fontSize: "20sp"
 	}
+}
+"#label":{
+	font:{
+		fontSize: "20sp"
+	},
+	left : '10%'
+	
+}
+"#sap":{
+	backgroundColor : Alloy.CFG.themeColor,
+	height : '1dp',
+	top : '0.5dp',
+	width: "80%", 
+} 
+"#sapName" :{
+	backgroundColor : Alloy.CFG.themeColor,
+	height : '1dp',
+	right : '5%',
+	width: "200dp",
+	bottom : "5dp"
 }

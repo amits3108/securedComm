@@ -47,9 +47,7 @@ exports.addFloatingButton = function(params) {
 	parentView.add(floatingView);
 	floatingView.addEventListener('click', function(e) {
 		parentView.removeAllChildren();
-		Map.showMap({
-			view : parentView
-		});
+		Map.showMap();
 	});
 };
 

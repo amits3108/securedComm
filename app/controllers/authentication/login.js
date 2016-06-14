@@ -137,11 +137,3 @@ function onLoginClick() {
 		return false;
 	}
 }
-
-function validateEmail(email) {
-	var re = /^[a-zA-Z0-9]+([\.|\_|\-._%+-][a-zA-Z0-9]+)*@([^\W_]*)+([\.|\_|\-._%+-][a-zA-Z0-9]+)*[.]([a-zA-Z]{2,3}|[a-zA-Z]{2,3}[.][a-zA-Z]{2})$/;
-	if (!re.test(email)) {
-		return false;
-	} else
-		return true;
-}

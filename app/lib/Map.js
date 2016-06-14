@@ -1,13 +1,13 @@
 exports.showMap = function(parmas) {
 	var Map = require('ti.map');
 	var params = params || {};
-	var view = parmas.view;
+	var win = Ti.UI.createWindow();
 	var lat,
 	    longt;
 	var loc = getCurrentLocation();
 	Ti.API.info(loc + "     " + JSON.stringify(getCurrentLocation()));
-	 lat = loc.latitude;
-	 longt = loc.longitude;
+	lat = loc.latitude;
+	longt = loc.longitude;
 	var mountainView = Map.createAnnotation({
 		latitude : lat,
 		longitude : longt,
@@ -39,7 +39,25 @@ exports.showMap = function(parmas) {
 		radius : 1000, //1km
 		fillColor : "#20FF0000"
 	});
-	view.add(mapview);
+	win.add(mapview);
+	win.open();
+	win.addEventListener('click', function(e) {
+		var activity = this.getActivity();
+		Alloy.Globals.activity = activity;
+		Alloy.Globals.actionBar = activity.actionBar;
+		if (activity) {
+			//Everytime when launch the app.
+			var actionBar = activity.getActionBar();
+			Alloy.Globals.actionBar = actionBar;
+			if (actionBar) {
+				actionBar.setOnHomeIconItemSelected(function() {
+					Ti.API.info("  defined in window open function ");
+					//win.close();
+					//self.fireEvent('focus');
+				});
+			}
+		}
+	});
 };
 var getCurrentLocation = function(e) {
 	var longitude,

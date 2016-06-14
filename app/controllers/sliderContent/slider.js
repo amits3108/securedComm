@@ -53,12 +53,6 @@ function onMainWinOpen(evt) {
 	}
 }
 
-/*function openHomeScreen () {
- var view=Alloy.createController ("centralView/home").getView ();
- var title="Home";
- utils.replaceCentralView ({
- view:view,
- title:title
- });
- }
- openHomeScreen ();*/
+function doToggle(e) {
+	Map.showMap();
+}
