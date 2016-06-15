@@ -1,5 +1,0 @@
-<Alloy>
-	<Window id = "mainWindow" backgroundColor="white" fullscreen="true" onOpen="onMainWinOpen">
-		<Widget src="be.k0suke.tifab" id="fab" onToggle="doToggle"/>
-	</Window>
-</Alloy>

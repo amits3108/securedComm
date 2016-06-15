@@ -1,6 +1,0 @@
-<Alloy>
-	<View class="container" backgroundColor="#E3F1FA">
-		<ImageView id = "mainImage"/>
-		<TextField id="timeLineField"/>
-	</View>
-</Alloy>
