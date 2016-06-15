@@ -1,0 +1,11 @@
+<Alloy>
+    <Window id="loading" onAndroid:back="androidback">
+    	<View id="container">
+    		<View id="background"/>
+    		<View id="square">
+    			<Label id="infoLabel"></Label>
+    		</View>
+    		<ActivityIndicator id="activityIndicator"/>
+    	</View>
+    </Window>
+</Alloy>

@@ -1,0 +1,21 @@
+
+".container": {
+	//width : "80%",
+}
+
+"#mainImage":{
+	image : "/images/mainBackground.png",
+	height : Titanium.UI.FILL,
+	width :Titanium.UI.FILL,
+	//top : '60dp'
+}
+
+"#timeLineField":{
+	hintText : "write to your students here...",
+	top : 20,
+	borderRadius : 2,
+}
+
+"#timeLineTable":{
+	
+}

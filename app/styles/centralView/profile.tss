@@ -1,0 +1,136 @@
+"#scrollContainer":{ 
+	layout: 'vertical',
+	height: Titanium.UI.SIZE,
+	width: '95%',
+	backgroundColor: "#FFFFFF",
+	borderRadius: 5,
+	top: 10,
+	bottom : 10
+}
+
+"#name":{
+	hintText: "Name",
+	width: "200dp",
+	backgroundColor : 'transparent',
+	//height: 20,
+	//left: 20,
+	right : '5%',
+	top: 50,
+	
+}
+
+"#userProfileImage":{
+	width: 80,
+	height: 80,
+	left : 10 ,
+	backgroundColor: Alloy.CFG.themeColor,
+	image: "/images/profile.png",
+	borderColor : 'grey',
+	borderWidth : "1dp",
+	borderRadius : 40
+}
+
+".textFieldClass":{
+	width: "80%",
+	top: 10,
+	backgroundColor :'transparent'
+}
+
+/*"#emailAddress":{
+hintText: "Email Address",
+width: "80%",
+//height: 20,
+//left: 20,
+//right: 20,
+top: 50,
+keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
+}*/
+
+"#emailAddress":{
+	hintText: "Email Address",
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
+}
+"#qualification":{
+	hintText: "Highest Qualifiacation"
+}
+
+"#experience":{
+	hintText: "Experience (in Months)",
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
+}
+"#address_permanent":{
+	hintText: "Permanent Address"
+}
+"#address_correspondance":{
+	hintText: "Correspondance Address"
+}
+"#city":{
+	hintText: "City"
+}
+
+"#dateOfBirth":{
+	hintText: "Date Of birth"
+}
+
+"#contactNo":{
+	hintText: "Mobile No",
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE_PAD
+}
+"#linkedInprofile":{
+	title: "Lineked In Profile",
+	color : 'grey'
+}
+"#canTravelTo":{
+	hintText: "Can Travel to(Distance in kms.)",
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
+}
+"#courses":{
+	hintText: "Courses"
+}
+"#subjects":{
+	hintText: "Subjects"
+}
+"#sutaibleBatchTime":{
+	hintText: "Sutaible Batch No."
+}
+"#preferredLanguage":{
+	hintText: "Preferred Language"
+}
+"#aboutYourSelf":{
+	hintText: "About Yourself"
+}
+"#submit":{
+	title: "Submit",
+	backgroundColor: Alloy.CFG.themeColor,
+	backgroundSelectedColor: Alloy.CFG.lightBlueColor,
+	//borderColor: Alloy.CFG.themeColor,
+	height: 50,
+	width: "42%",
+	color: "#FFFFFF",
+	borderRadius: 8,
+	borderWidth: 3,
+	top: 10,
+	font:{
+		fontSize: "20sp"
+	}
+}
+"#label":{
+	font:{
+		fontSize: "20sp"
+	},
+	left : '10%'
+	
+}
+"#sap":{
+	backgroundColor : Alloy.CFG.themeColor,
+	height : '1dp',
+	top : '0.5dp',
+	width: "80%", 
+} 
+"#sapName" :{
+	backgroundColor : Alloy.CFG.themeColor,
+	height : '1dp',
+	right : '5%',
+	width: "200dp",
+	bottom : "5dp"
+}
