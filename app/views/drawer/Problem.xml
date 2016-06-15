@@ -1,5 +1,0 @@
-<Alloy>
-	<View id="problems" class="container" backgroundColor="transparent">
-		<Label text="Screen is Under Development" color="#000"></Label>
-	</View>
-</Alloy>

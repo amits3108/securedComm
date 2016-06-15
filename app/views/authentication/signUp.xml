@@ -1,6 +1,6 @@
 <Alloy>
 	<Window fullscreen="true" id = "signUpWin" class="container" backgroundColor="white">
-		<ScrollView layout="vertical">
+		<ScrollView layout="vertical"> 
 			<ImageView id="tutme" image="/images/tutmeLogo.png"></ImageView>
 			<TextField id="name"/>
 			<View id = "sap"/>

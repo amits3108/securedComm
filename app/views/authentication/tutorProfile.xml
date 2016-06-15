@@ -1,12 +1,14 @@
 <Alloy>
-	<Window class="container" title="Tutor Profile" onOpen="onTutorProfileOpen">
+	<Window fullscreen="true" class="container" onOpen="onTutorProfileOpen">
 		<ScrollView id="scrollContainer">
-			<ImageView id="tutme"/>
+			<ImageView id="tutme"/> 
 			<Button id="tutorLabel_button"/>
 			<Label id="intro"/>
 			<TextArea id="introDetail"/>
-			<Button id="addCourses_button"/>
+			<Button id="addCourses_button" onClick="onAddCoursesClick"/>
+			<View id="coursesDetail"/>
 			<Button id="addProfilePicture_button"/>
+			<View id="profilePicture"/>
 			<View class="labelViewContainer">
 				<Label id="tutionType"/>
 			</View>

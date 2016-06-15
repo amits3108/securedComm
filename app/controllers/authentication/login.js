@@ -1,5 +1,7 @@
 var utils = require("utils");
 var validation = require("validation");
+var appKey = require("appKey");
+
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var student,
     tutorHome,
@@ -21,16 +23,19 @@ function registerAs() {
 	dialog.addEventListener('click', function(e) {
 		//var params;
 		if (e.index == 0) {
+			Alloy.Globals.setData(appKey.KEYS.USERTYPE,"student");
 			openSignUpScreen({
 				userType : "student"
 			});
 		} else if (e.index == 1) {
+			Alloy.Globals.setData(appKey.KEYS.USERTYPE,"tutor");
 			tutorSelection({
 				userType : "tutor"
 			});
 		} else if (e.index == 2) {
+			Alloy.Globals.setData(appKey.KEYS.USERTYPE,"organisation");
 			orgInstiuteSelection({
-				userType : "organization"
+				userType : "organisation"
 			});
 		}
 	});
@@ -116,7 +121,7 @@ function onLoginClick() {
 	if (email.length > 1 && emailValid) {
 		user.email = email.toLowerCase();
 		if (password.length > 1) {
-			var win = Alloy.createController("slider/slider").getView();
+			var win = Alloy.createController("sliderContent/slider").getView();
 			win.open();
 			utils.setLoginStatus();
 			//Ti.App.Properties.setObject('user', user);
@@ -131,12 +136,4 @@ function onLoginClick() {
 		alert("Please enter valid email address");
 		return false;
 	}
-}
-
-function validateEmail(email) {
-	var re = /^[a-zA-Z0-9]+([\.|\_|\-._%+-][a-zA-Z0-9]+)*@([^\W_]*)+([\.|\_|\-._%+-][a-zA-Z0-9]+)*[.]([a-zA-Z]{2,3}|[a-zA-Z]{2,3}[.][a-zA-Z]{2})$/;
-	if (!re.test(email)) {
-		return false;
-	} else
-		return true;
 }

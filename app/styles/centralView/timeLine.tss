@@ -1,0 +1,33 @@
+
+".container": {
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.FILL,
+	backgroundImage : "/images/mainBackground.png",
+	backgroundColor: Alloy.CFG.themeColor,
+	layout :'vertical'
+}
+
+"#timeLineField":{
+	hintText: "write to your students here...",
+	borderRadius: 2,
+	width: "75%",
+	//height: 38,
+}
+
+"#timeLineTable":{
+	top: 20,
+	width: "95%",
+	height: Titanium.UI.SIZE,
+	backgroundColor: "yellow"
+}
+
+"#postButton":{
+	title: "Post",
+	color: "#000",
+	borderRadius: 3,
+	borderColor: Alloy.CFG.lightBlueColor,
+	backgroundColor: "#FFF",
+	height: Titanium.UI.SIZE,
+	width: "17%",
+	left: "3%"
+}

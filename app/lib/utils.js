@@ -1,7 +1,7 @@
 var appKey = require("appKey");
-var Map = require('Map');
+var map = require('Map');
 exports.replaceCentralView = function(params) {
-	var slider = Alloy.Globals.slider;
+	//var slider = Alloy.Globals.slider;
 	var mainView = Alloy.Globals.centralView;
 	var replacedView = params.view;
 
@@ -17,8 +17,8 @@ exports.replaceCentralView = function(params) {
 	mainView.height = Ti.UI.FILL;
 	mainView.add(replacedView);
 	mainView.windowView = replacedView;
-	slider.toggleLeftWindow();
-	slider = null;
+	//slider.toggleLeftWindow();
+	//slider = null;
 	mainView = null;
 	replacedView = null;
 };
@@ -47,9 +47,7 @@ exports.addFloatingButton = function(params) {
 	parentView.add(floatingView);
 	floatingView.addEventListener('click', function(e) {
 		parentView.removeAllChildren();
-		Map.showMap({
-			view : parentView
-		});
+		map.showMap();
 	});
 };
 

@@ -1,3 +1,0 @@
-<Alloy>
-	<Window id = "mainWindow" backgroundColor="white" fullscreen="true" onOpen="onMainWinOpen"></Window>
-</Alloy>

@@ -1,6 +1,6 @@
 <Alloy>
 	<Window fullscreen="true" class="container" backgroundColor="white" >
-		<ScrollView layout="vertical"> 
+		<ScrollView layout="vertical">  
 			<ImageView id="tutme" ></ImageView>
 			<!-- <View id="selectionview">
 				<Label id="student" right = 10></Label>

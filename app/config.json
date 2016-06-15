@@ -8,5 +8,7 @@
 	"os:ios": {},
 	"os:mobileweb": {},
 	"os:windows": {},
-	"dependencies": {}
+	"dependencies": {
+		"be.k0suke.tifab": "1.0"
+	}
 }
