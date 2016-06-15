@@ -1,9 +1,10 @@
 <Alloy>
 	<View class="container" backgroundColor="#E3F1FA">
-		<ImageView id = "mainImage"/>
-		<View>
+		<!--<ImageView id = "mainImage"/>-->
+		<View backgroundColor="#FFF" height="40" width="95%" layout="horizontal" top="15">
 			<TextField id="timeLineField"/>
-			<TableView id="timeLineTable" />
+			<Button id="postButton" onClick="postButtonClick"/>
 		</View>
+		<TableView id="timeLineTable" />
 	</View>
 </Alloy>
