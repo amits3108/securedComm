@@ -72,6 +72,6 @@ function postButtonClick(){
 		timeLinePost : timeLinePost,
 		postCreationDate : "6:20pm June 15,2016"
 	}); 
-	
+	 
 	$.timeLineTable.appendRow(tableRow);
 }
