@@ -11,9 +11,8 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <!--amit's windows<guid>2ffa08c6-5d49-421d-9888-3c164b8a11eb</guid>-->
-    <!--amit's mac-->
-    <guid>0c0483f2-3f4e-45a0-9777-caebe689e3c3</guid>   
+    <guid>70e30a4c-3b95-489a-9fff-90ce8c0b5b70</guid><!--amit's windows system -->
+    <!-- <guid>0c0483f2-3f4e-45a0-9777-caebe689e3c3</guid>   amit's mac-->
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
@@ -75,7 +74,7 @@
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
-    <property name="appc-app-id" type="string">575902975305376d1550f7b6</property>
+    <!--<property name="appc-app-id" type="string">575902975305376d1550f7b6</property>
     <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
     <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
     <property name="acs-oauth-secret-development" type="string">T6vGhi3Mc08xufkeg3VRolmM7biAUlLT</property>
@@ -91,5 +90,5 @@
     <property name="acs-username-production" type="string">appc_app_user</property>
     <property name="acs-password-production" type="string">CcF1jHmcr81JZIPrL7</property>
     <property name="appc-org-id" type="string">100069605</property>
-    <property name="appc-creator-user-id" type="string">105f0f7e-31c0-43ca-9cfd-98990c69349c</property>
+    <property name="appc-creator-user-id" type="string">105f0f7e-31c0-43ca-9cfd-98990c69349c</property>-->
 </ti:app>
