@@ -123,7 +123,7 @@
 }
 
 "#profilePicture":{
-	backgroundColor: "green",
+	backgroundColor: "#FFF",
 	width: Titanium.UI.FILL,
 	height: Titanium.UI.SIZE
 }

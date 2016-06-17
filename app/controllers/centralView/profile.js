@@ -49,3 +49,27 @@ var onSubmit = function(e) {
 		alert('Please fill the name, email and permanent address field ');
 	}
 };
+
+function onCoursesClick(){
+	var customDropDownTable = require("customized/customUI").customDropDown({
+		rowsArray : ["B.Tech","C language","C++ language","Java","Computers"]
+	});
+	$.coursesDropDown.add(customDropDownTable);
+	$.coursesDropDown.height = Titanium.UI.SIZE;
+}
+
+function onSubjectClick(){
+	var customDropDownTable = require("customized/customUI").customDropDown({
+		rowsArray : ["Physics","Chemistry","Math","Social Science","English"]
+	});
+	$.subjectsDropDown.add(customDropDownTable);
+	$.subjectsDropDown.height = Titanium.UI.SIZE;
+} 
+
+function onBatchTimeClick(){
+	var customDropDownTable = require("customized/customUI").customDropDown({
+		rowsArray : ["2pm-3pm","3pm-4pm","4pm-5pm","5pm-6pm","6pm-7pm"]
+	});
+	$.batchTimeDropDown.add(customDropDownTable);
+	$.batchTimeDropDown.height = Titanium.UI.SIZE;
+}

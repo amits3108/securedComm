@@ -1,50 +1,45 @@
-"#scrollContainer":{ 
+"#scrollContainer":{
 	layout: 'vertical',
 	height: Titanium.UI.SIZE,
 	width: '95%',
 	backgroundColor: "#FFFFFF",
 	borderRadius: 5,
 	top: 10,
-	bottom : 10
+	bottom: 10
 }
 
 "#name":{
 	hintText: "Name",
 	width: "200dp",
-	backgroundColor : 'transparent',
+	backgroundColor: 'transparent',
 	//height: 20,
 	//left: 20,
-	right : '5%',
-	top: 50,
-	
+	right: '5%',
+	top: 50
 }
 
 "#userProfileImage":{
 	width: 80,
 	height: 80,
-	left : 10 ,
+	left: 10 ,
 	backgroundColor: Alloy.CFG.themeColor,
 	image: "/images/profile.png",
-	borderColor : 'grey',
-	borderWidth : "1dp",
-	borderRadius : 40
+	borderColor: 'grey',
+	borderWidth: "1dp",
+	borderRadius: 40
 }
 
 ".textFieldClass":{
 	width: "80%",
 	top: 10,
-	backgroundColor :'transparent'
+	backgroundColor: 'transparent'
 }
 
-/*"#emailAddress":{
-hintText: "Email Address",
-width: "80%",
-//height: 20,
-//left: 20,
-//right: 20,
-top: 50,
-keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
-}*/
+".dropDownClass":{
+	height: 0,
+	width: "80%",
+	top: 0
+}
 
 "#emailAddress":{
 	hintText: "Email Address",
@@ -71,27 +66,41 @@ keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 "#dateOfBirth":{
 	hintText: "Date Of birth"
 }
-
 "#contactNo":{
 	hintText: "Mobile No",
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE_PAD
 }
 "#linkedInprofile":{
 	title: "Lineked In Profile",
-	color : 'grey'
+	color: 'grey'
 }
 "#canTravelTo":{
 	hintText: "Can Travel to(Distance in kms.)",
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
 }
 "#courses":{
-	hintText: "Courses"
+	text: "Courses",
+	font: {
+		fontSize: 15
+	},
+	color: "#000",
+	height: 30
 }
 "#subjects":{
-	hintText: "Subjects"
+	text: "Subjects",
+	font: {
+		fontSize: 15
+	},
+	color: "#000",
+	height: 30
 }
 "#sutaibleBatchTime":{
-	hintText: "Sutaible Batch No."
+	text: "Sutaible Batch No.",
+	font: {
+		fontSize: 15
+	},
+	color: "#000",
+	height: 30
 }
 "#preferredLanguage":{
 	hintText: "Preferred Language"
@@ -118,19 +127,18 @@ keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 	font:{
 		fontSize: "20sp"
 	},
-	left : '10%'
-	
+	left: '10%'
 }
 "#sap":{
-	backgroundColor : Alloy.CFG.themeColor,
-	height : '1dp',
-	top : '0.5dp',
-	width: "80%", 
-} 
-"#sapName" :{
-	backgroundColor : Alloy.CFG.themeColor,
-	height : '1dp',
-	right : '5%',
+	backgroundColor: Alloy.CFG.themeColor,
+	height: '1dp',
+	top: '0.5dp',
+	width: "80%"
+}
+"#sapName":{
+	backgroundColor: Alloy.CFG.themeColor,
+	height: '1dp',
+	right: '5%',
 	width: "200dp",
-	bottom : "5dp"
+	bottom: "5dp"
 }
