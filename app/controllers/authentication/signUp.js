@@ -7,17 +7,22 @@ var validation = require("validation");
 
 function onSignUpOpen(params) {
 	var params = params || {};
-	Ti.API.info(JSON.stringify(params) + "========Params===============" + JSON.stringify(args));
+	//Ti.API.info(JSON.stringify(params) + "========Params===============" + JSON.stringify(args));
 }
 
 function closeSignUpScreen(e) {
-	Ti.API.info("========closeSignUpScreen===============" + JSON.stringify(e));
+	//Ti.API.info("========closeSignUpScreen===============" + JSON.stringify(e));
 	$.signUpWin.close();
+}
+
+function openLoginScreen(){
+	Alloy.createController("authentication/login").getView().open();
+	closeSignUpScreen();
 }
 
 $.signUpWin.addEventListener('open', onSignUpOpen);
 $.signUpWin.addEventListener('androidback', closeSignUpScreen);
-$.login.addEventListener('click', closeSignUpScreen);
+$.login.addEventListener('click', openLoginScreen);
 
 var linkedin = social.create({
 	consumerSecret : "s7ZV7hViil2DaqPp",
@@ -47,7 +52,7 @@ function register() {
 	var phone = validation.validateNumber({
 		phone : $.phoneNo.value
 	});
-	Ti.API.info(phone+"             "+$.phoneNo.value);
+	Ti.API.info(phone + "             " + $.phoneNo.value);
 	if ($.name.value.length > 1) {
 		if (email.length > 1 && emailValid) {
 			if (phone) {
@@ -102,15 +107,16 @@ function callBack(json) {
 }
 
 function onRegisterClick() {
-	/*utils.setLoginStatus();
-	 var win = Alloy.createController("sliderContent/slider").getView();
-	 win.open();*/
+	//utils.setLoginStatus();
+	//var win = Alloy.createController("sliderContent/slider").getView();
+	//win.open();
 	//register();
 	openTutorProfile();
 }
 
-function openTutorProfile(){
+function openTutorProfile() {
 	utils.setLoginStatus();
-	Alloy.createController("authentication/tutorProfile").getView().open();
+	Alloy.createController("authentication/newTutorProfile").getView().open();
+	closeSignUpScreen();
 }
 

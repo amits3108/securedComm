@@ -4,12 +4,14 @@ var appKey = require("appKey");
 
 //   Titles for Menu Items for Android  
 var leftData = [
-    {title:'  Profile ',image:'/images/profile.png'},
+    {title:'  Home ',image:'/images/profile.png'},
     {title:'  Messages ',image:'/images/message.png'},
     {title:'  Notifications ',image:'/images/notify.png'},
+    {title:'  Events ',image:'/images/events.png'},
     {title:'  Settings ',image:'/images/Settings.png'},
     {title:'  Report Problem ',image:'/images/Problem.png'},
     {title:'  Help ',image:'/images/help.png'},
+    {title:'  Logout ',image:'/images/logout.png'},
   ];
 var length = leftData.length;
 var tblData = [];
@@ -52,9 +54,10 @@ $.menuTable.addEventListener('click', function(e){
 	}
 	switch(index) {
 	case 0:
-		//view = Alloy.createController("centralView/home").getView(),
-		//title = "Home";
-		//if (Alloy.Globals.getData(appKey.KEYS.LOGINSTATUS)) {
+		view = Alloy.createController("centralView/profile").getView();
+		title = "Profile";
+		break;
+	case 1:
 		if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 				view = Alloy.createController("centralView/studentDashBoard").getView();
 				title = "Student DashBoard";
@@ -62,37 +65,40 @@ $.menuTable.addEventListener('click', function(e){
 				view = Alloy.createController("centralView/tutorDashBoard").getView();
 				title = "Tutor DashBoard";
 		}
-	//}
-		
-		break;
-	case 1:
-		view = Alloy.createController("centralView/profile").getView(),
-		title = "Profile";
 		break;
 	case 2 :
-		view = Alloy.createController("centralView/message").getView(),
+		view = Alloy.createController("centralView/message").getView();
 		title = "Messages";
 		break;
 	case 3 :
-		view = Alloy.createController("centralView/notifications").getView(),
+		view = Alloy.createController("centralView/notifications").getView();
 		title = "Notifications";
 		break;
 	case 4 :
-		view = Alloy.createController("centralView/settings").getView(),
-		title = "Settings";
+		view = Alloy.createController("centralView/events").getView();
+		title = "Events";
 		break;
 	case 5 :
-		view = Alloy.createController("centralView/problem").getView(),
-		title = "Report Problem";
+		view = Alloy.createController("centralView/settings").getView();
+		title = "Settings";
 		break;
 	case 6 :
-		view = Alloy.createController("centralView/help").getView(),
+		view = Alloy.createController("centralView/problem").getView();
+		title = "Report Problem";
+		break;
+	case 7 :
+		view = Alloy.createController("centralView/help").getView();
 		title = "Help";
 		break;
+	case 8 :
+		utils.logout();
+		break;
 	}
-	utils.replaceCentralView({
+	if(index != 8){
+		utils.replaceCentralView({
 			view : view,
 			title : title
-	});
+		});
+	}
 	lastIndex = index;
 });

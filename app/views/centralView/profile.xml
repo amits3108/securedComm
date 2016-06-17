@@ -1,5 +1,5 @@
 <Alloy>
-	<View backgroundColor="#B2DAF6" height="Ti.UI.SIZE"> 
+	<View backgroundColor="#B2DAF6" height="Ti.UI.SIZE">
 		<ScrollView id="scrollContainer" scrollType="vertical" >
 			<View width = "Ti.UI.FILL" height="Ti.UI.SIZE">
 				<ImageView id="userProfileImage"></ImageView>
@@ -20,23 +20,23 @@
 			<View id = "sap"></View>
 			<TextField id="dateOfBirth" class="textFieldClass"/>
 			<View id = "sap"></View>
-			<TextField id="contactNo"class="textFieldClass"/>
+			<TextField id="contactNo" class="textFieldClass"/>
 			<View id = "sap"></View>
 			<Label id="label" height="50" width="Ti.UI.FILL" text = 'LinkedIn Profile Url' onClick="accessLinkedInProfile" textAlign="left"/>
 			<View id = "sap"></View>
-			<TextField id="canTravelTo"class="textFieldClass"/>
+			<TextField id="canTravelTo" class="textFieldClass"/>
 			<View id = "sap"></View>
-			<TextField id="courses"class="textFieldClass"/>
+			<TextField id="courses" class="textFieldClass"/>
 			<View id = "sap"></View>
-			<TextField id="subjects"class="textFieldClass"/>
+			<TextField id="subjects" class="textFieldClass"/>
 			<View id = "sap"></View>
-			<TextField id="sutaibleBatchTime"class="textFieldClass"/>
+			<TextField id="sutaibleBatchTime" class="textFieldClass"/>
 			<View id = "sap"></View>
-			<TextField id="preferredLanguage"class="textFieldClass"/>
+			<TextField id="preferredLanguage" class="textFieldClass"/>
 			<View id = "sap"></View>
-			<TextField id="aboutYourSelf"class="textFieldClass"/>
+			<TextField id="aboutYourSelf" class="textFieldClass"/>
 			<View id = "sap"></View>
-			<Button id="submit"/>
+			<Button id="submit" onClick="onSubmit"/>
 		</ScrollView>
 	</View>
 </Alloy>

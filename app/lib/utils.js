@@ -56,3 +56,40 @@ exports.setLoginStatus = function() {
 		Alloy.Globals.setData(appKey.KEYS.LOGINSTATUS, true);
 	}
 };
+
+exports.setRegistrationStatus = function() {
+	if (!Alloy.Globals.getData(appKey.KEYS.REGISTRATIONCOMPLETE)) {
+		Alloy.Globals.setData(appKey.KEYS.REGISTRATIONCOMPLETE, true);
+	}
+};
+var setPropertiesNull = function() {
+	var appKeys = require("appKey").KEYS;
+	var keyArray = [appKeys.LOGINSTATUS, appKeys.TUTORPROFILEUPDATE, appKeys.USERTYPE, appKeys.REGISTRATIONCOMPLETE];
+
+	_.each(keyArray, function(key, index) {
+		Ti.API.error(" index " + index + "   key  " + key);
+		Alloy.Globals.setData(key, null);
+	});
+};
+exports.setPropertiesNull = setPropertiesNull;
+
+exports.logout = function(e) {
+	var logoutDailog = Ti.UI.createAlertDialog({
+		cancel : 1,
+		buttonNames : ['Logout', 'Cancel'],
+		message : 'Are you sure you want to Logout ?',
+		title : 'Tutme'
+	});
+	logoutDailog.show();
+	logoutDailog.addEventListener('click', function(e) {
+		if (e.index === e.source.cancel) {
+			Ti.API.info('The cancel button was clicked');
+		} else {
+			var win = Alloy.createController("authentication/login").getView();
+			win.open();
+			Alloy.Globals.currentWindow.close();
+			setPropertiesNull();
+		}
+	});
+};
+

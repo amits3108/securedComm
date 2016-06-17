@@ -53,3 +53,57 @@ var courseRow = function(params) {
 	return containerView;
 };
 exports.courseRow = courseRow;
+
+function dropDownRow(params) {
+	var params = params || {};
+	var row = Ti.UI.createTableViewRow({
+		height : 22,
+		width : Ti.UI.FILL,
+		backgroundColor : "#FFF",
+	});
+	var viewContainer = Ti.UI.createView({
+		height : Ti.UI.FILL,
+		width : Ti.UI.FILL,
+		backgroundColor : "#FFF",
+		layout : "horizontal"
+	});
+	var basicSwitch = Ti.UI.createSwitch({
+		style : Ti.UI.Android.SWITCH_STYLE_CHECKBOX,
+		textAlign : Ti.UI.TEXT_ALIGNMENT_LEFT,
+		title : params.title || "CheckBox",
+		value : false,
+		width : Ti.UI.FILL, // necessary for textAlign to be effective
+		color : "#000",
+		font : {
+			fontSize : 13
+		},
+		left : 5
+	});
+	viewContainer.add(basicSwitch);
+	basicSwitch.addEventListener('change', function(e) {
+		Ti.API.info('Switch value: ' + basicSwitch.value +"  "+basicSwitch.title);
+	});
+	row.add(viewContainer);
+	return row;
+}
+
+var customDropDown = function(params) {
+	var params = params || {};
+
+	var dropDownTable = Ti.UI.createTableView({
+		height : Ti.UI.SIZE,
+		width : Ti.UI.FILL,
+	});
+	var totalRows = params && params.rowsArray && params.rowsArray.length;
+
+	if (totalRows && totalRows > 0) {
+		for (var i = 0; i < totalRows; i++) {
+			var row = dropDownRow({
+				title : params.rowsArray[i]
+			});
+			dropDownTable.appendRow(row);
+		}
+	}
+	return dropDownTable;
+};
+exports.customDropDown = customDropDown;

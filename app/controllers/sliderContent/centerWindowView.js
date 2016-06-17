@@ -1,6 +1,6 @@
 var utils = require("utils");
 var appKey = require("appKey");
- 
+
 exports.createCenterView = function() {
 	//Include Lib
 	var ui = require('XUI');
@@ -29,7 +29,11 @@ exports.createCenterView = function() {
 			});
 		}
 	}
-	
+	/*utils.replaceCentralView({
+	 view : Alloy.createController("centralView/profile").getView(),
+	 title : "Profile"
+	 });*/
+
 	if (OS_ANDROID) {
 		Alloy.Globals.navWindow = mainView;
 		return mainView;

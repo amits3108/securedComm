@@ -1,4 +1,4 @@
-".container": { 
+".container": {
 	layout: "vertical"
 }
 
@@ -31,11 +31,18 @@
 	top: 20,
 	passwordMask: true
 }
-"#Login":{
-	title: "Login",
+"#student":{
+	title: "Register As Student",
 	height: 50,
-	top: 30,
-	width : 100,
+	top: 150,
+	width : 300,
+	backgroundColor: "#1BB4C6"
+}
+"#tutor":{
+	title: "Register As Tutor",
+	height: 50,
+	top: 100,
+	width : 300,
 	backgroundColor: "#1BB4C6"
 }
 "#bottomView":{

@@ -1,9 +1,12 @@
+var args = $.args;
+var appKey = require("appKey");
 var social = require("social");
+var utils = require("utils");
 var linkedin = social.create({
 	consumerSecret : "s7ZV7hViil2DaqPp",
 	consumerKey : "75c5prnmkejwoe",
 	site : 'linkedin'
-}); 
+});
 var accessLinkedInProfileDailog = Ti.UI.createAlertDialog({
 	cancel : 1,
 	buttonNames : ['Confirm', 'Cancel'],
@@ -29,4 +32,20 @@ var accessLinkedInProfile = function(e) {
 			});
 		}
 	});
+};
+// name,emailAddress,address_permanent,contactNo,aboutYourSelf,subjects
+var onSubmit = function(e) {
+	if (($.name.value.length > 0) && ($.emailAddress.value.length > 0) && ($.address_permanent.value.length > 0) /*&& ($.contactNo.value.length > 0) && ($.aboutYourSelf.length > 0) && ($.subjects.value.length > 0)*/) {
+		if (!Alloy.Globals.getData(appKey.KEYS.REGISTRATIONCOMPLETE)) {
+			utils.setRegistrationStatus();
+			var win = Alloy.createController("sliderContent/slider").getView();
+			win.open();
+			args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
+		} else {
+			alert("Profile updated successfully.");
+		}
+	} else {
+		//alert('Please fill the details to complete your Registration.');
+		alert('Please fill the name, email and permanent address field ');
+	}
 };

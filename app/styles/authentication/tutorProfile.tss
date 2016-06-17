@@ -1,5 +1,5 @@
-".container": { 
-	backgroundColor: "#ffffff",
+".container": {
+	backgroundColor: "#ffffff"
 }
 
 ".labelViewContainer":{
@@ -16,12 +16,12 @@
 	width: "90%",
 	//height: Titanium.UI.SIZE,
 	backgroundColor: "#fff",
-	top :10
+	top: 10
 }
 "#tutme":{
 	image: "/images/tutmeLogo.png",
-	height: 50,
-	width : "300dp",
+	height: 100,
+	width: "300dp",
 	top: 10
 }
 
@@ -57,7 +57,7 @@
 "#tutionType":{
 	text: "Tution Type",
 	color: Alloy.CFG.lightGray,
-	left: 3,
+	left: 3
 }
 
 
@@ -69,12 +69,12 @@
 	backgroundColor: Alloy.CFG.themeColor,
 	//borderColor: Alloy.CFG.themeColor,
 	borderRadius: 3,
-	top: 25,
+	top: 25
 }
 
 "#tutorLabel_button":{
 	title: "Tutor",
-	color : "#FFFFFF",
+	color: "#FFFFFF",
 	font: {
 		fontSize: 15
 	},
@@ -88,7 +88,7 @@
 
 "#addCourses_button":{
 	title: "Add Courses",
-	textAlign : Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 	color: Alloy.CFG.lightGray,
 	font: {
 		fontSize: 15
@@ -102,14 +102,14 @@
 }
 
 "#coursesDetail":{
-	backgroundColor : "yellow",
-	width : Titanium.UI.FILL,
-	height : Titanium.UI.SIZE
+	backgroundColor: "yellow",
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.SIZE
 }
 
 "#addProfilePicture_button":{
-	title : "Add Profile Picture",
-	textAlign : Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	title: "Add Profile Picture",
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_LEFT,
 	color: Alloy.CFG.lightGray,
 	font: {
 		fontSize: 15
@@ -123,7 +123,13 @@
 }
 
 "#profilePicture":{
-	backgroundColor : "green",
-	width : Titanium.UI.FILL,
-	height : Titanium.UI.SIZE
+	backgroundColor: "green",
+	width: Titanium.UI.FILL,
+	height: Titanium.UI.SIZE
+}
+
+"#tutionTypeDropDown":{
+	height: 0,
+	width: Titanium.UI.FILL,
+	top: 0
 }

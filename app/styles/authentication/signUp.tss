@@ -3,7 +3,7 @@
 }
 
 "#tutme":{
-	height: 50,
+	height: 100,
 	width : "300dp",
 	top: 10,
 	//backgroundColor: "green"
@@ -12,7 +12,7 @@
 "#name":{
 	hintText: "Name",
 	width: "80%",
-	top: 50,
+	top: 20,
 	backgroundColor :'transparent',
 }
 
@@ -59,7 +59,7 @@
 		fontSize: 20,
 		fontWeight: 'bold',
 	},
-	color: "black"
+	color: "#000"
 }
 "#forgotPassword":{
 	text: "Forgot\nPassword",
@@ -69,7 +69,7 @@
 		fontSize: 20,
 		fontWeight: 'bold',
 	},
-	color: "black"
+	color: "#000"
 }
 "#sap":{
 	backgroundColor : Alloy.CFG.themeColor,

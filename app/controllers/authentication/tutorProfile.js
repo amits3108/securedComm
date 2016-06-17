@@ -9,7 +9,7 @@ function submitClick() {
 }
 
 function onTutorProfileOpen() {
-
+	//$.profile.add(Alloy.createController("centralView/profile").getView());
 }
 
 function setProfileUpdateStatus() {
@@ -20,4 +20,18 @@ function setProfileUpdateStatus() {
 
 function onAddCoursesClick(){
 	Alloy.createController("authentication/addCourseDetail").getView().open();
+}
+
+function onTutionTypeClick(){
+	var customTutionTypeTable = require("customized/customUI").customDropDown({
+		rowsArray : ["Home Tutor","Tutor's Type","Self Institution","Educational Organisation"]
+	});
+	$.tutionTypeDropDown.add(customTutionTypeTable);
+	$.tutionTypeDropDown.height = Titanium.UI.SIZE;
+}
+
+$.profile.addEventListener('androidback', closeProfileScreen);
+function closeProfileScreen(e) {
+	Ti.API.info("========profile===============");
+	$.profile.close();
 }
