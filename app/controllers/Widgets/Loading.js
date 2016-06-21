@@ -35,7 +35,7 @@ $.loading.addEventListener("open", function(e) {
 	if (OS_ANDROID) {
 		var activity = $.loading.getActivity();
 		if (activity != undefined && activity.actionBar != undefined) {
-			activity.actionBar.setTitle("Secured Text");
+			activity.actionBar.setTitle("Tutme");
 		}
 	}
 });

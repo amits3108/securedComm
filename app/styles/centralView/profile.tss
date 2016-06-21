@@ -79,28 +79,34 @@
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
 }
 "#courses":{
-	text: "Courses",
+	/*text: "Courses",
 	font: {
 		fontSize: 15
 	},
 	color: "#000",
-	height: 30
+	height: 30*/
+	hintText : "Courses",
+	editable : false
 }
 "#subjects":{
-	text: "Subjects",
+	/*text: "Subjects",
 	font: {
 		fontSize: 15
 	},
 	color: "#000",
-	height: 30
+	height: 30*/
+	hintText : "Subjects",
+	editable : false
 }
 "#sutaibleBatchTime":{
-	text: "Sutaible Batch No.",
+	/*text: "Sutaible Batch No.",
 	font: {
 		fontSize: 15
 	},
 	color: "#000",
-	height: 30
+	height: 30*/
+	hintText : "Sutaible Batch No.",
+	editable : false
 }
 "#preferredLanguage":{
 	hintText: "Preferred Language"

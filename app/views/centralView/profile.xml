@@ -26,13 +26,13 @@
 			<View id = "sap"></View>
 			<TextField id="canTravelTo" class="textFieldClass"/>
 			<View id = "sap"></View>
-			<Label id="courses" class="textFieldClass" onClick="onCoursesClick"/>
+			<TextField id="courses" class="textFieldClass" onClick="onCoursesClick"/>
 			<View id = "sap"></View>
 			<View id="coursesDropDown"  class="dropDownClass"/>
-			<Label id="subjects" class="textFieldClass" onClick="onSubjectClick"/>
+			<TextField id="subjects" class="textFieldClass" onClick="onSubjectClick"/>
 			<View id = "sap"></View>
 			<View id="subjectsDropDown"  class="dropDownClass"/>
-			<Label id="sutaibleBatchTime" class="textFieldClass" onClick="onBatchTimeClick"/>
+			<TextField id="sutaibleBatchTime" class="textFieldClass" onClick="onBatchTimeClick"/>
 			<View id = "sap"></View>
 			<View id="batchTimeDropDown" class="dropDownClass"/>
 			<TextField id="preferredLanguage" class="textFieldClass"/>

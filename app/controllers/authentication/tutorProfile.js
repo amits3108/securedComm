@@ -18,16 +18,23 @@ function setProfileUpdateStatus() {
 	Alloy.Globals.setData(appKey.KEYS.TUTORPROFILEUPDATE, 'completed');
 }
 
-function onAddCoursesClick(){
+function onAddCoursesClick() {
 	Alloy.createController("authentication/addCourseDetail").getView().open();
 }
 
-function onTutionTypeClick(){
-	var customTutionTypeTable = require("customized/customUI").customDropDown({
-		rowsArray : ["Home Tutor","Tutor's Type","Self Institution","Educational Organisation"]
-	});
-	$.tutionTypeDropDown.add(customTutionTypeTable);
-	$.tutionTypeDropDown.height = Titanium.UI.SIZE;
+var customTutionTypeTable = null;
+function onTutionTypeClick() {
+	if (!customTutionTypeTable) {
+		customTutionTypeTable = require("customized/customUI").customDropDown({
+			rowsArray : ["Home Tutor", "Tutor's Type", "Self Institution", "Educational Organisation"]
+		});
+		$.tutionTypeDropDown.add(customTutionTypeTable);
+		$.tutionTypeDropDown.height = Titanium.UI.SIZE;
+	} else {
+		$.tutionTypeDropDown.remove(customTutionTypeTable);
+		$.tutionTypeDropDown.height = 0;
+		customTutionTypeTable = null;
+	}
 }
 
 $.profile.addEventListener('androidback', closeProfileScreen);

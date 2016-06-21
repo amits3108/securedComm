@@ -49,27 +49,47 @@ var onSubmit = function(e) {
 		alert('Please fill the name, email and permanent address field ');
 	}
 };
-
-function onCoursesClick(){
-	var customDropDownTable = require("customized/customUI").customDropDown({
-		rowsArray : ["B.Tech","C language","C++ language","Java","Computers"]
-	});
-	$.coursesDropDown.add(customDropDownTable);
-	$.coursesDropDown.height = Titanium.UI.SIZE;
+var customCoursesDropDownTable = null;
+function onCoursesClick() {
+	if (!customCoursesDropDownTable) {
+		customCoursesDropDownTable = require("customized/customUI").customDropDown({
+			rowsArray : ["B.Tech", "C language", "C++ language", "Java", "Computers"]
+		});
+		$.coursesDropDown.add(customCoursesDropDownTable);
+		$.coursesDropDown.height = Titanium.UI.SIZE;
+	} else {
+		$.coursesDropDown.remove(customCoursesDropDownTable);
+		$.coursesDropDown.height = 0;
+		customCoursesDropDownTable = null;
+	}
 }
 
-function onSubjectClick(){
-	var customDropDownTable = require("customized/customUI").customDropDown({
-		rowsArray : ["Physics","Chemistry","Math","Social Science","English"]
-	});
-	$.subjectsDropDown.add(customDropDownTable);
-	$.subjectsDropDown.height = Titanium.UI.SIZE;
-} 
+var customSubjectsDropDownTable = null;
+function onSubjectClick() {
+	if (!customSubjectsDropDownTable) {
+		customSubjectsDropDownTable = require("customized/customUI").customDropDown({
+			rowsArray : ["Physics", "Chemistry", "Math", "Social Science", "English"]
+		});
+		$.subjectsDropDown.add(customSubjectsDropDownTable);
+		$.subjectsDropDown.height = Titanium.UI.SIZE;
+	} else {
+		$.subjectsDropDown.remove(customSubjectsDropDownTable);
+		$.subjectsDropDown.height = 0;
+		customSubjectsDropDownTable = null;
+	}
+}
 
-function onBatchTimeClick(){
-	var customDropDownTable = require("customized/customUI").customDropDown({
-		rowsArray : ["2pm-3pm","3pm-4pm","4pm-5pm","5pm-6pm","6pm-7pm"]
-	});
-	$.batchTimeDropDown.add(customDropDownTable);
-	$.batchTimeDropDown.height = Titanium.UI.SIZE;
+var customBatchsDropDownTable = null;
+function onBatchTimeClick() {
+	if (!customBatchsDropDownTable) {
+		customBatchsDropDownTable = require("customized/customUI").customDropDown({
+			rowsArray : ["2pm-3pm", "3pm-4pm", "4pm-5pm", "5pm-6pm", "6pm-7pm"]
+		});
+		$.batchTimeDropDown.add(customBatchsDropDownTable);
+		$.batchTimeDropDown.height = Titanium.UI.SIZE;
+	} else {
+		$.batchTimeDropDown.add(customBatchsDropDownTable);
+		$.batchTimeDropDown.height = 0;
+		customBatchsDropDownTable = null;
+	}
 }

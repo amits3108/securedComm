@@ -4,6 +4,7 @@ var social = require("social");
 var utils = require("utils");
 var network = require("network");
 var validation = require("validation");
+var appKey = require("appKey");
 
 function onSignUpOpen(params) {
 	var params = params || {};
@@ -15,7 +16,7 @@ function closeSignUpScreen(e) {
 	$.signUpWin.close();
 }
 
-function openLoginScreen(){
+function openLoginScreen() {
 	Alloy.createController("authentication/login").getView().open();
 	closeSignUpScreen();
 }
@@ -44,6 +45,7 @@ $.linkedIn.addEventListener('click', function(e) {
 
 // API call for registration
 function register() {
+	//utils.Loading.showSpinner();
 	var user = {};
 	var email = ($.emailAddress.value).trim();
 	var emailValid = validation.validateEmail({
@@ -58,25 +60,39 @@ function register() {
 			if (phone) {
 				if ($.password.value.length > 1) {
 					user.email = email.toLowerCase();
-					var requestData = {// email, mobile, name, user_type,  password
-						email : emailValid,
-						mobile : phone,
-						name : $.name.value,
-						user_type : 1, //"student",
-						//userDeviceToken : Alloy.Globals.getData("deviceId") || "",
-						password : $.password.value
-					};
-					network.postRequest({
-						type : "POST",
-						url : Alloy.CFG.URL.register,
-						requestData : requestData,
-						requestHeaders : {
-							//"Content-Type" : "application/json",
-							"public-key" : "c8a1ad1332716aa15752422360e739a5",
-							"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
-						},
-						callBack : callBack,
-					});
+
+					var user_type = null;
+					if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
+						user_type = 1;
+					} else {
+						user_type = 2;
+					}
+
+					if (Titanium.Network.online) {
+
+						var requestData = {// email, mobile, name, user_type,  password
+							email : email,
+							mobile : $.phoneNo.value,
+							name : $.name.value,
+							user_type : user_type, //"student",
+							//userDeviceToken : Alloy.Globals.getData("deviceId") || "",
+							password : $.password.value
+						};
+						network.postRequest({
+							type : "POST",
+							url : Alloy.CFG.URL.register,
+							requestData : requestData,
+							requestHeaders : {
+								//"Content-Type" : "application/json",
+								"public-key" : "c8a1ad1332716aa15752422360e739a5",
+								"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+							},
+							callBack : callBack,
+						});
+
+					} else {
+						alert("Internet is not available");
+					}
 				} else {
 					alert("Please enter password");
 				}
@@ -96,8 +112,9 @@ function register() {
 
 function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
-	if (json && (parseInt(json.status) == 200) && (!json.error)) {
-		//onRegisterClick();
+	//utils.Loading.hideSpinner();
+	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
+		openTutorProfile();
 		Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
@@ -107,11 +124,8 @@ function callBack(json) {
 }
 
 function onRegisterClick() {
-	//utils.setLoginStatus();
-	//var win = Alloy.createController("sliderContent/slider").getView();
-	//win.open();
-	//register();
-	openTutorProfile();
+	register();
+	//openTutorProfile();
 }
 
 function openTutorProfile() {
