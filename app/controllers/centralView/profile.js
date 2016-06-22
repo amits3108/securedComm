@@ -93,3 +93,33 @@ function onBatchTimeClick() {
 		customBatchsDropDownTable = null;
 	}
 }
+
+// Checking the user type and showing field accordingly
+//experience, label, canTravelTo, courses, subjects, sutaibleBatchTime
+//alert(Alloy.Globals.getData(appKey.KEYS.USERTYPE));
+if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
+	$.scrollContainer.remove($.experience);
+	$.scrollContainer.remove($.experienceSap);
+	$.scrollContainer.remove($.label);
+	$.scrollContainer.remove($.labelSap);
+	$.scrollContainer.remove($.canTravelTo);
+	$.scrollContainer.remove($.canTravelToSap);
+	$.scrollContainer.remove($.courses);
+	$.scrollContainer.remove($.coursesSap);
+	$.scrollContainer.remove($.subjects);
+	$.scrollContainer.remove($.subjectsSap);
+	$.scrollContainer.remove($.sutaibleBatchTime);
+	$.scrollContainer.remove($.sutaibleBatchTimeSap);
+}
+
+function onImageViewClick(){
+	require('androidCameraDialogs').showDialogs({
+		success : receiveImageCallBack
+	});
+}
+
+function receiveImageCallBack(response){
+	Ti.API.info(" receiveImageCallBack "+JSON.stringify(response));
+	//TODO: need to handle properly.
+	$.userProfileImage.image = response.nativePath;
+}

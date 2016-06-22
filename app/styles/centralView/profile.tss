@@ -17,18 +17,28 @@
 	right: '5%',
 	top: 50
 }
-
-"#userProfileImage":{
+"#ImageViewContainer":{
 	width: 80,
 	height: 80,
 	left: 10 ,
-	backgroundColor: Alloy.CFG.themeColor,
-	image: "/images/profile.png",
 	borderColor: 'grey',
 	borderWidth: "1dp",
-	borderRadius: 40
+	borderRadius: 40,
+	backgroundColor: Alloy.CFG.themeColor
 }
 
+"#userProfileImage":{
+	//width: 80,
+	//height: 80,
+	backgroundColor: Alloy.CFG.themeColor,
+	image: "/images/profile.png",
+}
+".sapClass":{
+	backgroundColor: Alloy.CFG.themeColor,
+	height: '1dp',
+	top: '0.5dp',
+	width: "80%"
+}
 ".textFieldClass":{
 	width: "80%",
 	top: 10,
@@ -130,17 +140,18 @@
 	}
 }
 "#label":{
-	font:{
+	/*font:{
 		fontSize: "20sp"
 	},
-	left: '10%'
+	left: '10%'*/
+	hintText : 'Access LinkedIn Profile ',
 }
-"#sap":{
+/*"#sap":{
 	backgroundColor: Alloy.CFG.themeColor,
 	height: '1dp',
 	top: '0.5dp',
 	width: "80%"
-}
+}*/
 "#sapName":{
 	backgroundColor: Alloy.CFG.themeColor,
 	height: '1dp',
