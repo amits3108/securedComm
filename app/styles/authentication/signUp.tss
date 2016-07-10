@@ -22,7 +22,7 @@
 	top: 20,
 	maxLength : 10,
 	backgroundColor :'transparent',
-	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE_PAD
 }
 "#emailAddress":{
 	hintText: "Email Address",

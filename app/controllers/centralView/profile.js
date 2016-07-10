@@ -2,36 +2,16 @@ var args = $.args;
 var appKey = require("appKey");
 var social = require("social");
 var utils = require("utils");
-var linkedin = social.create({
-	consumerSecret : "s7ZV7hViil2DaqPp",
-	consumerKey : "75c5prnmkejwoe",
-	site : 'linkedin'
-});
-var accessLinkedInProfileDailog = Ti.UI.createAlertDialog({
-	cancel : 1,
-	buttonNames : ['Confirm', 'Cancel'],
-	message : 'Tutme would like access your LinkedIn profile.',
-	title : 'Tutme'
-});
+setValues();
+var LinkedInClick = function() {
+	utils.accessLinkedInProfile();
+};
 
-var accessLinkedInProfile = function(e) {
-	accessLinkedInProfileDailog.show();
-	accessLinkedInProfileDailog.addEventListener('click', function(e) {
-		if (e.index === e.source.cancel) {
-			Ti.API.info('The cancel button was clicked');
-		} else {
-			linkedin.getProfileLinkedin({
-				message : "messageContent",
-				success : function(e) {
-					response = JSON.stringify(e);
-					Ti.API.info(response.siteStandardProfileRequest + "****" + e.firstName + "response" + JSON.stringify(e));
-				},
-				error : function(e) {
-					Ti.API.info("Error while posting" + JSON.stringify(e));
-				}
-			});
-		}
-	});
+function setValues() {
+	var user = Ti.App.Properties.getObject('user');
+	$.name.value = user.name;
+	$.emailAddress.value = user.email;
+	$.contactNo.value = user.phone;
 };
 // name,emailAddress,address_permanent,contactNo,aboutYourSelf,subjects
 var onSubmit = function(e) {
@@ -41,6 +21,47 @@ var onSubmit = function(e) {
 			var win = Alloy.createController("sliderContent/slider").getView();
 			win.open();
 			args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
+			// if (Titanium.Network.online) {
+			//
+			// // var requestData = {
+			// // user[name] :"sandeep",
+			// // user[email] : "sandeep@mailinator.com",
+			// // user[dob] : "1989-10-04",
+			// // user[gender] : "Male" ,
+			// // user[mobile] : "1234543454" ,
+			// // profile_pic : "",
+			// // address[address] : "shastri nagar, bahadurgarh, haryana",
+			// // address[city] : "bahadurgarh",
+			// // address[zipcode] : "124507",
+			// // tutor[experience] : "12" ,
+			// // address_proof : ""
+			// // tutor[medium] : "english",
+			// // tutor[mobile_visibility] : "show/hide",
+			// // tutor[linkedin_profile] : "/pardeepk" ,
+			// // tutor[free_class_days] : "7",
+			// // tutor[can_travel_distance] : "4",
+			// // id_proof : "" ,
+			// // tutor[tutor_type] : "1" ,
+			// // tutor[courses] : "c1,c2,c3",
+			// // tutor[subjects] : "s1,s2,s3",
+			// // tutor[timings] : "9-10,11-13"
+			// // };
+			// network.postRequest({
+			// type : "POST",
+			// url : Alloy.CFG.URL.update_profile,
+			// requestData : requestData,
+			// requestHeaders : {
+			// //"Content-Type" : "application/json",
+			// "public-key" : "c8a1ad1332716aa15752422360e739a5",
+			// "token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+			// },
+			// callBack : callBack,
+			// });
+			//
+			// } else {
+			// alert("Check Internet Connection");
+			// }
+
 		} else {
 			alert("Profile updated successfully.");
 		}
@@ -49,6 +70,21 @@ var onSubmit = function(e) {
 		alert('Please fill the name, email and permanent address field ');
 	}
 };
+function callBack(json) {
+	Ti.API.info("register callback : \n " + JSON.stringify(json));
+	//utils.Loading.hideSpinner();
+	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
+		// var win = Alloy.createController("sliderContent/slider").getView();
+		// win.open();
+		// args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
+		Ti.API.info("Register successfully");
+	} else {
+		//json && !(_.isEmpty(json)) && alert(json.message);
+		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
+		Ti.API.error("error found");
+	}
+}
+
 var customCoursesDropDownTable = null;
 function onCoursesClick() {
 	if (!customCoursesDropDownTable) {
@@ -112,14 +148,14 @@ if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 	$.scrollContainer.remove($.sutaibleBatchTimeSap);
 }
 
-function onImageViewClick(){
+function onImageViewClick() {
 	require('androidCameraDialogs').showDialogs({
 		success : receiveImageCallBack
 	});
 }
 
-function receiveImageCallBack(response){
-	Ti.API.info(" receiveImageCallBack "+JSON.stringify(response));
+function receiveImageCallBack(response) {
+	Ti.API.info(" receiveImageCallBack " + JSON.stringify(response));
 	//TODO: need to handle properly.
 	$.userProfileImage.image = response.nativePath;
 }

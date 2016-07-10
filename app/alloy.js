@@ -47,4 +47,5 @@ const baseURL = "api.tutme.in/index.php/user/";           //TODO : Development S
 Alloy.CFG.URL = {
 	register : baseURL + "register",
 	login : baseURL + "login",
+	update_profile : baseURL + "update_profile"
 };

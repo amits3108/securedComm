@@ -36,7 +36,6 @@ function onTutionTypeClick() {
 		customTutionTypeTable = null;
 	}
 }
-
 $.profile.addEventListener('androidback', closeProfileScreen);
 function closeProfileScreen(e) {
 	Ti.API.info("========profile===============");

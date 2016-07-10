@@ -1,5 +1,6 @@
 var appKey = require("appKey");
 var map = require('Map');
+var social = require("social");
 exports.replaceCentralView = function(params) {
 	//var slider = Alloy.Globals.slider;
 	var mainView = Alloy.Globals.centralView;
@@ -118,4 +119,38 @@ exports.logout = function(e) {
 
 exports.Loading = function(){
 	this.Loading = Alloy.createController("Widgets/Loading");
+};
+// Linked In Profile URL
+var linkedin = social.create({
+	consumerSecret : "s7ZV7hViil2DaqPp",
+	consumerKey : "75c5prnmkejwoe",
+	site : 'linkedin'
+});
+
+var accessLinkedInProfileDailog = Ti.UI.createAlertDialog({
+	cancel : 1,
+	buttonNames : ['Confirm', 'Cancel'],
+	message : 'Tutme would like access your LinkedIn profile.',
+	title : 'Tutme'
+});
+
+exports.accessLinkedInProfile = function(e) {
+	accessLinkedInProfileDailog.show();
+	accessLinkedInProfileDailog.addEventListener('click', function(e) {
+		if (e.index === e.source.cancel) {
+			Ti.API.info('The cancel button was clicked');
+			return false;
+		} else {
+			linkedin.getProfileLinkedin({
+				message : "messageContent",
+				success : function(e) {
+					response = JSON.stringify(e);
+					Ti.API.info(response.siteStandardProfileRequest + "****" + e.firstName + "response" + JSON.stringify(e));
+				},
+				error : function(e) {
+					Ti.API.info("Error while posting" + JSON.stringify(e));
+				}
+			});
+		}
+	});
 };

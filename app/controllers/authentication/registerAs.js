@@ -47,6 +47,7 @@ function tutorSelection(params) {
 			};
 			openSignUpScreen(params);
 		} else if (e.index == 2) {
+			Alloy.Globals.setData(appKey.KEYS.USERTYPE, "organisation");
 			orgInstiuteSelection({
 				userType : "organisation"
 			});

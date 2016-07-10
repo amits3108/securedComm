@@ -24,7 +24,7 @@
 			<View class = "sapClass"/>
 			<TextField id="contactNo" class="textFieldClass"/>
 			<View class = "sapClass"/>
-			<TextField id="label" class="textFieldClass" onClick="accessLinkedInProfile"/>
+			<TextField id="label" class="textFieldClass" editable="false" onClick="LinkedInClick"/>
 			<View class = "sapClass" id = "labelSap"/>
 			<TextField id="canTravelTo" class="textFieldClass"/>
 			<View class = "sapClass" id = "canTravelToSap"/>

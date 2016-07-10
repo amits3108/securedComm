@@ -13,7 +13,7 @@
     <analytics>false</analytics>
     <!--<guid>70e30a4c-3b95-489a-9fff-90ce8c0b5b70</guid> amit's windows system -->
     <!-- <guid>0c0483f2-3f4e-45a0-9777-caebe689e3c3</guid> amit's mac-->
-    <guid>0c0483f2-3f4e-45a0-9777-caebe689e3c3</guid>
+    <guid>70e30a4c-3b95-489a-9fff-90ce8c0b5b70</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
