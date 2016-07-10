@@ -25,7 +25,7 @@
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE_PAD
 }
 "#emailAddress":{
-	hintText: "Email Address",
+	hintText: "Email Address or Mobile number",
 	width: "80%",
 	top: 20,
 	backgroundColor :'transparent',

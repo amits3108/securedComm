@@ -24,10 +24,10 @@ function onLoginClick() {
 	var user = {};
 	var email = ($.emailAddress.value).trim();
 	var password = $.password.value;
-	var emailValid = validation.validateEmail({
+	/*var emailValid = validation.validateEmail({
 		email : email
-	});
-	if (email.length > 1 && emailValid) {
+	});*/
+	if (email.length > 1 /*&& emailValid*/) {
 		user.email = email.toLowerCase();
 		if (password.length > 1) {
 			/*var win = Alloy.createController("sliderContent/slider").getView();
