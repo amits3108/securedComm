@@ -27,9 +27,17 @@ var getData = function(key) {
 };
 
 
-Alloy.CFG.themeColor = "#1BB4C6";
-Alloy.CFG.lightBlueColor ="#B2DAF6";
-Alloy.CFG.yellowColor = "#FFA835";
+// Alloy.CFG.themeColor = "#1BB4C6";
+// Alloy.CFG.lightBlueColor ="#B2DAF6";
+// Alloy.CFG.yellowColor = "#FFA835";
+// Alloy.CFG.darkYellow = "#F1E500";
+
+Alloy.CFG = {
+	themeColor : "#1BB4C6",
+	lightBlueColor : "#B2DAF6",
+	yellowColor : "#FFA835",
+	darkYellow : "#F1E500",
+};
 
 var platformHeight = OS_IOS ? Ti.Platform.displayCaps.platformHeight - 20 : Ti.Platform.displayCaps.platformHeight;
 var os_version = Ti.Platform.version;

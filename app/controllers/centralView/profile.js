@@ -18,53 +18,49 @@ function setValues() {
 var onSubmit = function(e) {
 	if (($.name.value.length > 0) && ($.emailAddress.value.length > 0) && ($.address_permanent.value.length > 0) /*&& ($.contactNo.value.length > 0) && ($.aboutYourSelf.length > 0) && ($.subjects.value.length > 0)*/) {
 		if (!Alloy.Globals.getData(appKey.KEYS.REGISTRATIONCOMPLETE)) {
-			utils.setRegistrationStatus();
+			 utils.setRegistrationStatus();
+			 var win = Alloy.createController("sliderContent/slider").getView();
+			 win.open();
+			 args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
 			
-			var win = Alloy.createController("sliderContent/slider").getView();
-			win.open();
+			/*if (Titanium.Network.online) {
+				var requestData = {
+					user_name :"sandeep",
+					user_email : "sandeep@mailinator.com",
+					user_dob : "1989-10-04",
+					user_gender : "Male" ,
+					user_mobile : "1234543454" ,
+					user_profile_pic : "",
+					address_address : "shastri nagar, bahadurgarh, haryana",
+					address_city : "bahadurgarh",
+					address_zipcode : "124507",
+					tutor_experience : "12" ,
+					tutor_address_proof : "",
+					tutor_medium : "english",
+					tutor_mobile_visibility : "show/hide",
+					tutor_linkedin_profile : "/pardeepk" ,
+					tutor_free_class_days : "7",
+					tutor_can_travel_distance : "4",
+					tutor_id_proof : "" ,
+					tutor_type : "1" ,
+					courses : "[c1,c2,c3]",
+					subjects : "[s1,s2,s3]",
+					timings : "[]"
+				};
+			network.postRequest({
+				type : "POST",
+				url : Alloy.CFG.URL.update_profile,
+				requestData : requestData,
+				requestHeaders : {
+					"public-key" : "c8a1ad1332716aa15752422360e739a5",
+					"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
+				},
+				callBack : callBack,
+			});
 			
-			args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
-			
-			//if (Titanium.Network.online) {
-			
-			// var requestData = {
-			// user[name] :"sandeep",
-			// user[email] : "sandeep@mailinator.com",
-			// user[dob] : "1989-10-04",
-			// user[gender] : "Male" ,
-			// user[mobile] : "1234543454" ,
-			// profile_pic : "",
-			// address[address] : "shastri nagar, bahadurgarh, haryana",
-			// address[city] : "bahadurgarh",
-			// address[zipcode] : "124507",
-			// tutor[experience] : "12" ,
-			// address_proof : ""
-			// tutor[medium] : "english",
-			// tutor[mobile_visibility] : "show/hide",
-			// tutor[linkedin_profile] : "/pardeepk" ,
-			// tutor[free_class_days] : "7",
-			// tutor[can_travel_distance] : "4",
-			// id_proof : "" ,
-			// tutor[tutor_type] : "1" ,
-			// tutor[courses] : "c1,c2,c3",
-			// tutor[subjects] : "s1,s2,s3",
-			// tutor[timings] : "9-10,11-13"
-			// };
-			// network.postRequest({
-			// type : "POST",
-			// url : Alloy.CFG.URL.update_profile,
-			// requestData : requestData,
-			// requestHeaders : {
-			// //"Content-Type" : "application/json",
-			// "public-key" : "c8a1ad1332716aa15752422360e739a5",
-			// "token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
-			// },
-			// callBack : callBack,
-			// });
-// 			
-			// } else {
-			// alert("Check Internet Connection");
-			// }
+			} else {
+				alert("Check Internet Connection");
+			}*/
 
 		} else {
 			alert("Profile updated successfully.");
@@ -81,7 +77,8 @@ function callBack(json) {
 		 var win = Alloy.createController("sliderContent/slider").getView();
 		 win.open();
 		 args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
-		Ti.API.info("Register successfully: Enter into the slider screen");
+		 utils.setRegistrationStatus();
+		 Ti.API.info("Register successfully: Enter into the slider screen");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
 		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
