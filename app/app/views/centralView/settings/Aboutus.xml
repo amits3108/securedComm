@@ -1,0 +1,5 @@
+<Alloy>
+	<Window id = "aboutWin">
+		<View class="container" id = "aboutus" backgroundColor="#FFF" ></View>
+	</Window>
+</Alloy>

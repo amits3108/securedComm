@@ -1,0 +1,21 @@
+".container" : { 
+
+}
+'#fab': {
+    bottom: 20,
+    right: 10,
+    width: 60,
+    height: 60,
+    backgroundColor: '#1BB4C6',
+    //focusedColor: '#B2DAF6',
+    borderWidth: 1,
+    borderColor: '#ececec',
+    title: 'TM',
+    font: {
+        fontFamily: 'FontAwesome',
+        fontSize: 40
+    },
+    color: '#ffffff',
+    rotation: true,
+    direction: 'left',
+}

@@ -1,0 +1,24 @@
+<Alloy>
+	<Window fullscreen="true" class="container" onOpen="onCourseDetailOpen">
+		<ScrollView id="scrollContainer"> 
+			<Label id="courseDetail"/>
+			<TextField id="course_Name"/>
+			<TextField id="course_description"/>
+			<Label id="timing_Offered"/>
+			<!--<View height="Ti.UI.SIZE" layout="vertical">-->
+			<TextField id="courseTime1" class="textFieldClass"/>
+			<TextField id="courseTime2" class="textFieldClass"/>
+			<TextField id="courseTime3" class="textFieldClass"/>
+			<TextField id="courseTime4" class="textFieldClass"/>
+			<!--</View>-->
+			<Label id="packages"/>
+			<!--<View height="Ti.UI.SIZE" layout="vertical">-->
+			<TextField id="courseTime5" class="textFieldClass"/>
+			<TextField id="courseTime6" class="textFieldClass"/>
+			<TextField id="courseTime7" class="textFieldClass"/>
+			<TextField id="courseTime8" class="textFieldClass"/>
+			<!--</View>-->
+		</ScrollView>
+		<Button id="submitCourses"/>
+	</Window>
+</Alloy>

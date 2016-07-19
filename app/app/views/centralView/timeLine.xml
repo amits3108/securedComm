@@ -1,0 +1,11 @@
+<Alloy>
+	<View class="container" backgroundColor="#E3F1FA">
+		<!--<ImageView id = "mainImage"/>-->
+		<View backgroundColor="#FFF" height="40" width="95%" top="15">
+			<ImageView id="cloudImage"/>
+			<TextField id="timeLineField"/>
+			<Button id="postButton" onClick="postButtonClick"/>
+		</View>
+		<TableView id="timeLineTable" />
+	</View>
+</Alloy>

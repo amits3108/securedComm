@@ -1,0 +1,47 @@
+<Alloy>
+	<View backgroundColor="#B2DAF6" height="Ti.UI.SIZE">
+		<ScrollView id="scrollContainer" scrollType="vertical" >
+			<View width = "Ti.UI.FILL" height="Ti.UI.SIZE">
+				<View id="ImageViewContainer"  onClick="onImageViewClick">
+					<ImageView id="userProfileImage"/>
+				</View>
+				<TextField id="name" hintText="Name"/>
+				<View id = "sapName" />
+			</View>
+			<TextField id="emailAddress" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<TextField id="qualification" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<TextField id="experience" class="textFieldClass"/>
+			<View class = "sapClass" id = "experienceSap"/>
+			<TextField id="address_permanent" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<TextField id="address_correspondance" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<TextField id="city" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<TextField id="dateOfBirth" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<TextField id="contactNo" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<TextField id="label" class="textFieldClass" editable="false" onClick="LinkedInClick"/>
+			<View class = "sapClass" id = "labelSap"/>
+			<TextField id="canTravelTo" class="textFieldClass"/>
+			<View class = "sapClass" id = "canTravelToSap"/>
+			<TextField id="courses" class="textFieldClass" onClick="onCoursesClick"/>
+			<View class = "sapClass" id = "coursesSap"/>
+			<View id="coursesDropDown"  class="dropDownClass"/>
+			<TextField id="subjects" class="textFieldClass" onClick="onSubjectClick"/>
+			<View class = "sapClass" id = "subjectsSap"/>
+			<View id="subjectsDropDown"  class="dropDownClass"/>
+			<TextField id="sutaibleBatchTime" class="textFieldClass" onClick="onBatchTimeClick"/>
+			<View class = "sapClass" id = "sutaibleBatchTimeSap"/>
+			<View id="batchTimeDropDown" class="dropDownClass"/>
+			<TextField id="preferredLanguage" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<TextField id="aboutYourSelf" class="textFieldClass"/>
+			<View class = "sapClass"/>
+			<Button id="submit" onClick="onSubmit"/>
+		</ScrollView>
+	</View>
+</Alloy>

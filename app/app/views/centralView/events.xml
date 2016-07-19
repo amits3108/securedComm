@@ -1,0 +1,5 @@
+<Alloy>
+	<View class="container" backgroundColor="#FFF">
+		<Label text="No Events to show" color="#000"></Label>
+	</View>
+</Alloy>

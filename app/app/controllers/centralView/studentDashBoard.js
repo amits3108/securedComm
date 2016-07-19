@@ -144,6 +144,14 @@ function dataOfRow () {
 	return data;
 }
 
-//require("utils").getCourses();
-//require("utils").getSubjects();
-//require("utils").getTimings();
+function subjectTypeClick(){
+	
+}
+
+function applyButtonClick(){
+	
+}
+
+// require("utils").getCourses();
+// require("utils").getSubjects();
+// require("utils").getTimings();
