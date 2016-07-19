@@ -1,6 +1,8 @@
 var appKey = require ("appKey");
 var map = require ('Map');
 var social = require ("social");
+var network = require("network");
+
 exports.replaceCentralView = function (params) {
 	//var slider = Alloy.Globals.slider;
 	var mainView = Alloy.Globals.centralView;
@@ -193,3 +195,72 @@ var activityIndicatorLoading = function(){
 	};
 };
 exports.activityIndicatorLoading = activityIndicatorLoading;
+
+var getCourses = function(params){
+	var params = params || {};
+	
+	if (Titanium.Network.online) {
+				network.postRequest({
+					type : "GET",
+					url : Alloy.CFG.URL.getCourses,
+					requestData : {},
+					requestHeaders : {
+						"public-key" : "c8a1ad1332716aa15752422360e739a5",
+						"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+					},
+					callBack : function(e){
+						Ti.API.error(" ddd "+e+" getCourses "+JSON.stringify(e));
+					},//params.callBack,
+				});
+
+			} else {
+				alert("Internet is not available");
+			}
+};
+exports.getCourses = getCourses;
+
+var getSubjects = function(params){
+	var params = params || {};
+	
+	if (Titanium.Network.online) {
+				network.postRequest({
+					type : "GET",
+					url : Alloy.CFG.URL.getSubjects,
+					requestData : {},
+					requestHeaders : {
+						"public-key" : "c8a1ad1332716aa15752422360e739a5",
+						"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+					},
+					callBack : function(e){
+						Ti.API.error(" ddd "+e+" getSubjects "+JSON.stringify(e));
+					},//params.callBack,
+				});
+
+			} else {
+				alert("Internet is not available");
+			}
+};
+exports.getSubjects = getSubjects;
+
+var getTimings = function(params){
+	var params = params || {};
+	
+	if (Titanium.Network.online) {
+				network.postRequest({
+					type : "GET",
+					url : Alloy.CFG.URL.getTimings,
+					requestData : {},
+					requestHeaders : {
+						"public-key" : "c8a1ad1332716aa15752422360e739a5",
+						"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+					},
+					callBack : function(e){
+						Ti.API.error(" fdff "+e+" getTimings "+JSON.stringify(e));
+					},//params.callBack,
+				});
+
+			} else {
+				alert("Internet is not available");
+			}
+};
+exports.getTimings = getTimings;

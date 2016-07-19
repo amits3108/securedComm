@@ -95,6 +95,7 @@ function filteredRowUI (params) {
 			height : 120,
 			width : Titanium.UI.FILL,
 			backgroundColor : "transparent",
+			
 		});
 		tableRow.add(filteredRow);
 		$.filteredListTable.appendRow(tableRow);
@@ -143,3 +144,6 @@ function dataOfRow () {
 	return data;
 }
 
+require("utils").getCourses();
+require("utils").getSubjects();
+require("utils").getTimings();
