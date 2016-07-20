@@ -49,14 +49,14 @@ Alloy.Globals.getData = getData;
 
 
 //const baseURL = "";		//TODO : Stagging Server
-const baseURL = "api.tutme.in/index.php/user/";           //TODO : Development Server
+const baseURL = "api.tutme.in/index.php/";           //TODO : Development Server
 //const baseURL = "";					//TODO : Local Server
 
 Alloy.CFG.URL = {
-	register : baseURL + "register",
-	login : baseURL + "login",
-	update_profile : baseURL + "update_profile",
-	getCourses : baseURL + "getCourses",
-	getSubjects : baseURL + "getSubjects",
-	getTimings : baseURL + "getTimings",
+	register : baseURL + "user/register",
+	login : baseURL + "user/login",
+	update_profile : baseURL + "cms/update_profile",
+	getCourses : baseURL + "cms/getCourses",
+	getSubjects : baseURL + "cms/getSubjects",
+	getTimings : baseURL + "cms/getTimings",
 };

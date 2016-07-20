@@ -12,7 +12,7 @@
   <fullscreen>false</fullscreen>
   <navbar-hidden>false</navbar-hidden>
   <analytics>false</analytics>
-  <!--<guid>70e30a4c-3b95-489a-9fff-90ce8c0b5b70</guid> amit's windows system -->
+  <!--<guid>70e30a4c-3b95-489a-9fff-90ce8c0b5b70</guid> amit's windows system 04c324b1-b9ef-4a98-9666-efdc439e72d4-->
   <!-- <guid>0c0483f2-3f4e-45a0-9777-caebe689e3c3</guid> amit's mac-->
   <guid>04c324b1-b9ef-4a98-9666-efdc439e72d4</guid>
   <property name="ti.ui.defaultunit" type="string">dp</property>
@@ -77,7 +77,7 @@
     <plugin version="1.0">ti.alloy</plugin>
   </plugins>
   <!--<property name="appc-app-id" type="string">575902975305376d1550f7b6</property><property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property><property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property><property name="acs-oauth-secret-development" type="string">T6vGhi3Mc08xufkeg3VRolmM7biAUlLT</property><property name="acs-oauth-key-development" type="string">8Fc6ZAuYvsE1Q8KUQqswM4OoC2fS3Ifw</property><property name="acs-api-key-development" type="string">WYkjP5KwPyB6j8iJam0EOvtjHXCuCrrv</property><property name="acs-username-development" type="string">appc_app_user_dev</property><property name="acs-password-development" type="string">gC8lweJEcjpvKFVCcY</property><property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property><property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property><property name="acs-oauth-secret-production" type="string">eDYVBykMLUQAQi14vXMV2kHigeepSFFS</property><property name="acs-oauth-key-production" type="string">HCd9wEGRk6exYW9ns7WhcDsphQIqx13v</property><property name="acs-api-key-production" type="string">GsVBdQPekM1I09qOq5PLnFLth4tpxx4v</property><property name="acs-username-production" type="string">appc_app_user</property><property name="acs-password-production" type="string">CcF1jHmcr81JZIPrL7</property><property name="appc-org-id" type="string">100069605</property><property name="appc-creator-user-id" type="string">105f0f7e-31c0-43ca-9cfd-98990c69349c</property>-->
-  <property name="appc-app-id" type="string">578929ef4ddad7ba7b9a682b</property>
+  <property name="appc-app-id" type="string">578dd142d97103e44b35dfe3</property>
   <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
   <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
   <property name="acs-oauth-secret-development" type="string">SHNOcwl0XXRJ290IyFEeWASaRWFlmiwZ</property>

@@ -1,6 +1,7 @@
 <Alloy>
 	<View class="container" backgroundColor="#FFF"> 
 		<!--<Label text="Screen is Under Development" color="#000"></Label>-->
-		<Button id="openTutorProfile" onClick="onclickTutorProfile"/>
+		<!-- <Button id="openTutorProfile" onClick="onclickTutorProfile"/> -->
+		<TableView id = "settingsTable"/>
 	</View>
 </Alloy>

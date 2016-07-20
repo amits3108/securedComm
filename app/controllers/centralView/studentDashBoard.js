@@ -144,6 +144,6 @@ function dataOfRow () {
 	return data;
 }
 
-require("utils").getCourses();
-require("utils").getSubjects();
-require("utils").getTimings();
+// require("utils").getCourses();
+// require("utils").getSubjects();
+// require("utils").getTimings();
