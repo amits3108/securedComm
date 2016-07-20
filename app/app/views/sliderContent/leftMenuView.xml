@@ -1,0 +1,15 @@
+<Alloy>
+	<View layout="vertical">
+		<TableView id="menuTable" backgroundColor="white" top="0" scrollable="false">
+			<TableViewRow>
+				<View top = "0dp" height="100dp" backgroundColor="#FFF"  layout="vertical">
+					<View>
+						<ImageView id="userProfileImage"/>
+						<Label id = "name" color="black" left = "100dp"/>
+					</View>
+					<View id = "saprater" color = "black" width="2dp" top = "5dp"/>
+				</View>
+			</TableViewRow>
+		</TableView>
+	</View>
+</Alloy>

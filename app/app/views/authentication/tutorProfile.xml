@@ -1,0 +1,19 @@
+<Alloy>
+	<Window id="profile" fullscreen="true" class="container" onOpen="onTutorProfileOpen">
+		<ScrollView id="scrollContainer">
+			<ImageView id="tutme"/> 
+			<Button id="tutorLabel_button"/>
+			<Label id="intro"/>
+			<TextArea id="introDetail"/>
+			<Button id="addCourses_button" onClick="onAddCoursesClick"/>
+			<View id="coursesDetail"/>
+			<Button id="addProfilePicture_button"/>
+			<View id="profilePicture"/>
+			<View id="tutionTypeView" class="labelViewContainer" onClick="onTutionTypeClick">
+				<Label id="tutionType"/>
+			</View>
+			<View id="tutionTypeDropDown"/>
+			<Button id="submit" onClick="submitClick"/>
+		</ScrollView>
+	</Window>
+</Alloy>

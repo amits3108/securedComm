@@ -1,0 +1,11 @@
+".container": {}
+"#userProfileImage":{
+	width: 80,
+	height: 80,
+	left: 10 ,
+	backgroundColor: Alloy.CFG.themeColor,
+	image: "/images/profile.png",
+	borderColor: 'grey',
+	borderWidth: "1dp",
+	borderRadius: 40
+}
