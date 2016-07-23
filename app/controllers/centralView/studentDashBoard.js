@@ -3,106 +3,106 @@
 var args = $.args;
 
 var customtutorTypeDropDownTable = null;
-function tutorTypeClick () {
+function tutorTypeClick() {
 	//Ti.API.error("*******tutorTypeClick ********1");
 	if (!customtutorTypeDropDownTable) {
 		//Ti.API.error("*******tutorTypeClick ********2");
-		customtutorTypeDropDownTable = require ("customized/customUI").customDropDown ({
+		customtutorTypeDropDownTable = require("customized/customUI").customDropDown({
 			rowsArray : ["Home Tutor", "Tutor's Home", "Self Institution", "Educational Instituation"]
 		});
 		//Ti.API.error("*******tutorTypeClick ********3");
-		$.tutorTypeDropDown.add (customtutorTypeDropDownTable);
+		$.tutorTypeDropDown.add(customtutorTypeDropDownTable);
 		$.tutorTypeDropDown.height = Titanium.UI.SIZE;
-	}
-	else {
+	} else {
 		//Ti.API.error("*******tutorTypeClick ********4");
-		$.tutorTypeDropDown.remove (customtutorTypeDropDownTable);
+		$.tutorTypeDropDown.remove(customtutorTypeDropDownTable);
 		$.tutorTypeDropDown.height = 0;
 		customtutorTypeDropDownTable = null;
 	}
 }
 
 var customclassNumberDropDownTable = null;
-function classNumberClick () {
+function classNumberClick() {
 	//Ti.API.error("*******classNumberClick ********1");
 	if (!customclassNumberDropDownTable) {
-		Ti.API.error ("*******classNumberClick ********2");
-		customclassNumberDropDownTable = require ("customized/customUI").customDropDown ({
+		Ti.API.error("*******classNumberClick ********2");
+		customclassNumberDropDownTable = require("customized/customUI").customDropDown({
 			rowsArray : ["8th", "9th", "10th", "11th", "12th"]
 		});
 		//Ti.API.error("*******classNumberClick ********3");
-		$.classNumberDropDown.add (customclassNumberDropDownTable);
+		$.classNumberDropDown.add(customclassNumberDropDownTable);
 		$.classNumberDropDown.height = Titanium.UI.SIZE;
-	}
-	else {
+	} else {
 		//Ti.API.error("*******classNumberClick ********4");
-		$.classNumberDropDown.remove (customclassNumberDropDownTable);
+		$.classNumberDropDown.remove(customclassNumberDropDownTable);
 		$.classNumberDropDown.height = 0;
 		customclassNumberDropDownTable = null;
 	}
 }
 
-
 /////////////// search bar View visiblity /////////
-function hideFilteringViews () {
+function hideFilteringViews() {
 	$.optionSelectionView.visible = false;
 }
 
-function showFilteringViews () {
+function showFilteringViews() {
 	$.optionSelectionView.visible = true;
 }
+
 ///////////////////////////////////////////////////
 
-
 ////////  filter Table Visibility /////////////////
-function showFilteredList () {
+function showFilteredList() {
 	$.filteredListTable.visible = true;
 }
 
-function hideFilteredList () {
+function hideFilteredList() {
 	$.filteredListTable.visible = false;
 }
+
 ///////////////////////////////////////////////////
 
 ///////   dropDown Visiblity //////////////////////
-function hidedropDown(){
+function hidedropDown() {
 	$.tutorTypeDropDown.visible = false;
 	$.classNumberDropDown.visible = false;
 }
-function showDropDown(){
+
+function showDropDown() {
 	$.tutorTypeDropDown.visible = true;
 	$.classNumberDropDown.visible = true;
 }
+
 ///////////////////////////////////////////////////
 
 /////////////      After retrun click on search bar        //////////////
-function doFiltering () {
+function doFiltering() {
 	hidedropDown();
-	showFilteredList ();
+	showFilteredList();
 	filteredRowUI();
 }
 
 ////////////    require the UI of each List row in table   ///////////////
-function filteredRowUI (params) {
+function filteredRowUI(params) {
 	var params = params || {};
-	
-	var rowsData = dataOfRow ();
+
+	var rowsData = dataOfRow();
 	var total = rowsData.length;
-	
-	for(var i=0;i<total;i++){
-		var filteredRow = Alloy.createController ("custom/filteredRow", rowsData[i]).getView ();
+
+	for (var i = 0; i < total; i++) {
+		var filteredRow = Alloy.createController("custom/filteredRow", rowsData[i]).getView();
 		var tableRow = Titanium.UI.createTableViewRow({
 			height : 120,
 			width : Titanium.UI.FILL,
 			backgroundColor : "transparent",
-			
+
 		});
 		tableRow.add(filteredRow);
 		$.filteredListTable.appendRow(tableRow);
 	}
 }
 
-function dataOfRow () {
+function dataOfRow() {
 	var data = [{
 		image : "",
 		name : "ravi",
@@ -115,7 +115,7 @@ function dataOfRow () {
 		experience : "5",
 		location : "Gurgaon",
 		intro : "Do it perfect",
-	},{
+	}, {
 		image : "",
 		name : "Juli",
 		experience : "4",
@@ -127,7 +127,7 @@ function dataOfRow () {
 		experience : "3",
 		location : "Noida",
 		intro : "Work Hard his nature",
-	},{
+	}, {
 		image : "",
 		name : "Sultan",
 		experience : "7",
@@ -140,7 +140,7 @@ function dataOfRow () {
 		location : "Noida",
 		intro : "Work Hard his nature",
 	}];
-	
+
 	return data;
 }
 

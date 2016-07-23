@@ -4,7 +4,7 @@
 			<View width="30%" backgroundColor="Alloy.CFG.darkYellow">
 				<ImageView id="userProfileImage"/>
 			</View>
-			<View layout="vertical" width="70%">
+			<View layout="vertical" width="50%" left = "10dp">
 				<Label id="name"/>
 				<Label id="experience"/>
 				<Label id="location"/>

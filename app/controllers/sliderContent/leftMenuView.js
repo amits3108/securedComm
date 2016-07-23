@@ -10,7 +10,7 @@ var leftData = [
     {title:'  Events ',image:'/images/events.png'},
     {title:'  Settings ',image:'/images/Settings.png'},
     {title:'  Report Problem ',image:'/images/Problem.png'},
-    {title:'  Help ',image:'/images/help.png'},
+   // {title:'  Help ',image:'/images/help.png'},
     {title:'  Logout ',image:'/images/logout.png'},
   ];
 var length = leftData.length;
@@ -87,15 +87,15 @@ $.menuTable.addEventListener('click', function(e){
 		view = Alloy.createController("centralView/problem").getView();
 		title = "Report Problem";
 		break;
-	case 7 :
+	/*case 7 :
 		view = Alloy.createController("centralView/help").getView();
 		title = "Help";
-		break;
-	case 8 :
+		break;*/
+	case 7 :
 		utils.logout();
 		break;
 	}
-	if(index != 8){
+	if(index != 7){
 		utils.replaceCentralView({
 			view : view,
 			title : title

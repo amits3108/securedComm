@@ -1,76 +1,75 @@
 // Arguments passed into this controller can be accessed via the `$.args` object
 // directly or:
 var args = $.args;
-var social = require ("social");
-var utils = require ("utils");
-var network = require ("network");
-var validation = require ("validation");
-var appKey = require ("appKey");
+var social = require("social");
+var utils = require("utils");
+var network = require("network");
+var validation = require("validation");
+var appKey = require("appKey");
 
-function onSignUpOpen (params) {
+function onSignUpOpen(params) {
 	var params = params || {};
 	//Ti.API.info(JSON.stringify(params) + "========Params===============" +
 	// JSON.stringify(args));
 }
 
-function closeSignUpScreen (e) {
+function closeSignUpScreen(e) {
 	//Ti.API.info("========closeSignUpScreen===============" + JSON.stringify(e));
-	$.signUpWin.close ();
+	$.signUpWin.close();
 }
 
-function openLoginScreen () {
-	Alloy.createController ("authentication/login").getView ().open ();
-	closeSignUpScreen ();
+function openLoginScreen() {
+	Alloy.createController("authentication/login").getView().open();
+	closeSignUpScreen();
 }
 
-$.signUpWin.addEventListener ('open', onSignUpOpen);
-$.signUpWin.addEventListener ('androidback', closeSignUpScreen);
-$.login.addEventListener ('click', openLoginScreen);
+$.signUpWin.addEventListener('open', onSignUpOpen);
+$.signUpWin.addEventListener('androidback', closeSignUpScreen);
+$.login.addEventListener('click', openLoginScreen);
 
-var linkedin = social.create ({
+var linkedin = social.create({
 	consumerSecret : "s7ZV7hViil2DaqPp",
 	consumerKey : "75c5prnmkejwoe",
 	site : 'linkedin'
 });
-$.linkedIn.addEventListener ('click', function (e) {
-	linkedin.getProfileLinkedin ({
+$.linkedIn.addEventListener('click', function(e) {
+	linkedin.getProfileLinkedin({
 		message : "messageContent",
-		success : function (e) {
-			response = JSON.stringify (e);
-			Ti.API.info (response.siteStandardProfileRequest + "****" + e.firstName + "response" + JSON.stringify (e));
+		success : function(e) {
+			response = JSON.stringify(e);
+			Ti.API.info(response.siteStandardProfileRequest + "****" + e.firstName + "response" + JSON.stringify(e));
 		},
-		error : function (e) {
-			Ti.API.info ("Error while posting" + JSON.stringify (e));
+		error : function(e) {
+			Ti.API.info("Error while posting" + JSON.stringify(e));
 		}
 	});
 });
 
 // API call for registration
-function register () {
+function register() {
 	//openTutorProfile ();
 	//utils.Loading.showSpinner();
 
 	var user = {};
-	var email = ($.emailAddress.value).trim ();
+	var email = ($.emailAddress.value).trim();
 	/*var emailValid = validation.validateEmail ({
-		email : email
-	});*/
+	 email : email
+	 });*/
 
-	var phone = validation.validateNumber ({
+	var phone = validation.validateNumber({
 		phone : $.phoneNo.value
 	});
-	Ti.API.info (phone + "             " + $.phoneNo.value);
+	Ti.API.info(phone + "             " + $.phoneNo.value);
 	if ($.name.value.length > 1) {
 		if (email.length > 1 /*&& emailValid*/) {
 			if (phone) {
 				if ($.password.value.length > 1) {
-					user.email = email.toLowerCase ();
+					user.email = email.toLowerCase();
 
 					var user_type = null;
-					if (Alloy.Globals.getData (appKey.KEYS.USERTYPE) == "student") {
+					if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 						user_type = 1;
-					}
-					else {
+					} else {
 						user_type = 2;
 					}
 
@@ -83,74 +82,71 @@ function register () {
 							//userDeviceToken : Alloy.Globals.getData("deviceId") || "",
 							password : $.password.value
 						};
-						network.postRequest ({
-							type : "POST",
-							url : Alloy.CFG.URL.register,
-							requestData : requestData,
-							requestHeaders : {
-								//"Content-Type" : "application/json",
-								"public-key" : "c8a1ad1332716aa15752422360e739a5",
-								"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
-							},
-							callBack : callBack,
-						});
+						/*network.postRequest ({
+						 type : "POST",
+						 url : Alloy.CFG.URL.register,
+						 requestData : requestData,
+						 requestHeaders : {
+						 //"Content-Type" : "application/json",
+						 "public-key" : "c8a1ad1332716aa15752422360e739a5",
+						 "token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
+						 },
+						 callBack : callBack,
+						 });*/
+						openTutorProfile();
+						setUserValues();
+						Ti.API.info("Register successfully");
+					} else {
+						alert("Check Internet Connection");
 					}
-					else {
-						alert ("Check Internet Connection");
-					}
+				} else {
+					alert("Please enter password");
 				}
-				else {
-					alert ("Please enter password");
-				}
+			} else {
+				alert("Please enter Phone Number");
 			}
-			else {
-				alert ("Please enter Phone Number");
-			}
-		}
-		else {
-			alert ("Please enter valid email address or valid phone number");
+		} else {
+			alert("Please enter valid email address or valid phone number");
 			return false;
 		}
-	}
-	else {
-		alert ("Please enter valid name");
+	} else {
+		alert("Please enter valid name");
 		return false;
 	}
 };
 
-function callBack (json) {
-	Ti.API.info ("register callback : \n " + JSON.stringify (json));
+function callBack(json) {
+	Ti.API.info("register callback : \n " + JSON.stringify(json));
 	//utils.Loading.hideSpinner();
-	if (json && (parseInt (json.status_code) == 200) && (!json.error)) {
-		openTutorProfile ();
+	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
+		openTutorProfile();
 		setUserValues();
-		Ti.API.info ("Register successfully");
-	}
-	else {
+		Ti.API.info("Register successfully");
+	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
-		_.isEmpty (json) && alert ("Unable to complete registration. Please try again later.");
-		Ti.API.error ("error found");
+		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
+		Ti.API.error("error found");
 	}
 }
 
-function onRegisterClick () {
-	register ();
+function onRegisterClick() {
+	register();
 	//openTutorProfile();
 }
 
-function openTutorProfile () {
-	utils.setLoginStatus ();
-	
+function openTutorProfile() {
+	utils.setLoginStatus();
+
 	setUserValues();
-	
-	Alloy.createController ("authentication/newTutorProfile").getView ().open ();
-	closeSignUpScreen ();
+
+	Alloy.createController("authentication/newTutorProfile").getView().open();
+	closeSignUpScreen();
 }
 
-function setUserValues(){
-	var user = Ti.App.Properties.getObject ('user');
+function setUserValues() {
+	var user = Ti.App.Properties.getObject('user');
 	user.name = $.name.value;
-	user.email = ($.emailAddress.value).trim ();
+	user.email = ($.emailAddress.value).trim();
 	user.phone = $.phoneNo.value;
-	Ti.App.Properties.setObject ('user', user);
+	Ti.App.Properties.setObject('user', user);
 }
