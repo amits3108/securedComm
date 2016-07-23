@@ -19,7 +19,7 @@
 			</View>
 			<View id="tutorTypeDropDown" />
 			<View id="classNumberDropDown" />
-			<View id="optionSelectionView2">
+			<View id="optionSelectionViewSubjjects">
 				<View id="subjectType" onClick="subjectTypeClick">
 					<Label id="subjectTypeText"/>
 					<ImageView id="dropdownImage"/>
