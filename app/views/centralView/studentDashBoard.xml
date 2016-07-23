@@ -1,7 +1,6 @@
 <Alloy>
 	<View class="container" id = "mainScreen" backgroundColor="#E3F1FA">
 		<View top="10" height="50dp">
-			<!-- <SearchView id="searchView" ns="Ti.UI.Android" platform="android" hintText="Search" top = "10dp" width="Ti.UI.WIDTH" backgroundColor="gray"/> -->
 			<ImageView image="/images/search.png" left = "2dp" ></ImageView>
 			<SearchBar id="search"  showCancel="true" hintText="   Search" height="43" top="5dp" left = "20dp" onReturn="doFiltering" />
 		</View>

@@ -1,9 +1,0 @@
-<Alloy>
-	<Window id="registerAs" fullscreen="true" class="container" backgroundColor="white" >
-		<ScrollView layout="vertical">
-			<ImageView id="tutme" ></ImageView>
-			<Button id="student" onClick = "studentClick" ></Button>
-			<Button id="tutor" onClick = "tutorClick"></Button>
-		</ScrollView>
-	</Window>
-</Alloy>
