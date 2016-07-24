@@ -6,7 +6,7 @@
 var rowtitle = [{
 	title : "About us"
 }, {
-	title : "Terms And Condtions "
+	title : "Terms And Conditions "
 }, {
 	title : "Policies"
 }, {

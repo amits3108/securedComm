@@ -1,0 +1,9 @@
+
+".container" : {
+}
+
+"#profileView":{
+	height: 0,
+	width:Titanium.UI.FILL,
+	backgroundColor : "#FFF"
+}

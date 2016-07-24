@@ -7,7 +7,7 @@ var LinkedInClick = function() {
 	utils.accessLinkedInProfile();
 };
 function setValues(){
-	var user = Ti.App.Properties.getObject('user');
+	var user = Alloy.Globals.getData(appKey.USER);
 	$.name.value = user.name;
 	$.emailAddress.value = user.email;
 	$.contactNo.value = user.phone;

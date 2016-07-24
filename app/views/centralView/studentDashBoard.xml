@@ -1,22 +1,31 @@
 <Alloy>
-	<View class="container" id = "mainScreen" backgroundColor="#E3F1FA">
-		<View top="10" height="50dp">
-			<ImageView image="/images/search.png" left = "2dp" ></ImageView>
-			<SearchBar id="search"  showCancel="true" hintText="   Search" height="43" top="5dp" left = "20dp" onReturn="doFiltering" />
+	<ScrollView id="mainScreen">
+		<View top="10" height="50">
+			<ImageView image="/images/search.png" left = "2" ></ImageView>
+			<SearchBar id="search"  showCancel="true" hintText="   Search" height="43" top="5" left = "20" onReturn="doFiltering" />
 		</View>
-		<ImageView id = "mainImage" image="/images/mainBackground.png" width = "Ti.UI.FILL" height="Ti.UI.FILL" top="60dp" ></ImageView>
-		<View id="optionSelectionView">
-			<View id="tutorType" onClick="tutorTypeClick">
-				<Label id="tutorTypeText"/>
-				<ImageView id="dropdownImage"/>
+		<ImageView id = "mainImage" image="/images/mainBackground.png" width = "Ti.UI.FILL" height="Ti.UI.FILL" top="60" ></ImageView>
+		<View top="80" layout="vertical">
+			<View  id="optionSelectionView">
+				<View id="tutorType" onClick="tutorTypeClick">
+					<Label id="tutorTypeText"/>
+					<ImageView id="dropdownImage"/>
+				</View>
+				<View id="tutorTypeDropDown"/>
+				<View id="classNumber" onClick="classNumberClick">
+					<Label id="classNumberText"/>
+					<ImageView id="dropdownImage"/>
+				</View>
+				<View id="classNumberDropDown"/>
 			</View>
-			<View id="classNumber" onClick="classNumberClick">
-				<Label id="classNumberText"/>
-				<ImageView id="dropdownImage"/>
-			</View>	
+			<View id="optionSelectionView2">
+				<View id="subjectType" onClick="subjectTypeClick">
+					<Label id="subjectTypeText"/>
+					<ImageView id="dropdownImage"/>
+				</View>
+			</View>
+			<Button id="applyButton" onClick="applyButtonclick"/>
 		</View>
-		<View id="tutorTypeDropDown" />
-		<View id="classNumberDropDown" />
-		<TableView id="filteredListTable"/>
-	</View>
+		<!--<TableView id="filteredListTable"/>-->
+	</ScrollView>
 </Alloy>

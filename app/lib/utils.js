@@ -67,7 +67,7 @@ exports.setRegistrationStatus = function () {
 };
 var setPropertiesNull = function () {
 	var appKeys = require ("appKey").KEYS;
-	var keyArray = [appKeys.LOGINSTATUS, appKeys.TUTORPROFILEUPDATE, appKeys.USERTYPE, appKeys.REGISTRATIONCOMPLETE];
+	var keyArray = [appKeys.LOGINSTATUS, appKeys.TUTORPROFILEUPDATE, appKeys.USERTYPE, appKeys.REGISTRATIONCOMPLETE,appKeys.USER];
 
 	_.each (keyArray, function (key, index) {
 		Ti.API.error (" index " + index + "   key  " + key);

@@ -26,12 +26,6 @@ var getData = function(key) {
 	}
 };
 
-
-// Alloy.CFG.themeColor = "#1BB4C6";
-// Alloy.CFG.lightBlueColor ="#B2DAF6";
-// Alloy.CFG.yellowColor = "#FFA835";
-// Alloy.CFG.darkYellow = "#F1E500";
-
 Alloy.CFG = {
 	themeColor : "#1BB4C6",
 	lightBlueColor : "#B2DAF6",
@@ -48,9 +42,7 @@ Alloy.Globals.setData = setData;
 Alloy.Globals.getData = getData;
 
 
-//const baseURL = "";		//TODO : Stagging Server
-const baseURL = "api.tutme.in/index.php/";           //TODO : Development Server
-//const baseURL = "";					//TODO : Local Server
+const baseURL = "api.tutme.in/index.php/";           // Live Server
 
 Alloy.CFG.URL = {
 	register : baseURL + "user/register",

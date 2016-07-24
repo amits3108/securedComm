@@ -40,7 +40,7 @@ for (var i=0; i<length; i++){
   $.menuTable.appendRow(row);
  }
 
-var user = Ti.App.Properties.getObject('user');
+var user = Alloy.Globals.getData(appKey.USER);
 $.name.text = user.name;	
 //$.menuTable.data = tblData;
 //   Event Listener on Menu Table

@@ -82,6 +82,10 @@ function dropDownRow(params) {
 	viewContainer.add(basicSwitch);
 	basicSwitch.addEventListener('change', function(e) {
 		Ti.API.info('Switch value: ' + basicSwitch.value +"  "+basicSwitch.title);
+		params.switchValue && params.switchValue({
+			switchValue : basicSwitch.value,
+			switchtitle : basicSwitch.title			
+		});
 	});
 	row.add(viewContainer);
 	return row;
@@ -99,7 +103,8 @@ var customDropDown = function(params) {
 	if (totalRows && totalRows > 0) {
 		for (var i = 0; i < totalRows; i++) {
 			var row = dropDownRow({
-				title : params.rowsArray[i]
+				title : params.rowsArray[i],
+				//switchValue : params.switchValue ? params.switchValue : null
 			});
 			dropDownTable.appendRow(row);
 		}

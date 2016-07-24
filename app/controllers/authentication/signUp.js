@@ -125,6 +125,13 @@ function callBack(json) {
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
 		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
+		if(json && json.error){
+			if(json.message){
+				alert(json.message+"");
+			}else{
+				alert("Something went wrong, Please try again");
+			}
+		}
 		Ti.API.error("error found");
 	}
 }
@@ -144,9 +151,9 @@ function openTutorProfile() {
 }
 
 function setUserValues() {
-	var user = Ti.App.Properties.getObject('user');
+	var user = {};
 	user.name = $.name.value;
 	user.email = ($.emailAddress.value).trim();
 	user.phone = $.phoneNo.value;
-	Ti.App.Properties.setObject('user', user);
+	Alloy.Globals.setData(appKey.USER, user);
 }

@@ -1,19 +1,20 @@
 
-".container" : {
-   
+"#mainScreen":{
+	scrollType : "vertical",
+	backgroundColor : "#E3F1FA",
 }
 
 "#optionSelectionView":{
-	height : 40,
+	height : Ti.UI.SIZE,
 	width: "90%",
-	top: '80dp',
+	//top: '80dp',
 	backgroundColor: 'transparent',
 	borderRadius : 4,
 	touchEnabled : true
 }
 
 "#tutorType":{
-	height : Titanium.UI.FILL,
+	height : 40,
 	width : "60%",
 	backgroundColor : Alloy.CFG.themeColor,
 	left : 0,
@@ -22,7 +23,7 @@
 }
 
 "#classNumber":{
-	height : Titanium.UI.FILL,
+	height : 40,
 	width : "30%",
 	backgroundColor : Alloy.CFG.themeColor,
 	right : 0,
@@ -62,21 +63,65 @@
 
 "#tutorTypeDropDown":{
 	height: 0,
-	width: "50%",
-	top: '120dp',
+	width: "60%",
+	//top: '120dp',
+	top: 40,
 	left : 15
 }
 
 "#classNumberDropDown":{
 	height: 0,
 	width: "30%",
-	top: '120dp',
+	//top: '120dp',
+	top: 40,
 	right : 15
 }
 
 "#filteredListTable":{
 	height : Titanium.UI.SIZE,
 	width : "90%",
-	top : '150dp',
+	top : '350',
+	//top : 50,
 	backgroundColor : 'transparent'
+}
+
+"#optionSelectionView2":{
+	height : 40,
+	width: "90%",
+	//top: '270',
+	top : 20, 
+	backgroundColor: 'transparent',
+	borderRadius : 4,
+	touchEnabled : true
+}
+
+"#subjectType":{
+	height : Titanium.UI.FILL,
+	width : Titanium.UI.FILL,
+	backgroundColor : Alloy.CFG.themeColor,
+	left : 0,
+	borderRadius : 4,
+	touchEnabled : true
+}
+
+"#subjectTypeText":{
+	text : "Subject Type",
+	color : "#fff",
+	font : {
+		fontSize : '15sp',
+		fontStyle: 'bold'
+	},
+	left : 7,
+	touchEnabled : false
+}
+
+"#applyButton":{
+	title : "Apply",
+	color : "#fff",
+	height : 40,
+	width : "90%",
+	top : 50,
+	backgroundColor : Alloy.CFG.themeColor,
+	borderRadius : 4,
+	//visible : false
 }
