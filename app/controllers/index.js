@@ -24,3 +24,6 @@ if (!Ti.App.Properties.hasProperty('user')) {
 		phone : null
 	});
 }
+require("utils").getCourses();
+require("utils").getSubjects();
+require("utils").getTimings();

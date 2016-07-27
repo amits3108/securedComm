@@ -114,7 +114,42 @@
 	left : 7,
 	touchEnabled : false
 }
-
+"#coursesType":{
+	height : Titanium.UI.FILL,
+	width : Titanium.UI.FILL,
+	backgroundColor : Alloy.CFG.themeColor,
+	left : 0,
+	borderRadius : 4,
+	touchEnabled : true
+}
+"#coursesTypeText":{
+	text : "Courses Type",
+	color : "#fff",
+	font : {
+		fontSize : '15sp',
+		fontStyle: 'bold'
+	},
+	left : 7,
+	touchEnabled : false
+}
+"#timeType":{
+	height : Titanium.UI.FILL,
+	width : Titanium.UI.FILL,
+	backgroundColor : Alloy.CFG.themeColor,
+	left : 0,
+	borderRadius : 4,
+	touchEnabled : true
+}
+"#timeTypeText":{
+	text : "Time Type",
+	color : "#fff",
+	font : {
+		fontSize : '15sp',
+		fontStyle: 'bold'
+	},
+	left : 7,
+	touchEnabled : false
+}
 "#applyButton":{
 	title : "Apply",
 	color : "#fff",

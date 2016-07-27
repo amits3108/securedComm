@@ -4,34 +4,33 @@ var args = $.args;
 var isFilterList = true;
 
 if (args.screenType == "tutorProfileScreen") {
-	hideFilteredList ();
+	hideFilteredList();
 	addProfileView();
-}
-else {
-	filteredRowUI ();
-	showFilteredList ();
+} else {
+	filteredRowUI();
+	showFilteredList();
 }
 
 ////////////    require the UI of each List row in table   ///////////////
-function filteredRowUI (params) {
+function filteredRowUI(params) {
 	var params = params || {};
 
-	var rowsData = dataOfRow ();
+	var rowsData = dataOfRow();
 	var total = rowsData.length;
 
 	for (var i = 0; i < total; i++) {
-		var filteredRow = Alloy.createController ("custom/filteredRow", rowsData [i]).getView ();
-		var tableRow = Titanium.UI.createTableViewRow ({
+		var filteredRow = Alloy.createController("custom/filteredRow", rowsData[i]).getView();
+		var tableRow = Titanium.UI.createTableViewRow({
 			height : 120,
 			width : Titanium.UI.FILL,
 			backgroundColor : "transparent",
 		});
-		tableRow.add (filteredRow);
-		$.filteredListTable.appendRow (tableRow);
+		tableRow.add(filteredRow);
+		$.filteredListTable.appendRow(tableRow);
 	}
 }
 
-function dataOfRow () {
+function dataOfRow() {
 	var data = [{
 		image : "",
 		name : "ravi",
@@ -73,13 +72,18 @@ function dataOfRow () {
 	return data;
 }
 
-function addProfileView(){
-	var tutorProfileView = Alloy.createController("centralView/home").getView();
+function addProfileView() {
+	var tutorProfileView = Alloy.createController("centralView/home", {
+		title : args.title,
+		exp : args.exp,
+		loc : args.loc,
+		intro : args.intro
+	}).getView();
 	$.profileView.add(tutorProfileView);
 }
 
 ////////  filter Table Visibility /////////////////
-function showFilteredList () {
+function showFilteredList() {
 	//show filtered list and hide the tutorprofile.
 	$.filteredListTable.visible = true;
 	$.profileView.visible = false;
@@ -87,7 +91,7 @@ function showFilteredList () {
 	isFilterList = true;
 }
 
-function hideFilteredList () {
+function hideFilteredList() {
 	//Hide filtered list and show the tutorprofile.
 	$.filteredListTable.visible = false;
 	$.profileView.visible = true;
@@ -96,14 +100,19 @@ function hideFilteredList () {
 }
 
 ///////////////////////////////////////////////////
-function filteredTableClick (e) {
+function filteredTableClick(e) {
+	var rowsData = dataOfRow();
 	var index = e.index;
 	//hideFilteredList();
 	//var tutorProfileView = Alloy.createController("centralView/home").getView();
 	//$.profileView.add(tutorProfileView);
-	Alloy.createController ("custom/filteredContentWindow", {
-		screenType : "tutorProfileScreen"
-	}).getView ().open ();
+	Alloy.createController("custom/filteredContentWindow", {
+		screenType : "tutorProfileScreen",
+		title : rowsData[index].name,
+		exp : rowsData[index].experience,
+		loc : rowsData[index].location,
+		intro : rowsData[index].intro
+	}).getView().open();
 }
 
 /*$.filteredContentWindow.addEventListener('androidback', function(){
@@ -113,3 +122,18 @@ function filteredTableClick (e) {
  showFilteredList();
  }
  });*/
+var actionBar;
+
+$.filteredContentWindow.addEventListener("open", function() {
+
+	actionBar = $.filteredContentWindow.activity.actionBar;
+	if (actionBar) {
+		actionBar.title = "Tutme";
+		actionBar.displayHomeAsUp = true;
+		actionBar.homeButtonEnabled = true;
+		actionBar.onHomeIconItemSelected = function() {
+			$.filteredContentWindow.close();
+		};
+	}
+
+}); 

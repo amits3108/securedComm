@@ -1,6 +1,8 @@
 // Arguments passed into this controller can be accessed via the `$.args` object
 // directly or:
 var args = $.args;
+var network = require("network");
+var appKey = require("appKey");
 
 function createtimeLineRow(params) {
 	var params = params || {};
@@ -65,21 +67,146 @@ function createtimeLineRow(params) {
 }
 
 function postButtonClick() {
-	var timeLinePost = ($.timeLineField.value != "" || null) ? $.timeLineField.value : "";
-	var tableRow = createtimeLineRow({
-		timeLinePost : timeLinePost,
-		postCreationDate : "6:20pm June 15,2016"
-	});
+	/*var timeLinePost = ($.timeLineField.value != "" || null) ? $.timeLineField.value : "";
+	 var tableRow = createtimeLineRow({
+	 timeLinePost : timeLinePost,
+	 postCreationDate : "6:20pm June 15,2016"
+	 });
 
-	$.timeLineTable.appendRow(tableRow);
-	//Ti.API.info(" $.timeLineTable.data.length "+ $.timeLineTable.data.length);
-	//$.timeLineTable.scrollToIndex($.timeLineTable.data.length - 1);
-	$.timeLineField.value = "";
+	 $.timeLineTable.appendRow(tableRow);
+	 //Ti.API.info(" $.timeLineTable.data.length "+ $.timeLineTable.data.length);
+	 //$.timeLineTable.scrollToIndex($.timeLineTable.data.length - 1);
+	 $.timeLineField.value = "";*/
+
+	if ($.timeLineField.value == "" || null) {
+		alert("Enter your timeLine");
+	} else {
+		var timeLinePost = $.timeLineField.value;
+		sendPostToServer({
+			post_text : timeLinePost
+		});
+	}
 }
 
-var tableRow1 = createtimeLineRow({
-	timeLinePost : "Education is the key to success in life, and teachers make a lasting impact in the lives of their students. Solomon Ortiz",
-	postCreationDate : "6:20pm June 15,2016"
-});
-$.timeLineTable.appendRow(tableRow1);
-tableRow1 = null;
+function sendPostToServer(params) {
+	var params = params || {};
+	if (Titanium.Network.online) {
+		var user = Alloy.Globals.getData(appKey.USER);
+		var requestData = {
+			tutor_id : user.user_id,
+			post_text : params.post_text
+		};
+		network.postRequest({
+			type : "POST",
+			url : Alloy.CFG.URL.create_post,
+			requestData : requestData,
+			requestHeaders : {
+				"public-key" : "c8a1ad1332716aa15752422360e739a5",
+				"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+			},
+			callBack : sendPostToServerCallBack,
+		});
+
+	} else {
+		alert("Internet is not available");
+	}
+}
+
+function sendPostToServerCallBack(json) {
+	Ti.API.info(" callback json " + JSON.stringify(json));
+	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
+		if (json.data) {
+			if (json.data) {
+				Ti.API.info("json data found");
+			} else {
+				Ti.API.info("json data not found");
+			}
+		} else {
+			if (json.message)
+				alert(json.message + "");
+
+			var timeLinePost = ($.timeLineField.value != "" || null) ? $.timeLineField.value : "";
+
+			var tableRow1 = createtimeLineRow({
+				timeLinePost : timeLinePost,
+				postCreationDate : "6:20pm June 15,2016"
+			});
+			$.timeLineTable.appendRow(tableRow1);
+			tableRow1 = null;
+			$.timeLineField.value = "";
+		}
+		Ti.API.info("post completed");
+	} else {
+		//json && !(_.isEmpty(json)) && alert(json.message);
+		_.isEmpty(json) && alert("Unable to Post your message. Please try again later.");
+		if (json && json.error) {
+			if (json.message) {
+				alert(json.message + "");
+			} else {
+				alert("Something went wrong, Please try again");
+			}
+		}
+		Ti.API.error("error found");
+	}
+
+}
+
+/*var tableRow1 = createtimeLineRow({
+ timeLinePost : "Education is the key to success in life, and teachers make a lasting impact in the lives of their students. Solomon Ortiz",
+ postCreationDate : "6:20pm June 15,2016"
+ });
+ $.timeLineTable.appendRow(tableRow1);
+ tableRow1 = null;*/
+
+function getAllPostFromServer() {
+	if (Titanium.Network.online) {
+		var user = Alloy.Globals.getData(appKey.USER);
+		var requestData = {
+			tutor_id : user.user_id,
+		};
+		network.postRequest({
+			type : "GET",
+			url : Alloy.CFG.URL.get_post,
+			requestData : requestData,
+			requestHeaders : {
+				"public-key" : "c8a1ad1332716aa15752422360e739a5",
+				"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123", //"79c74e91e49b623f6ea02435e2725"
+				tutor_id : user.user_id,
+			},
+			callBack : getAllPostFromServerCallBack,
+		});
+
+	} else {
+		//alert("Internet is not available");
+	}
+}
+
+//getAllPostFromServer();
+
+function getAllPostFromServerCallBack(json) {
+	Ti.API.info(" getAllPostFromServerCallBack json " + JSON.stringify(json));
+	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
+		if (json.data) {
+			if (json.data) {
+				Ti.API.info("json data found");
+			} else {
+				Ti.API.info("json data not found");
+			}
+		} else {
+			if (json.message)
+				alert(json.message + "");
+		}
+		Ti.API.info("post completed");
+	} else {
+		//json && !(_.isEmpty(json)) && alert(json.message);
+		_.isEmpty(json) && alert("Unable to Post your message. Please try again later.");
+		if (json && json.error) {
+			if (json.message) {
+				alert(json.message + "");
+			} else {
+				alert("Something went wrong, Please try again");
+			}
+		}
+		Ti.API.error("error found");
+	}
+}

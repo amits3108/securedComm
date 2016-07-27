@@ -47,9 +47,6 @@ $.linkedIn.addEventListener('click', function(e) {
 
 // API call for registration
 function register() {
-	//openTutorProfile ();
-	//utils.Loading.showSpinner();
-
 	var user = {};
 	var email = ($.emailAddress.value).trim();
 	/*var emailValid = validation.validateEmail ({
@@ -82,19 +79,17 @@ function register() {
 							//userDeviceToken : Alloy.Globals.getData("deviceId") || "",
 							password : $.password.value
 						};
-						/*network.postRequest ({
-						 type : "POST",
-						 url : Alloy.CFG.URL.register,
-						 requestData : requestData,
-						 requestHeaders : {
-						 //"Content-Type" : "application/json",
-						 "public-key" : "c8a1ad1332716aa15752422360e739a5",
-						 "token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
-						 },
-						 callBack : callBack,
-						 });*/
-						openTutorProfile();
-						setUserValues();
+						network.postRequest({
+							type : "POST",
+							url : Alloy.CFG.URL.register,
+							requestData : requestData,
+							requestHeaders : {
+								//"Content-Type" : "application/json",
+								"public-key" : "c8a1ad1332716aa15752422360e739a5",
+								"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
+							},
+							callBack : callBack,
+						});
 						Ti.API.info("Register successfully");
 					} else {
 						alert("Check Internet Connection");
@@ -120,15 +115,15 @@ function callBack(json) {
 	//utils.Loading.hideSpinner();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		openTutorProfile();
-		setUserValues();
+		setUserValues(json.data);
 		Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
 		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
-		if(json && json.error){
-			if(json.message){
-				alert(json.message+"");
-			}else{
+		if (json && json.error) {
+			if (json.message) {
+				alert(json.message + "");
+			} else {
 				alert("Something went wrong, Please try again");
 			}
 		}
@@ -138,7 +133,6 @@ function callBack(json) {
 
 function onRegisterClick() {
 	register();
-	//openTutorProfile();
 }
 
 function openTutorProfile() {
@@ -150,10 +144,19 @@ function openTutorProfile() {
 	closeSignUpScreen();
 }
 
-function setUserValues() {
+function setUserValues(res) {
+	var user_type = null;
+	if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
+		user_type = 1;
+	} else {
+		user_type = 2;
+	}
+
 	var user = {};
 	user.name = $.name.value;
 	user.email = ($.emailAddress.value).trim();
 	user.phone = $.phoneNo.value;
+	user.user_id = res.id;
+	user.user_type = user_type;
 	Alloy.Globals.setData(appKey.USER, user);
 }

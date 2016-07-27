@@ -50,7 +50,7 @@ $.menuTable.addEventListener('click', function(e){
 	var view = null;
 	var title = null;
 	Alloy.Globals.slider && Alloy.Globals.slider.toggleLeftWindow();
-	if(lastIndex == index){
+	if((index!=7) && (lastIndex == index)){
 		return;
 	}
 	switch(index) {

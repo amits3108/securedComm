@@ -19,8 +19,20 @@
 				<View id="classNumberDropDown"/>
 			</View>
 			<View id="optionSelectionView2">
-				<View id="subjectType" onClick="subjectTypeClick">
+				<View id="coursesType" onClick="CoursesTypeClick">
+					<Label id="coursesTypeText"/>
+					<ImageView id="dropdownImage"/>
+				</View>
+			</View>
+			<View id="optionSelectionView2">
+				<View id="coursesType" onClick="subjectTypeClick">
 					<Label id="subjectTypeText"/>
+					<ImageView id="dropdownImage"/>
+				</View>
+			</View>
+			<View id="optionSelectionView2">
+				<View id="timeType" onClick="timeTypeClick">
+					<Label id="timeTypeText"/>
 					<ImageView id="dropdownImage"/>
 				</View>
 			</View>

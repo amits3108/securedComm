@@ -26,15 +26,15 @@ function onLoginClick() {
 	var email = ($.emailAddress.value).trim();
 	var password = $.password.value;
 	/*var emailValid = validation.validateEmail({
-		email : email
-	});*/
+	 email : email
+	 });*/
 	if (email.length > 1 /*&& emailValid*/) {
 		user.email = email.toLowerCase();
 		if (password.length > 1) {
 			/*var win = Alloy.createController("sliderContent/slider").getView();
-			win.open();
-			utils.setLoginStatus();
-			closeLoginScreen();*/
+			 win.open();
+			 utils.setLoginStatus();
+			 closeLoginScreen();*/
 			if (Titanium.Network.online) {
 				var requestData = {// email, password
 					username : email,
@@ -68,36 +68,41 @@ function callBack(json) {
 	//utils.Loading.hideSpinner();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		utils.setLoginStatus();
-		if(json.data && json.data.user_type && json.data.user_type == 1 || "1"){
-			Ti.API.info("student login");
-			Alloy.Globals.setData(appKey.KEYS.USERTYPE, "student");
-		}else{
-			Ti.API.info("tutor login");
-			Alloy.Globals.setData(appKey.KEYS.USERTYPE, "tutor");
+
+		if (json.data) {
+			if (json.data && json.data.user_type && json.data.user_type == "1") {
+				Ti.API.info("student login");
+				Alloy.Globals.setData(appKey.KEYS.USERTYPE, "student");
+			} else {
+				Ti.API.info("tutor login");
+				Alloy.Globals.setData(appKey.KEYS.USERTYPE, "tutor");
+			}
+
+			setUserValues({
+				full_name : json.data.full_name,
+				email : json.data.email,
+				user_type : json.data.user_type,
+				phone : (json.data.phone) ? json.data.phone : "",
+				user_id : json.data.id,
+			});
 		}
-		
-		setUserValues({
-			full_name : json.data.full_name,
-			email : json.data.email,
-		});
-		
-		var win = Alloy.createController("sliderContent/slider",{
+
+		var win = Alloy.createController("sliderContent/slider", {
 			closeLoginScreen : closeLoginScreen
 		}).getView();
 		win.open();
 		/*setTimeout(function(){
-			closeLoginScreen();	
-		},1500);*/
-		
-		
+		 closeLoginScreen();
+		 },1500);*/
+
 		Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
 		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
-		if(json && json.error){
-			if(json.message){
-				alert(json.message+"");
-			}else{
+		if (json && json.error) {
+			if (json.message) {
+				alert(json.message + "");
+			} else {
 				alert("Something went wrong, Please try again");
 			}
 		}
@@ -109,5 +114,9 @@ function setUserValues(params) {
 	var user = {};
 	user.name = params.full_name;
 	user.email = params.email;
+	user.phone = params.phone;
+	user.user_id = params.user_id;
+	user.user_type = params.user_type;
+
 	Alloy.Globals.setData(appKey.USER, user);
 }

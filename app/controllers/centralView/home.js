@@ -1,7 +1,13 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
+if (args) {
+	$.name.text = args.title;
+	$.introDetail.value = args.intro;
+	$.experience.text = "Experience : " + args.exp + " years";
+	$.location.text = "Location : " + args.loc;
+}
 var courses = [{
-	courseName : 'Physics', 
+	courseName : 'Physics',
 	timingOffered : "10:30am -11:30am,12:00-1:00pm,5:00pm-6:00pm",
 	packages : "hourly,Weekly,Monthly,Annualy"
 }, {

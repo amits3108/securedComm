@@ -1,86 +1,119 @@
 // Arguments passed into this controller can be accessed via the `$.args` object
 // directly or:
 var args = $.args;
-
+var Dialogs = require("yy.tidialogs");
+var network = require("network");
 var customtutorTypeDropDownTable = null;
-/*function tutorTypeClick () {
-	//Ti.API.error("*******tutorTypeClick ********1");
-	if (!customtutorTypeDropDownTable) {
-		//Ti.API.error("*******tutorTypeClick ********2");
-		customtutorTypeDropDownTable = require ("customized/customUI").customDropDown ({
-			rowsArray : ["Home Tutor", "Tutor's Home", "Self Institution", "Educational Instituation"]
-		});
-		//Ti.API.error("*******tutorTypeClick ********3");
-		$.tutorTypeDropDown.add (customtutorTypeDropDownTable);
-		$.tutorTypeDropDown.height = Titanium.UI.SIZE;
-	}
-	else {
-		//Ti.API.error("*******tutorTypeClick ********4");
-		$.tutorTypeDropDown.remove (customtutorTypeDropDownTable);
-		$.tutorTypeDropDown.height = 0;
-		customtutorTypeDropDownTable = null;
-	}
-}*/
-function tutorTypeClick(){
-	openPopUpWindow ({
-		dropDownType : "tutorTypeDialog"
+
+var selectedTutorType = [];
+var selectedTime = [];
+var selectedCourses = [];
+var selectedSubjects = [];
+var selectedClass = [];
+var subjectData = Ti.App.Properties.getObject('subjectsArrayList');
+var coursesData = Ti.App.Properties.getObject('coursesList');
+var timeData = Ti.App.Properties.getObject('classTime');
+function tutorTypeClick() {
+	selectedTutorType.length = 0;
+	var tutorpicker = Dialogs.createMultiPicker({
+		title : "Tutor Type",
+		options : ["Home Tutor", "Tutor's Home", "Self Institution", "Educational Instituation"],
+		//selected : ["B", "C"], // <-- optional
+		okButtonTitle : "Submit", // <-- optional
+		cancelButtonTitle : "Cancel" // <-- optional
 	});
+
+	// Add the click listener
+	tutorpicker.addEventListener('click', function(e) {
+		var indexes = e.indexes;
+		// selected indexes
+		var selections = e.selections;
+		Ti.API.info(JSON.stringify(e.indexes));
+		for (var i = 0; i < indexes.length; i++) {
+			selectedTutorType.push(indexes[i]);
+		}
+		// the actual selected options.
+	});
+
+	// Cancel listener
+	tutorpicker.addEventListener('cancel', function() {
+		Ti.API.info("dialog was cancelled");
+	});
+
+	// open it
+	tutorpicker.show();
+	/*openPopUpWindow ({
+	 dropDownType : "tutorTypeDialog"
+	 });*/
 }
 
 var customclassNumberDropDownTable = null;
-/*function classNumberClick () {
-	//Ti.API.error("*******classNumberClick ********1");
-	if (!customclassNumberDropDownTable) {
-		Ti.API.error ("*******classNumberClick ********2");
-		customclassNumberDropDownTable = require ("customized/customUI").customDropDown ({
-			rowsArray : ["8th", "9th", "10th", "11th", "12th"]
-		});
-		//Ti.API.error("*******classNumberClick ********3");
-		$.classNumberDropDown.add (customclassNumberDropDownTable);
-		$.classNumberDropDown.height = Titanium.UI.SIZE;
-	}
-	else {
-		//Ti.API.error("*******classNumberClick ********4");
-		$.classNumberDropDown.remove (customclassNumberDropDownTable);
-		$.classNumberDropDown.height = 0;
-		customclassNumberDropDownTable = null;
-	}
-}*/
-function classNumberClick () {
-	openPopUpWindow ({
-		dropDownType : "classTypeDialog"
+
+function classNumberClick() {
+	selectedClass.length = 0;
+	var classpicker = Dialogs.createMultiPicker({
+		title : "Select Classes",
+		options : timeData, //["8th", "9th", "10th", "11th", "12th"],
+		//selected : ["B", "C"], // <-- optional
+		okButtonTitle : "Submit", // <-- optional
+		cancelButtonTitle : "Cancel" // <-- optional
 	});
+
+	// Add the click listener
+	classpicker.addEventListener('click', classPickerClickCallback);
+
+	// Cancel listener
+	classpicker.addEventListener('cancel', function() {
+		Ti.API.info("dialog was cancelled");
+	});
+	classpicker.show();
+	/*openPopUpWindow ({
+	 dropDownType : "classTypeDialog"
+	 });*/
+}
+
+function classPickerClickCallback(e) {
+	var indexes = e.indexes;
+	// selected indexes
+	var selections = e.selections;
+	// the actual selected options.
+	Ti.API.info(JSON.stringify(e.indexes));
+	for (var i = 0; i < indexes.length; i++) {
+		Ti.API.info("%%^%^%^%^%^%^%^" + indexes[i]);
+		selectedClass.push(indexes[i]);
+	}
+	Ti.API.info(selectedClass + "**********");
 }
 
 /////////////// search bar View visiblity /////////
-function hideFilteringViews () {
+function hideFilteringViews() {
 	$.optionSelectionView.visible = false;
 }
 
-function showFilteringViews () {
+function showFilteringViews() {
 	$.optionSelectionView.visible = true;
 }
 
 ///////////////////////////////////////////////////
 
 ////////  filter Table Visibility /////////////////
-function showFilteredList () {
+function showFilteredList() {
 	//$.filteredListTable.visible = true;
 }
 
-function hideFilteredList () {
+function hideFilteredList() {
 	//$.filteredListTable.visible = false;
 }
 
 ///////////////////////////////////////////////////
 
 ///////   dropDown Visiblity //////////////////////
-function hidedropDown () {
+function hidedropDown() {
 	$.tutorTypeDropDown.visible = false;
 	$.classNumberDropDown.visible = false;
 }
 
-function showDropDown () {
+function showDropDown() {
 	$.tutorTypeDropDown.visible = true;
 	$.classNumberDropDown.visible = true;
 }
@@ -88,30 +121,126 @@ function showDropDown () {
 ///////////////////////////////////////////////////
 
 /////////////      After retrun click on search bar        //////////////
-function doFiltering () {
+function doFiltering() {
 	//hidedropDown ();
 	//showFilteredList ();
 	//filteredRowUI ();
 }
 
-function subjectTypeClick () {
-	openPopUpWindow ({
-		dropDownType : "SubjectTypeDialog"
+function subjectTypeClick() {
+	selectedSubjects.length = 0;
+	var subjectspicker = Dialogs.createMultiPicker({
+		title : "Select Subjects",
+		options : subjectData,
+		//selected : ["B", "C"], // <-- optional
+		okButtonTitle : "Submit", // <-- optional
+		cancelButtonTitle : "Cancel" // <-- optional
 	});
+
+	// Add the click listener
+	subjectspicker.addEventListener('click', function(e) {
+		var indexes = e.indexes;
+		// selected indexes
+		var selections = e.selections;
+		for (var i = 0; i < indexes.length; i++) {
+			Ti.API.info("%%^%^%^%^%^%^%^" + indexes[i]);
+			selectedSubjects.push(indexes[i]);
+		}
+		// the actual selected options.
+	});
+
+	// Cancel listener
+	subjectspicker.addEventListener('cancel', function() {
+		Ti.API.info("dialog was cancelled");
+	});
+	subjectspicker.show();
 }
 
-function openPopUpWindow (params) {
+function CoursesTypeClick() {
+	selectedCourses.length = 0;
+	var coursespicker = Dialogs.createMultiPicker({
+		title : "Select Courses",
+		options : coursesData,
+		//selected : ["B", "C"], // <-- optional
+		okButtonTitle : "Submit", // <-- optional
+		cancelButtonTitle : "Cancel" // <-- optional
+	});
+
+	// Add the click listener
+	coursespicker.addEventListener('click', function(e) {
+		var indexes = e.indexes;
+		// selected indexes
+		var selections = e.selections;
+		// the actual selected options.
+		for (var i = 0; i < indexes.length; i++) {
+			Ti.API.info("%%^%^%^%^%^%^%^" + indexes[i]);
+			selectedCourses.push(indexes[i]);
+		}
+	});
+
+	// Cancel listener
+	coursespicker.addEventListener('cancel', function() {
+		Ti.API.info("dialog was cancelled");
+	});
+	coursespicker.show();
+}
+
+function timeTypeClick() {
+	selectedTime.length = 0;
+	var timepicker = Dialogs.createMultiPicker({
+		title : "Select Time",
+		options : timeData,
+		//selected : ["B", "C"], // <-- optional
+		okButtonTitle : "Submit", // <-- optional
+		cancelButtonTitle : "Cancel" // <-- optional
+	});
+
+	// Add the click listener
+	timepicker.addEventListener('click', function(e) {
+		var indexes = e.indexes;
+		// selected indexes
+		var selections = e.selections;
+		// the actual selected options.
+		for (var i = 0; i < indexes.length; i++) {
+			Ti.API.info("%%^%^%^%^%^%^%^" + indexes[i]);
+			selectedTime.push(indexes[i]);
+		}
+	});
+
+	// Cancel listener
+	timepicker.addEventListener('cancel', function() {
+		Ti.API.info("dialog was cancelled");
+	});
+	timepicker.show();
+}
+function openPopUpWindow(params) {
 	var params = params || {};
-	Alloy.createController ("custom/popUpWindow",{
+	Alloy.createController("custom/popUpWindow", {
 		dropDownType : params.dropDownType
-	}).getView ().open ();
+	}).getView().open();
 }
 
-function applyButtonclick () {
-	Alloy.createController ("custom/filteredContentWindow").getView ().open ();
-}
+function applyButtonclick() {
+	Alloy.createController("custom/filteredContentWindow").getView().open();
+	Ti.API.info(selectedTutorType,selectedTime,selectedCourses,selectedSubjects,selectedClass);
+	/*if (Titanium.Network.online) {
+		network.postRequest({
+			type : "GET",
+			url : Alloy.CFG.URL.getTimings,
+			requestData : {},
+			requestHeaders : {
+				"public-key" : "c8a1ad1332716aa15752422360e739a5",
+				"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+			},
+			callBack : function(e) {
+				Ti.API.error(" ddd " + e + " getSubjects " + JSON.stringify(e));
+				Alloy.createController("custom/filteredContentWindow").getView().open();
+			},//params.callBack,
+		});
 
-//require("utils").getCourses();
-//require("utils").getSubjects();
-//require("utils").getTimings();
+	} else {
+		alert("Internet is not available");
+	}*/
+
+}
 

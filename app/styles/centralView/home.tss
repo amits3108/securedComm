@@ -16,7 +16,7 @@
 }
 
 "#name":{
-	text: "Ravi Shankar",
+	//text: "Ravi Shankar",
 	font: {
 		fontSize: 20
 	},
