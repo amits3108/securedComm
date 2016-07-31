@@ -1,0 +1,82 @@
+<h1>Android Ratingbar Module</h1>
+<h2>Description</h2>
+<p>A RatingBar is an extension that shows a rating in stars. The user can touch/drag to set the rating when using RatingBar.</p>
+<h2>Accessing the ratingbar Module</h2>
+<p>To access this module from JavaScript, you would do the following:</p>
+<pre><code>var ratingbar = require("titutorial.ratingbar");
+</code></pre>
+<p>The ratingbar variable is a reference to the Module object.</p>
+<h2>Reference</h2>
+<p>This module converts native Android ratingbar widget to Titanium component. (http://developer.android.com/reference/android/widget/RatingBar.html)</p>
+<h2>Properties</h2>
+<h3>setRating(rating)</h3>
+<p>Sets the rating (the number of stars filled).
+<strong>Parameters</strong>
+rating - The rating to set (Must be a floating point value). </p>
+<h3>setStepSize(stepSize)</h3>
+<p>Sets the step size (granularity) of this rating bar.
+<strong>Parameters</strong>
+stepSize - The step size of this rating bar. For example, if half-star granularity is wanted, this would be 0.5 (Must be a floating point value).</p>
+<h3>setStars(stars)</h3>
+<p>The number of stars (or rating items) to show
+<strong>Parameters</strong>
+stars - Must be an integer value, such as "100". </p>
+<h3>setIsIndicator(isIndicator)</h3>
+<p>Whether this rating bar is an indicator (and non-changeable by the user).
+<strong>Parameters</strong>
+isIndicator - Must be a boolean value, either "true" or "false". </p>
+<h2>Event Listeners</h2>
+<h3>change</h3>
+<p>Listener to be called when the rating changes(event.rating will give selected rating value)</p>
+<h2>Usage</h2>
+<p>var win = Ti.UI.createWindow({
+    backgroundColor : "#fff",
+    layout : "vertical"
+});</p>
+<p>var ratingbar = require('titutorial.ratingbar');
+Ti.API.info("module is =&gt; " + ratingbar);</p>
+<p>var ratingBar1 = ratingbar.createRatingBar({
+    top : 50,
+    left:15,
+    rating : 2,
+    stars : 6,
+    stepSize : 1.5,
+    isIndicator : false
+});
+win.add(ratingBar1);</p>
+<p>var ratingValue = Ti.UI.createLabel({
+    text : 'Rating Value : '+ratingBar1.getRating(),
+    color : '#000',
+    font : {fontSize:'20dp'},
+    height : Ti.UI.SIZE,
+    width : Ti.UI.SIZE,
+    top : 45,
+    textAlign : 'center'
+});
+win.add(ratingValue);</p>
+<p>ratingBar1.addEventListener('change', function(e) {
+    ratingValue.text = "Rating Value : "+e.rating.toString();
+});</p>
+<p>var ratingBar2 = ratingbar.createRatingBar({
+    top : 20,
+    left:15,
+    rating : 3,
+    stars : 5,
+    stepSize : 1,
+    isIndicator : true
+});
+win.add(ratingBar2);</p>
+<p>win.open();</p>
+<h2>Using Custom Resources</h2>
+<p>If you want to use custom resource in your App you can override default resource. For that you have to place your 
+custom resource inside <strong>app_root/platform/android/res</strong> or <strong>app_root/modules/android/titutorial.ratingbar/0.1/platform/android/res</strong>
+in the same name. </p>
+<p>For example, if you want to override <strong>star_on</strong> image you have to override your custom image with the same name <strong>star_on.png</strong></p>
+<h2>Author</h2>
+<p>Karthi Ponnusamy - karthi.nkl@gmail.com</p>
+<p>Prakash Muthaian - prakashmca.m@gmail.com</p>
+<h2>License</h2>
+<p>Copyright (c) 2013 Karthi Ponnusamy</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>

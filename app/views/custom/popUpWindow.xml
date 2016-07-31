@@ -1,5 +1,0 @@
-<Alloy>
-	<Window id="popUpWindow" class="container">
-		<View id="containerView" backgroundColor="#fff" height="Ti.UI.SIZE" width="Ti.UI.FILL" opacity="1"/>
-	</Window>
-</Alloy>

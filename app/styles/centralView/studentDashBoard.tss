@@ -1,64 +1,64 @@
 
 "#mainScreen":{
-	scrollType : "vertical",
-	backgroundColor : "#E3F1FA",
+	scrollType: "vertical",
+	backgroundColor: "#E3F1FA"
 }
 
 "#optionSelectionView":{
-	height : Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
 	width: "90%",
 	//top: '80dp',
 	backgroundColor: 'transparent',
-	borderRadius : 4,
-	touchEnabled : true
+	borderRadius: 4,
+	touchEnabled: true
 }
 
 "#tutorType":{
-	height : 40,
-	width : "60%",
-	backgroundColor : Alloy.CFG.themeColor,
-	left : 0,
-	borderRadius : 4,
-	touchEnabled : true
+	height: 40,
+	width: "60%",
+	backgroundColor: Alloy.CFG.themeColor,
+	left: 0,
+	borderRadius: 4,
+	touchEnabled: true
 }
 
 "#classNumber":{
-	height : 40,
-	width : "30%",
-	backgroundColor : Alloy.CFG.themeColor,
-	right : 0,
-	borderRadius : 4,
-	touchEnabled : true
+	height: 40,
+	width: "30%",
+	backgroundColor: Alloy.CFG.themeColor,
+	right: 0,
+	borderRadius: 4,
+	touchEnabled: true
 }
 
 "#tutorTypeText":{
-	text : "Tutor Type",
-	color : "#fff",
-	font : {
-		fontSize : '15sp',
+	text: "Tutor Type",
+	color: "#fff",
+	font: {
+		fontSize: '15sp',
 		fontStyle: 'bold'
 	},
-	left : 7,
-	touchEnabled : false
+	left: 7,
+	touchEnabled: false
 }
 
 "#dropdownImage":{
-	image : "/images/dropdown_white.png",
-	height : 15,
-	width : 15,
-	right : 10,
-	touchEnabled : false
+	image: "/images/dropdown_white.png",
+	height: 15,
+	width: 15,
+	right: 10,
+	touchEnabled: false
 }
 
 "#classNumberText":{
-	text : "Class",
-	color : "#fff",
-	font : {
-		fontSize : '15sp',
+	text: "Class",
+	color: "#fff",
+	font: {
+		fontSize: '15sp',
 		fontStyle: 'bold'
 	},
-	left : 7,
-	touchEnabled : false
+	left: 7,
+	touchEnabled: false
 }
 
 "#tutorTypeDropDown":{
@@ -66,7 +66,7 @@
 	width: "60%",
 	//top: '120dp',
 	top: 40,
-	left : 15
+	left: 15
 }
 
 "#classNumberDropDown":{
@@ -74,89 +74,128 @@
 	width: "30%",
 	//top: '120dp',
 	top: 40,
-	right : 15
+	right: 15
 }
 
 "#filteredListTable":{
-	height : Titanium.UI.SIZE,
-	width : "90%",
-	top : '350',
+	height: Titanium.UI.SIZE,
+	width: "90%",
+	top: '350',
 	//top : 50,
-	backgroundColor : 'transparent'
+	backgroundColor: 'transparent'
 }
 
 "#optionSelectionView2":{
-	height : 40,
+	height: 40,
 	width: "90%",
 	//top: '270',
-	top : 20, 
+	top: 20,
 	backgroundColor: 'transparent',
-	borderRadius : 4,
-	touchEnabled : true
+	borderRadius: 4,
+	touchEnabled: true
 }
 
 "#subjectType":{
-	height : Titanium.UI.FILL,
-	width : Titanium.UI.FILL,
-	backgroundColor : Alloy.CFG.themeColor,
-	left : 0,
-	borderRadius : 4,
-	touchEnabled : true
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL,
+	backgroundColor: Alloy.CFG.themeColor,
+	left: 0,
+	borderRadius: 4,
+	touchEnabled: true
 }
 
 "#subjectTypeText":{
-	text : "Subject Type",
-	color : "#fff",
-	font : {
-		fontSize : '15sp',
+	text: "Subject Type",
+	color: "#fff",
+	font: {
+		fontSize: '15sp',
 		fontStyle: 'bold'
 	},
-	left : 7,
-	touchEnabled : false
+	left: 7,
+	touchEnabled: false
 }
 "#coursesType":{
-	height : Titanium.UI.FILL,
-	width : Titanium.UI.FILL,
-	backgroundColor : Alloy.CFG.themeColor,
-	left : 0,
-	borderRadius : 4,
-	touchEnabled : true
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL,
+	backgroundColor: Alloy.CFG.themeColor,
+	left: 0,
+	borderRadius: 4,
+	touchEnabled: true
 }
 "#coursesTypeText":{
-	text : "Courses Type",
-	color : "#fff",
-	font : {
-		fontSize : '15sp',
+	text: "Courses Type",
+	color: "#fff",
+	font: {
+		fontSize: '15sp',
 		fontStyle: 'bold'
 	},
-	left : 7,
-	touchEnabled : false
+	left: 7,
+	touchEnabled: false
 }
 "#timeType":{
-	height : Titanium.UI.FILL,
-	width : Titanium.UI.FILL,
-	backgroundColor : Alloy.CFG.themeColor,
-	left : 0,
-	borderRadius : 4,
-	touchEnabled : true
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL,
+	backgroundColor: Alloy.CFG.themeColor,
+	left: 0,
+	borderRadius: 4,
+	touchEnabled: true
 }
 "#timeTypeText":{
-	text : "Time Type",
-	color : "#fff",
-	font : {
-		fontSize : '15sp',
+	text: "Time Type",
+	color: "#fff",
+	font: {
+		fontSize: '15sp',
 		fontStyle: 'bold'
 	},
-	left : 7,
-	touchEnabled : false
+	left: 7,
+	touchEnabled: false
 }
 "#applyButton":{
-	title : "Apply",
-	color : "#fff",
-	height : 40,
-	width : "90%",
-	top : 50,
-	backgroundColor : Alloy.CFG.themeColor,
-	borderRadius : 4,
-	//visible : false
+	title: "Apply",
+	color: "#fff",
+	height: 40,
+	width: "90%",
+	top: 50,
+	backgroundColor: Alloy.CFG.themeColor,
+	borderRadius: 4
+}
+
+"#HighestQualificationType":{
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL,
+	backgroundColor: Alloy.CFG.themeColor,
+	left: 0,
+	borderRadius: 4,
+	touchEnabled: true
+}
+
+"#HighestQualificationTypeText":{
+	text: "Highest Qualification",
+	color: "#fff",
+	font: {
+		fontSize: '15sp',
+		fontStyle: 'bold'
+	},
+	left: 7,
+	touchEnabled: false
+}
+
+"#languageType":{
+	height: Titanium.UI.FILL,
+	width: Titanium.UI.FILL,
+	backgroundColor: Alloy.CFG.themeColor,
+	left: 0,
+	borderRadius: 4,
+	touchEnabled: true
+}
+
+"#languageTypeText":{
+	text: "Language",
+	color: "#fff",
+	font: {
+		fontSize: '15sp',
+		fontStyle: 'bold'
+	},
+	left: 7,
+	touchEnabled: false
 }

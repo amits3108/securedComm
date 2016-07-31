@@ -4,7 +4,7 @@ var args = $.args;
 
 if (args) {
 	$.name.text = args.name;
-	$.experience.text = args.experience;
-	$.location.text = args.location;
+	$.experience.text = "Experience : "+ args.experience+" years";
+	$.location.text = "Location : "+args.location;
 	$.intro.text = args.intro;
 } 

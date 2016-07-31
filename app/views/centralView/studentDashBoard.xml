@@ -36,6 +36,18 @@
 					<ImageView id="dropdownImage"/>
 				</View>
 			</View>
+			<View id="optionSelectionView2">
+				<View id="HighestQualificationType" onClick="HighestQualificationTypeClick">
+					<Label id="HighestQualificationTypeText"/>
+					<ImageView id="dropdownImage"/>
+				</View>
+			</View>
+			<View id="optionSelectionView2">
+				<View id="languageType" onClick="languageTypeClick">
+					<Label id="languageTypeText"/>
+					<ImageView id="dropdownImage"/>
+				</View>
+			</View>
 			<Button id="applyButton" onClick="applyButtonclick"/>
 		</View>
 		<!--<TableView id="filteredListTable"/>-->

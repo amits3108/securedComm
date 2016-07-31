@@ -8,7 +8,8 @@ var courseRow = function(params) {
 		backgroundColor : "#FFF",
 		layout : 'vertical',
 		borderRadius : 4,
-		top : 10
+		//top : 10,
+		bottom : 10
 	});
 	var courseName = Ti.UI.createLabel({
 		text : params.courseName,

@@ -10,7 +10,7 @@
 	layout: 'vertical',
 	height: Titanium.UI.SIZE,
 	width: '95%',
-	backgroundColor: "#FFFFFF",
+	backgroundColor: "#FFF",
 	borderRadius: 3,
 	top: 8
 }
@@ -45,25 +45,26 @@
 "#stars":{
 	width: Titanium.UI.FILL,
 	height: 15,
-	image: "/images/stars.png",
+	image: "/images/five_stars.jpg",
 	left: 0
 }
 
 "#intro":{
-	text: "intro",
-	color: "#B2DAF6",
+	text: "About",
+	color: Alloy.CFG.lightBlueColor,
 	left: 8,
 	top: 25
 }
 
 "#introDetail":{
-	hintText: "Tell us Someting about yours",
+	hintText: "Tell us Someting about yours(Max. 100 words.)",
 	width: "95%",
 	top: 10,
 	height: 70,
 	scrollable: true,
 	borderColor: "#000",
 	borderRadius: 3,
+	maxLength : 100,
 	backgroundColor: 'transparent',
 	font: {
 		fontSize: 14
@@ -138,5 +139,6 @@
 		fontSize: 16
 	},
 	color: "#000",
-	left: 10
+	left: 10,
+	bottom : 10
 }

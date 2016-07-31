@@ -25,13 +25,13 @@ var onSubmit = function(e) {
 			
 			/*if (Titanium.Network.online) {
 				var requestData = {
-					user_name :"sandeep",
-					user_email : "sandeep@mailinator.com",
+					user_name : $.name.value,//"sandeep",
+					user_email : $.emailAddress.value,//"sandeep@mailinator.com",
 					user_dob : "1989-10-04",
 					user_gender : "Male" ,
-					user_mobile : "1234543454" ,
+					user_mobile : $.contactNo.value,//"1234543454" ,
 					user_profile_pic : "",
-					address_address : "shastri nagar, bahadurgarh, haryana",
+					address_address : $.address_permanent.value,//"shastri nagar, bahadurgarh, haryana",
 					address_city : "bahadurgarh",
 					address_zipcode : "124507",
 					tutor_experience : "12" ,

@@ -37,7 +37,7 @@ $.scrollableView.addEventListener('dragend',function(res){
 	onScrollEndOFViews(res);
 });
 
-var tutorProfileView = Alloy.createController("centralView/home").getView();
+var tutorProfileView = Alloy.createController("centralView/tutorProfileHome").getView();
 $.profileView.add(tutorProfileView);
 
 var timeLine = Alloy.createController("centralView/timeLine").getView();

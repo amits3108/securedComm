@@ -40,7 +40,7 @@
 "#stars":{
 	width: Titanium.UI.FILL,
 	height: 15,
-	image: "/images/stars.png",
+	image: "/images/five_stars.jpg",
 	left: 0
 }
 
