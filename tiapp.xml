@@ -12,7 +12,7 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>false</analytics>
     <!--<guid>70e30a4c-3b95-489a-9fff-90ce8c0b5b70</guid> amit's windows system 04c324b1-b9ef-4a98-9666-efdc439e72d4-->
-    <!-- <guid>0c0483f2-3f4e-45a0-9777-caebe689e3c3</guid> amit's mac-->
+    <!-- <guid>04c324b1-b9ef-4a98-9666-efdc439e72d4</guid> amit's mac-->
     <guid>04c324b1-b9ef-4a98-9666-efdc439e72d4</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
