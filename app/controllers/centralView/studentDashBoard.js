@@ -244,3 +244,57 @@ function applyButtonclick() {
 
 }
 
+
+function HighestQualificationTypeClick(){
+	var qualificationDialog = Ti.UI.createOptionDialog({
+		cancel : 0,
+		options : ['Cancel','Doctorate', 'Post Graduate','Graduate','Senior Secondary','Higher Secondary','5th to 10th','1st to 4th'],
+		title : 'Highest Qualification',
+		selectedIndex : 0
+	});
+	qualificationDialog.show();
+	qualificationDialog.addEventListener('click', function(e) {
+		switch(e.index){
+			case 0 : 
+			break;
+			case 1 : 
+			break;
+			case 2 : 
+			break;
+			case 3 : 
+			break;
+			case 4 : 
+			break;
+			case 5 : 
+			break;
+			case 6 : 
+			break;
+			default:
+			break;
+		}
+		Ti.API.info('The button was clicked'+e.index);
+	});
+}
+
+function languageTypeClick(){
+	var languageDialog = Ti.UI.createOptionDialog({
+		cancel : 2,
+		options : ['English', 'Hindi', 'Cancel'],
+		title : 'Preferred Language',
+		selectedIndex : 1
+	});
+	languageDialog.show();
+	languageDialog.addEventListener('click', function(e) {
+		switch(e.index){
+			case 0 : 
+			Ti.API.info('The button was clicked2'+e.index);
+			break;
+			case 1 : 
+			Ti.API.info('The button was clicked2'+e.index);
+			break;
+			case 2 : 
+			Ti.API.info('The button was clicked2'+e.index);
+			break;
+		}
+	});	
+}

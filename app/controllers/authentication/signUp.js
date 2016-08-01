@@ -6,6 +6,7 @@ var utils = require("utils");
 var network = require("network");
 var validation = require("validation");
 var appKey = require("appKey");
+var spinner = require("spinner");
 
 function onSignUpOpen(params) {
 	var params = params || {};
@@ -71,6 +72,7 @@ function register() {
 					}
 
 					if (Titanium.Network.online) {
+						spinner.showSpinner();
 						var requestData = {// email, mobile, name, user_type,  password
 							email : email,
 							mobile : $.phoneNo.value,
@@ -112,7 +114,7 @@ function register() {
 
 function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
-	//utils.Loading.hideSpinner();
+	spinner.hideSpinner();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		openTutorProfile();
 		setUserValues(json.data);
@@ -140,7 +142,7 @@ function openTutorProfile() {
 
 	setUserValues();
 
-	Alloy.createController("authentication/newTutorProfile").getView().open();
+	Alloy.createController("authentication/profileNavigator").getView().open();
 	closeSignUpScreen();
 }
 

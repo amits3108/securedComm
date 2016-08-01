@@ -53,5 +53,4 @@ Alloy.CFG.URL = {
 	getTimings : baseURL + "cms/getTimings",
 	create_post : baseURL + "tutor/create_post",
 	get_post : baseURL + "tutor/get_post",
-	
 };

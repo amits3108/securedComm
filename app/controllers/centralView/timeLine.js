@@ -3,6 +3,7 @@
 var args = $.args;
 var network = require("network");
 var appKey = require("appKey");
+var spinner = require("spinner");
 
 function createtimeLineRow(params) {
 	var params = params || {};
@@ -91,6 +92,7 @@ function postButtonClick() {
 function sendPostToServer(params) {
 	var params = params || {};
 	if (Titanium.Network.online) {
+		spinner.showSpinner();
 		var user = Alloy.Globals.getData(appKey.USER);
 		var requestData = {
 			tutor_id : user.user_id,
@@ -114,6 +116,7 @@ function sendPostToServer(params) {
 
 function sendPostToServerCallBack(json) {
 	Ti.API.info(" callback json " + JSON.stringify(json));
+	spinner.hideSpinner();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		if (json.data) {
 			if (json.data) {
@@ -166,8 +169,8 @@ function getAllPostFromServer() {
 		};
 		network.postRequest({
 			type : "GET",
-			url : Alloy.CFG.URL.get_post,
-			requestData : requestData,
+			url : Alloy.CFG.URL.get_post+"/tutor_id/"+user.user_id,
+			//requestData : {},
 			requestHeaders : {
 				"public-key" : "c8a1ad1332716aa15752422360e739a5",
 				"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123", //"79c74e91e49b623f6ea02435e2725"
@@ -181,7 +184,7 @@ function getAllPostFromServer() {
 	}
 }
 
-//getAllPostFromServer();
+getAllPostFromServer();
 
 function getAllPostFromServerCallBack(json) {
 	Ti.API.info(" getAllPostFromServerCallBack json " + JSON.stringify(json));

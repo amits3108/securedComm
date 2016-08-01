@@ -2,6 +2,7 @@ var utils = require("utils");
 var validation = require("validation");
 var network = require("network");
 var appKey = require("appKey");
+var spinner = require("spinner");
 
 $.registerNow.addEventListener('click', function(e) {
 	Ti.API.info("**************");
@@ -21,7 +22,6 @@ function closeLoginScreen() {
 }
 
 function onLoginClick() {
-	//utils.Loading.showSpinner();
 	var user = {};
 	var email = ($.emailAddress.value).trim();
 	var password = $.password.value;
@@ -36,6 +36,7 @@ function onLoginClick() {
 			 utils.setLoginStatus();
 			 closeLoginScreen();*/
 			if (Titanium.Network.online) {
+				spinner.showSpinner();
 				var requestData = {// email, password
 					username : email,
 					password : password
@@ -65,7 +66,7 @@ function onLoginClick() {
 
 function callBack(json) {
 	Ti.API.info("login callback : \n " + JSON.stringify(json));
-	//utils.Loading.hideSpinner();
+	spinner.hideSpinner();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		utils.setLoginStatus();
 
@@ -91,10 +92,6 @@ function callBack(json) {
 			closeLoginScreen : closeLoginScreen
 		}).getView();
 		win.open();
-		/*setTimeout(function(){
-		 closeLoginScreen();
-		 },1500);*/
-
 		Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);

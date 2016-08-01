@@ -1,9 +1,0 @@
-
-".container" : {
-  
-}
-
-"#popUpWindow":{
-	opacity  : 0.5,
-	backgroundColor : "#000"
-}

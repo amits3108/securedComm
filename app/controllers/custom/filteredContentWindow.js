@@ -73,7 +73,7 @@ function dataOfRow() {
 }
 
 function addProfileView() {
-	var tutorProfileView = Alloy.createController("centralView/home", {
+	var tutorProfileView = Alloy.createController("centralView/tutorProfileHome", {
 		title : args.title,
 		exp : args.exp,
 		loc : args.loc,
@@ -103,9 +103,6 @@ function hideFilteredList() {
 function filteredTableClick(e) {
 	var rowsData = dataOfRow();
 	var index = e.index;
-	//hideFilteredList();
-	//var tutorProfileView = Alloy.createController("centralView/home").getView();
-	//$.profileView.add(tutorProfileView);
 	Alloy.createController("custom/filteredContentWindow", {
 		screenType : "tutorProfileScreen",
 		title : rowsData[index].name,
@@ -115,13 +112,6 @@ function filteredTableClick(e) {
 	}).getView().open();
 }
 
-/*$.filteredContentWindow.addEventListener('androidback', function(){
- if(isFilterList){
- $.filteredContentWindow.close();
- }else{
- showFilteredList();
- }
- });*/
 var actionBar;
 
 $.filteredContentWindow.addEventListener("open", function() {

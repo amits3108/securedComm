@@ -122,7 +122,8 @@
 	hintText: "Preferred Language"
 }
 "#aboutYourSelf":{
-	hintText: "About Yourself"
+	hintText: "About Yourself(Max. 100 words)",
+	maxLength : 100
 }
 "#submit":{
 	title: "Submit",
