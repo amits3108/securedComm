@@ -108,12 +108,18 @@ function callBack(json) {
 }
 
 function setUserValues(params) {
-	var user = {};
-	user.name = params.full_name;
-	user.email = params.email;
-	user.phone = params.phone;
-	user.user_id = params.user_id;
-	user.user_type = params.user_type;
+	var user = {
+		name : params.full_name,
+		email : params.email,
+		phone : params.phone,
+		user_id : params.user_id,
+		user_type : params.user_type,
+	};
+	// user.name = params.full_name;
+	// user.email = params.email;
+	// user.phone = params.phone;
+	// user.user_id = params.user_id;
+	// user.user_type = params.user_type;
 
 	Alloy.Globals.setData(appKey.USER, user);
 }

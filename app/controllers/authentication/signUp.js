@@ -116,8 +116,9 @@ function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
 	spinner.hideSpinner();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
-		openTutorProfile();
 		setUserValues(json.data);
+		openTutorProfile();
+		
 		Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
@@ -140,13 +141,14 @@ function onRegisterClick() {
 function openTutorProfile() {
 	utils.setLoginStatus();
 
-	setUserValues();
+	//setUserValues();
 
 	Alloy.createController("authentication/profileNavigator").getView().open();
 	closeSignUpScreen();
 }
 
 function setUserValues(res) {
+	var res = res || {};
 	var user_type = null;
 	if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 		user_type = 1;
@@ -154,11 +156,19 @@ function setUserValues(res) {
 		user_type = 2;
 	}
 
-	var user = {};
-	user.name = $.name.value;
-	user.email = ($.emailAddress.value).trim();
-	user.phone = $.phoneNo.value;
-	user.user_id = res.id;
-	user.user_type = user_type;
+	var user = {
+		name : $.name.value,
+		email : ($.emailAddress.value).trim(),
+		phone : $.phoneNo.value,
+		user_id : res.id,
+		user_type : user_type
+	};
+	// user.name = $.name.value;
+	// user.email = ($.emailAddress.value).trim();
+	// user.phone = $.phoneNo.value;
+	// user.user_id = res.id;
+	// user.user_type = user_type;
+	
+	
 	Alloy.Globals.setData(appKey.USER, user);
 }
