@@ -1,9 +1,9 @@
 <Alloy>
 	<ScrollView id="mainScreen">
-		<View top="10" height="50">
+		<!-- <View top="10" height="50">
 			<ImageView image="/images/search.png" left = "2" ></ImageView>
 			<SearchBar id="search"  showCancel="true" hintText="   Search" height="43" top="5" left = "20" onReturn="doFiltering" />
-		</View>
+		</View> -->
 		<ImageView id = "mainImage" image="/images/mainBackground.png" width = "Ti.UI.FILL" height="Ti.UI.FILL" top="60" ></ImageView>
 		<View top="80" layout="vertical">
 			<View  id="optionSelectionView">
@@ -36,7 +36,7 @@
 					<ImageView id="dropdownImage"/>
 				</View>
 			</View>
-			<View id="optionSelectionView2">
+			<!--<View id="optionSelectionView2">
 				<View id="HighestQualificationType" onClick="HighestQualificationTypeClick">
 					<Label id="HighestQualificationTypeText"/>
 					<ImageView id="dropdownImage"/>
@@ -47,7 +47,7 @@
 					<Label id="languageTypeText"/>
 					<ImageView id="dropdownImage"/>
 				</View>
-			</View>
+			</View>-->
 			<Button id="applyButton" onClick="applyButtonclick"/>
 		</View>
 		<!--<TableView id="filteredListTable"/>-->

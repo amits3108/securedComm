@@ -10,7 +10,7 @@
 			</View>
 			<TextField id="emailAddress" class="textFieldClass"/>
 			<View class = "sapClass"/>
-			<TextField id="qualification" class="textFieldClass"/>
+			<TextField id="qualification" class="textFieldClass" editable="false" onClick="HighestQualificationTypeClick"/>
 			<View class = "sapClass"/>
 			<TextField id="experience" class="textFieldClass"/>
 			<View class = "sapClass" id = "experienceSap"/>
@@ -20,7 +20,7 @@
 			<View class = "sapClass"/>
 			<TextField id="city" class="textFieldClass"/>
 			<View class = "sapClass"/>
-			<TextField id="dateOfBirth" class="textFieldClass"/>
+			<TextField id="dateOfBirth" class="textFieldClass" editable="false" onClick="selectDate"/>
 			<View class = "sapClass"/>
 			<TextField id="contactNo" class="textFieldClass"/>
 			<View class = "sapClass"/>
@@ -37,7 +37,7 @@
 			<TextField id="sutaibleBatchTime" class="textFieldClass" onClick="onBatchTimeClick"/>
 			<View class = "sapClass" id = "sutaibleBatchTimeSap"/>
 			<View id="batchTimeDropDown" class="dropDownClass"/>
-			<TextField id="preferredLanguage" class="textFieldClass"/>
+			<TextField id="preferredLanguage" class="textFieldClass" editable = "false" onClick = "languageTypeClick"/>
 			<View class = "sapClass"/>
 			<TextField id="aboutYourSelf" class="textFieldClass"/>
 			<View class = "sapClass"/>

@@ -72,7 +72,8 @@ function register() {
 					}
 
 					if (Titanium.Network.online) {
-						spinner.showSpinner();
+						openTutorProfile();
+						/*spinner.showSpinner();
 						var requestData = {// email, mobile, name, user_type,  password
 							email : email,
 							mobile : $.phoneNo.value,
@@ -92,7 +93,7 @@ function register() {
 							},
 							callBack : callBack,
 						});
-						Ti.API.info("Register successfully");
+						Ti.API.info("Register successfully");*/
 					} else {
 						alert("Check Internet Connection");
 					}
@@ -141,7 +142,7 @@ function onRegisterClick() {
 function openTutorProfile() {
 	utils.setLoginStatus();
 
-	//setUserValues();
+	setUserValues();
 
 	Alloy.createController("authentication/profileNavigator").getView().open();
 	closeSignUpScreen();

@@ -121,11 +121,6 @@ function showDropDown() {
 ///////////////////////////////////////////////////
 
 /////////////      After retrun click on search bar        //////////////
-function doFiltering() {
-	//hidedropDown ();
-	//showFilteredList ();
-	//filteredRowUI ();
-}
 
 function subjectTypeClick() {
 	selectedSubjects.length = 0;

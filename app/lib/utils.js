@@ -97,27 +97,26 @@ exports.logout = function(e) {
 };
 
 // Open Calender
-/*exports.openCalender = function() {
- var dob ;
- var picker = Ti.UI.createPicker({
- });
- picker.showDatePickerDialog({
- value : new Date(), // some date
- callback : function(e) {
- if (e.cancel) {
- Ti.API.info('user canceled dialog');
- } else {
- Ti.API.info('value is: ' + e.value);
- Ti.API.info('lets see what this object is' + JSON.stringify(e));
- selectedDate = e.value;
- dob = String.formatDate(selectedDate, 'medium');
- Ti.API.info(dob);
- }
- }
-
- });
- return dob;
- };*/
+exports.openCalender = function() {
+	var dob;
+	var picker = Ti.UI.createPicker({
+	});
+	picker.showDatePickerDialog({
+		value : new Date(), // some date
+		callback : function(e) {
+			if (e.cancel) {
+				Ti.API.info('user canceled dialog');
+			} else {
+				Ti.API.info('value is: ' + e.value);
+				Ti.API.info('lets see what this object is' + JSON.stringify(e));
+				selectedDate = e.value;
+				dob = String.formatDate(selectedDate, 'medium');
+				Ti.API.info(dob);
+			}
+		}
+	});
+	return dob;
+};
 
 exports.Loading = function() {
 	this.Loading = Alloy.createController("Widgets/Loading");
