@@ -54,3 +54,6 @@ Alloy.CFG.URL = {
 	create_post : baseURL + "tutor/create_post",
 	get_post : baseURL + "tutor/get_post",
 };
+
+// loader
+Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");

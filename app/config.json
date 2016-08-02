@@ -9,6 +9,7 @@
 	"os:mobileweb": {},
 	"os:windows": {},
 	"dependencies": {
-		"be.k0suke.tifab": "1.0"
+		"be.k0suke.tifab": "1.0",
+		"nl.fokkezb.loading":"*"
 	}
 }

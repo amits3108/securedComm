@@ -10,6 +10,11 @@ $.registerNow.addEventListener('click', function(e) {
 });
 
 function openRegisterAsScreen(params) {
+	Alloy.Globals.loading.show('loading', false);
+
+    setTimeout(function(){
+        Alloy.Globals.loading.hide();
+    }, 6000);
 	var win = Alloy.createController("authentication/registerAs", {
 		params : params,
 		closeLoginScreen : closeLoginScreen
