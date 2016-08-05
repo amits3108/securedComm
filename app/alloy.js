@@ -41,8 +41,8 @@ Alloy.Globals.platformHeight = platformHeight;
 Alloy.Globals.setData = setData;
 Alloy.Globals.getData = getData;
 
-
-const baseURL = "api.tutme.in/index.php/";           // Live Server
+const baseURL = "api.tutme.in/index.php/";
+// Live Server
 
 Alloy.CFG.URL = {
 	register : baseURL + "user/register",
@@ -54,3 +54,6 @@ Alloy.CFG.URL = {
 	create_post : baseURL + "tutor/create_post",
 	get_post : baseURL + "tutor/get_post",
 };
+
+Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");
+

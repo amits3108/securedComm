@@ -1,6 +1,8 @@
 <Alloy>
 	<Window id="filteredContentWindow" class="container">
-		<TableView id="filteredListTable" onClick="filteredTableClick"/>
+		<TableView id="filteredListTable"  onClick="filteredTableClick">
+			<SearchBar id="search" hintText="Search"/>
+		</TableView>
 		<View id="profileView"/>
 	</Window>
 </Alloy>

@@ -73,7 +73,8 @@ function register() {
 
 					if (Titanium.Network.online) {
 						openTutorProfile();
-						/*spinner.showSpinner();
+						
+						/*utils.showLoading();
 						var requestData = {// email, mobile, name, user_type,  password
 							email : email,
 							mobile : $.phoneNo.value,
@@ -115,7 +116,7 @@ function register() {
 
 function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
-	spinner.hideSpinner();
+	utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		setUserValues(json.data);
 		openTutorProfile();
@@ -123,7 +124,7 @@ function callBack(json) {
 		Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
-		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
+		_.isEmpty(json) && alert("Unable to connect. Please try again later.");
 		if (json && json.error) {
 			if (json.message) {
 				alert(json.message + "");
@@ -147,9 +148,9 @@ function openTutorProfile() {
 	Alloy.createController("authentication/profileNavigator").getView().open();
 	closeSignUpScreen();
 }
-
-function setUserValues(res) {
-	var res = res || {};
+// function setUserValues(res)
+function setUserValues() {
+	//var res = res || {};
 	var user_type = null;
 	if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 		user_type = 1;
@@ -161,7 +162,7 @@ function setUserValues(res) {
 		name : $.name.value,
 		email : ($.emailAddress.value).trim(),
 		phone : $.phoneNo.value,
-		user_id : res.id,
+		//user_id : res.id,
 		user_type : user_type
 	};
 	// user.name = $.name.value;

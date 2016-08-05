@@ -10,7 +10,7 @@ if (args.screenType == "tutorProfileScreen") {
 	filteredRowUI();
 	showFilteredList();
 }
-
+$.filteredListTable.filterAttribute="title";
 ////////////    require the UI of each List row in table   ///////////////
 function filteredRowUI(params) {
 	var params = params || {};
@@ -25,6 +25,7 @@ function filteredRowUI(params) {
 			width : Titanium.UI.FILL,
 			backgroundColor : "transparent",
 		});
+		tableRow.title = rowsData[i].name;
 		tableRow.add(filteredRow);
 		$.filteredListTable.appendRow(tableRow);
 	}

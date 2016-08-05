@@ -4,6 +4,7 @@ var args = $.args;
 var network = require("network");
 var appKey = require("appKey");
 var spinner = require("spinner");
+var utils = require("utils");
 
 function createtimeLineRow(params) {
 	var params = params || {};
@@ -92,7 +93,7 @@ function postButtonClick() {
 function sendPostToServer(params) {
 	var params = params || {};
 	if (Titanium.Network.online) {
-		spinner.showSpinner();
+		utils.showLoading();;
 		var user = Alloy.Globals.getData(appKey.USER);
 		var requestData = {
 			tutor_id : user.user_id,
@@ -116,7 +117,7 @@ function sendPostToServer(params) {
 
 function sendPostToServerCallBack(json) {
 	Ti.API.info(" callback json " + JSON.stringify(json));
-	spinner.hideSpinner();
+	utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		if (json.data) {
 			if (json.data) {

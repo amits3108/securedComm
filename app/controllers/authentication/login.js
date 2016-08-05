@@ -36,7 +36,7 @@ function onLoginClick() {
 			 utils.setLoginStatus();
 			 closeLoginScreen();*/
 			if (Titanium.Network.online) {
-				spinner.showSpinner();
+				utils.showLoading();
 				var requestData = {// email, password
 					username : email,
 					password : password
@@ -66,7 +66,7 @@ function onLoginClick() {
 
 function callBack(json) {
 	Ti.API.info("login callback : \n " + JSON.stringify(json));
-	spinner.hideSpinner();
+	utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		utils.setLoginStatus();
 
@@ -95,7 +95,7 @@ function callBack(json) {
 		Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
-		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
+		_.isEmpty(json) && alert("Unable to connect. Please try again later.");
 		if (json && json.error) {
 			if (json.message) {
 				alert(json.message + "");
