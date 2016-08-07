@@ -7,16 +7,12 @@
 	height: 100,
 	width : "300dp",
 	top: 30,
-	//backgroundColor: "green"
 }
 
 
 "#emailAddress":{
 	hintText: "Email Address or Mobile number",
 	width: "80%",
-	//height: 20,
-	//left: 20,
-	//right: 20,
 	top: 50,
 	backgroundColor :'transparent',
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
@@ -25,9 +21,6 @@
 	hintText: "Password",
 	width: "80%",
 	backgroundColor :'transparent',
-	//height: 20,
-	//left: 20,
-	//right: 20,
 	top: 20,
 	passwordMask: true
 }
@@ -40,7 +33,6 @@
 	borderRadius :"10"
 }
 "#bottomView":{
-	//bottom: 0,
 	height: 70,
 	width: Titanium.UI.FILL,
 	left: 20 ,

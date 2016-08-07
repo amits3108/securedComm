@@ -55,12 +55,13 @@
 }
 "#login":{
 	text: "Login",
-	left: 0,
+	//left: 0,
 	font:{
 		fontSize: 20,
 		fontWeight: 'bold',
 	},
-	color: "#000"
+	color: "#000",
+	top : 30
 }
 "#forgotPassword":{
 	text: "Forgot\nPassword",

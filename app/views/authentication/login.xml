@@ -14,7 +14,7 @@
 			<Button id="Login" onClick="onLoginClick"></Button>
 			<View id="bottomView">
 				<Label id="registerNow"></Label>
-				<Label id="forgotPassword"></Label>
+				<Label id="forgotPassword" onClick="openForgetPasswordScreen"></Label>
 				<!-- <ImageView id="linkedIn" image="/images/LinkedIn.png" ></ImageView> -->
 			</View>
 			
