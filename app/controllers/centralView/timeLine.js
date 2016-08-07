@@ -3,7 +3,6 @@
 var args = $.args;
 var network = require("network");
 var appKey = require("appKey");
-var spinner = require("spinner");
 var utils = require("utils");
 
 function createtimeLineRow(params) {

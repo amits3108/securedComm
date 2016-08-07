@@ -2,7 +2,6 @@ var utils = require("utils");
 var validation = require("validation");
 var network = require("network");
 var appKey = require("appKey");
-var spinner = require("spinner");
 
 $.registerNow.addEventListener('click', function(e) {
 	Ti.API.info("**************");

@@ -6,7 +6,6 @@ var utils = require("utils");
 var network = require("network");
 var validation = require("validation");
 var appKey = require("appKey");
-//var spinner = require("spinner");
 
 function onSignUpOpen(params) {
 	var params = params || {};
