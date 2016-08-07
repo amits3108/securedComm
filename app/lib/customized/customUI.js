@@ -1,5 +1,6 @@
 var courseRow = function(params) {
 	var params = params || {};
+	var containerTableViewRow = Ti.UI.createTableViewRow();
 	var containerView = Ti.UI.createView({
 		height : 130,
 		//width:Ti.UI.SIZE,
@@ -51,7 +52,8 @@ var courseRow = function(params) {
 	containerView.add(TimingOffered);
 	containerView.add(packages);
 	containerView.add(apply);
-	return containerView;
+	containerTableViewRow.add(containerView);
+	return containerTableViewRow;
 };
 exports.courseRow = courseRow;
 

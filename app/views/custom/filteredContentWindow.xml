@@ -1,7 +1,11 @@
 <Alloy>
 	<Window id="filteredContentWindow" class="container">
+<!--
 		<TableView id="filteredListTable" onClick="filteredTableClick"/>
-			<SearchView ns="Ti.UI.Android" platform="android"/>
+			<SearchView ns="Ti.UI.Android" platform="android"/>-->
+		<TableView id="filteredListTable"  onClick="filteredTableClick">
+			<SearchBar id="search" hintText="Search"/>
+		</TableView>
 		<View id="profileView"/>
 	</Window>
 </Alloy>

@@ -29,6 +29,7 @@
 			<View id="coursesScrollContainer">
 				<Label id="coursesOffered"/>
 			</View>
+			<TableView id = "coursesTable"/>
 		</ScrollView>
 	</View>
 </Alloy>

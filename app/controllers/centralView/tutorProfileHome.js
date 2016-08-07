@@ -33,13 +33,14 @@ var courses = [{
 }];
 
 var totalCourses = courses.length;
+var coursesData = [];
 for (var i = 0; i < totalCourses; i++) {
-	var courseRowView = require("customized/customUI").courseRow(courses[i]);
-	$.coursesScrollContainer.add(courseRowView);
+	//var courseRowView = require("customized/customUI").courseRow(courses[i]);
+	coursesData.push(require("customized/customUI").courseRow(courses[i]));
 	_.delay(function() {
 		$.coursesScrollContainer.height = Ti.UI.SIZE;
 		//$.scrollContainer.height = Ti.UI.SIZE;
 	}, 200);
 	courseRowView = null;
 }
-
+$.coursesTable.setData(coursesData);
