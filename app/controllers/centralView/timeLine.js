@@ -92,11 +92,7 @@ function postButtonClick() {
 function sendPostToServer(params) {
 	var params = params || {};
 	if (Titanium.Network.online) {
-<<<<<<< HEAD
-		utils.showLoading();
-=======
 		utils.showLoading();;
->>>>>>> 5dfe127f503f6bed54465a25f7c6f5509a8c51fc
 		var user = Alloy.Globals.getData(appKey.USER);
 		var requestData = {
 			tutor_id : user.user_id,
