@@ -43,7 +43,8 @@
 	height: 50,
 	top: 30,
 	width : 100,
-	backgroundColor: Alloy.CFG.themeColor
+	backgroundColor: Alloy.CFG.themeColor,
+	borderRadius :"10"
 }
 "#bottomView":{
 	height: 70,

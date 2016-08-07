@@ -342,3 +342,14 @@ function parseDictionary(params) {
 	Ti.API.info(arrayParsed + "arrayParsed");
 	return arrayParsed;
 }
+
+
+function showLoading(){
+	Alloy.Globals.loading.show('Loading...', false);	
+}
+function hideLoading()
+{
+	Alloy.Globals.loading.hide();
+}
+exports.showLoading = showLoading;
+exports.hideLoading = hideLoading;

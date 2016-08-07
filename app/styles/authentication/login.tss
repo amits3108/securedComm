@@ -36,7 +36,8 @@
 	height: 50,
 	top: 30,
 	width : 100,
-	backgroundColor: "#1BB4C6"
+	backgroundColor: "#1BB4C6",
+	borderRadius :"10"
 }
 "#bottomView":{
 	//bottom: 0,

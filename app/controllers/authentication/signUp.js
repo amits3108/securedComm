@@ -73,7 +73,7 @@ function register() {
 
 					if (Titanium.Network.online) {
 						openTutorProfile();
-						/*spinner.showSpinner();
+						utils.showLoading();
 						var requestData = {// email, mobile, name, user_type,  password
 							email : email,
 							mobile : $.phoneNo.value,
@@ -93,7 +93,7 @@ function register() {
 							},
 							callBack : callBack,
 						});
-						Ti.API.info("Register successfully");*/
+						Ti.API.info("Register successfully");
 					} else {
 						alert("Check Internet Connection");
 					}
@@ -115,7 +115,7 @@ function register() {
 
 function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
-	spinner.hideSpinner();
+	utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		setUserValues(json.data);
 		openTutorProfile();
