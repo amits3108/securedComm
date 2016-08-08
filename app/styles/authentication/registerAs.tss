@@ -36,14 +36,16 @@
 	height: 50,
 	top: 150,
 	width : 300,
-	backgroundColor: "#1BB4C6"
+	backgroundColor: "#1BB4C6",
+	borderRadius :"20"
 }
 "#tutor":{
 	title: "Register As Tutor",
 	height: 50,
 	top: 100,
 	width : 300,
-	backgroundColor: "#1BB4C6"
+	backgroundColor: "#1BB4C6",
+	borderRadius :"20"
 }
 "#bottomView":{
 	//bottom: 0,

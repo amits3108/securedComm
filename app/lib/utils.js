@@ -343,11 +343,14 @@ function parseDictionary(params) {
 	return arrayParsed;
 }
 
-function showLoading() {
-	Alloy.Globals.loading.show('Loading...', false);
+
+function showLoading(){
+	Alloy.Globals.loading.show('Loading...', false);	
 }
-function hideLoading() {
+function hideLoading()
+{
 	Alloy.Globals.loading.hide();
 }
 exports.showLoading = showLoading;
 exports.hideLoading = hideLoading;
+

@@ -2,7 +2,6 @@ var utils = require("utils");
 var validation = require("validation");
 var network = require("network");
 var appKey = require("appKey");
-var spinner = require("spinner");
 
 $.registerNow.addEventListener('click', function(e) {
 	Ti.API.info("**************");
@@ -69,7 +68,6 @@ function callBack(json) {
 	utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		utils.setLoginStatus();
-
 		if (json.data) {
 			if (json.data && json.data.user_type && json.data.user_type == "1") {
 				Ti.API.info("student login");
@@ -115,11 +113,9 @@ function setUserValues(params) {
 		user_id : params.user_id,
 		user_type : params.user_type,
 	};
-	// user.name = params.full_name;
-	// user.email = params.email;
-	// user.phone = params.phone;
-	// user.user_id = params.user_id;
-	// user.user_type = params.user_type;
-
 	Alloy.Globals.setData(appKey.USER, user);
+}
+
+function openForgetPasswordScreen() {
+	Alloy.createController("authentication/forgetPassword").getView().open();
 }

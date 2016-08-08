@@ -42,9 +42,6 @@ function tutorTypeClick() {
 
 	// open it
 	tutorpicker.show();
-	/*openPopUpWindow ({
-	 dropDownType : "tutorTypeDialog"
-	 });*/
 }
 
 var customclassNumberDropDownTable = null;
@@ -67,9 +64,6 @@ function classNumberClick() {
 		Ti.API.info("dialog was cancelled");
 	});
 	classpicker.show();
-	/*openPopUpWindow ({
-	 dropDownType : "classTypeDialog"
-	 });*/
 }
 
 function classPickerClickCallback(e) {
@@ -207,12 +201,6 @@ function timeTypeClick() {
 		Ti.API.info("dialog was cancelled");
 	});
 	timepicker.show();
-}
-function openPopUpWindow(params) {
-	var params = params || {};
-	Alloy.createController("custom/popUpWindow", {
-		dropDownType : params.dropDownType
-	}).getView().open();
 }
 
 function applyButtonclick() {

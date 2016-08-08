@@ -6,7 +6,6 @@ var utils = require("utils");
 var network = require("network");
 var validation = require("validation");
 var appKey = require("appKey");
-var spinner = require("spinner");
 
 function onSignUpOpen(params) {
 	var params = params || {};
@@ -72,9 +71,9 @@ function register() {
 					}
 
 					if (Titanium.Network.online) {
-						openTutorProfile();
-						
-						/*utils.showLoading();
+						//openTutorProfile();
+						utils.showLoading();
+
 						var requestData = {// email, mobile, name, user_type,  password
 							email : email,
 							mobile : $.phoneNo.value,
@@ -94,7 +93,7 @@ function register() {
 							},
 							callBack : callBack,
 						});
-						Ti.API.info("Register successfully");*/
+						Ti.API.info("Register successfully");
 					} else {
 						alert("Check Internet Connection");
 					}
@@ -143,9 +142,10 @@ function onRegisterClick() {
 function openTutorProfile() {
 	utils.setLoginStatus();
 
-	setUserValues();
+	//setUserValues();
 
-	Alloy.createController("authentication/profileNavigator").getView().open();
+	//Alloy.createController("authentication/profileNavigator").getView().open();  //TODO : commenting for the OTP screen opening.
+	Alloy.createController("authentication/oneTimePassword").getView().open();
 	closeSignUpScreen();
 }
 // function setUserValues(res)
@@ -165,12 +165,5 @@ function setUserValues() {
 		//user_id : res.id,
 		user_type : user_type
 	};
-	// user.name = $.name.value;
-	// user.email = ($.emailAddress.value).trim();
-	// user.phone = $.phoneNo.value;
-	// user.user_id = res.id;
-	// user.user_type = user_type;
-	
-	
 	Alloy.Globals.setData(appKey.USER, user);
 }

@@ -13,10 +13,11 @@
 			<Button id="register" onClick="onRegisterClick"/>
 			<!-- onClick="register" -->
 			<ImageView id="linkedIn"  image="/images/LinkedIn.png" top = "20dp"/>
-			<View id="bottomView">
+			<Label id="login"/>
+			<!--<View id="bottomView">
 				<Label id="login"/>
 				<Label id="forgotPassword"/>
-			</View>
+		</View>-->
 		</ScrollView>
 	</Window>
 </Alloy>

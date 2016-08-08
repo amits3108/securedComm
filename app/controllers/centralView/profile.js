@@ -19,6 +19,7 @@ var onSubmit = function(e) {
 	if (($.name.value.length > 0) && ($.emailAddress.value.length > 0) && ($.address_permanent.value.length > 0) /*&& ($.contactNo.value.length > 0) && ($.aboutYourSelf.length > 0) && ($.subjects.value.length > 0)*/) {
 		if (!Alloy.Globals.getData(appKey.KEYS.REGISTRATIONCOMPLETE)) {
 			utils.setRegistrationStatus();
+			//utils.showLoading();
 			var win = Alloy.createController("sliderContent/slider").getView();
 			win.open();
 			args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
@@ -72,7 +73,7 @@ var onSubmit = function(e) {
 };
 function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
-	//utils.Loading.hideSpinner();
+	//utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		var win = Alloy.createController("sliderContent/slider").getView();
 		win.open();

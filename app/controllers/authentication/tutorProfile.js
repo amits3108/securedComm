@@ -2,6 +2,9 @@
 // directly or:
 var args = $.args;
 var appKey = require("appKey");
+if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student"){
+	$.introDetail.editable =false;
+}
 function submitClick() {
 	setProfileUpdateStatus();
 	var win = Alloy.createController("sliderContent/slider").getView();

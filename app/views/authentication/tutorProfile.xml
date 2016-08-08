@@ -4,7 +4,7 @@
 			<ImageView id="tutme"/> 
 			<Button id="tutorLabel_button"/>
 			<Label id="intro"/>
-			<TextArea id="introDetail" editable="false"/>
+			<TextArea id="introDetail"/>
 			<Button id="addCourses_button" onClick="onAddCoursesClick"/>
 			<View id="coursesDetail"/>
 			<Button id="addProfilePicture_button"/>
