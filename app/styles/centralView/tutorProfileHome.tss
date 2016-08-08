@@ -142,3 +142,7 @@
 	left: 10,
 	bottom : 10
 }
+
+"#coursesTable":{
+	backgroundColor: "#E4E4E4",
+}

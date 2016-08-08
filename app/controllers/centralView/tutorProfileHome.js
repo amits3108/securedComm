@@ -1,5 +1,9 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
+var network = require("network");
+var appKey = require("appKey");
+
+
 if (args) {
 	$.name.text = args.title;
 	$.introDetail.value = args.intro;
@@ -44,3 +48,13 @@ for (var i = 0; i < totalCourses; i++) {
 	courseRowView = null;
 }
 $.coursesTable.setData(coursesData);
+
+
+function onCoursesTableClick(e){
+	var index = e.index;
+	
+	if(Alloy.Globals.getData(appKey.KEYS.USERTYPE) =="student"){
+		Alloy.createController("custom/batchAndPackageSelection").getView().open();
+	}
+	
+}

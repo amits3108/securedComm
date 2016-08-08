@@ -1,0 +1,16 @@
+<Alloy>
+	<Window id="batchAndPackageSelection" class="container">
+		<Label id="batchpackageLabel" />
+		<View top="80" width="Titanium.UI.FILL" height="30%">
+			<View layout="vertical" left="10" height="Titanium.UI.FILL" width="50%">
+				<Button id="batchtime" onClick="onBatchTimeClick"/>
+				<Label id="batchtimeLabel" />
+			</View>
+			<View layout="vertical" right="10" height="Titanium.UI.FILL" width="50%">
+				<Button id="selectPackage"onClick="onSelectPackageClick"/>
+				<Label id="packageLabel" />
+			</View>
+		</View>
+		<Button id="apply" onClick="onApply"/>
+	</Window>
+</Alloy>

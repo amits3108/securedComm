@@ -1,0 +1,67 @@
+
+".container" : {
+  
+}
+
+"#batchAndPackageSelection":{
+	layout : "vertical",
+	backgroundColor : "#fff"
+}
+
+"#batchpackageLabel":{
+	text : "Select batch time and Package selection.",
+	textAlign : 'center',
+	font:{
+		fontSize: 15,
+		fontWeight: 'normal',
+	},
+	color: "#000",
+	top : 50,
+	width: "80%",	
+}
+"#batchtime":{
+	title : "Batch time",
+	height: 50,
+	top: 30,
+	width : 120,
+	backgroundColor: "#1BB4C6",
+	borderRadius :"10",
+}
+
+"#batchtimeLabel":{
+	textAlign : 'center',
+	font:{
+		fontSize: 12,
+		fontWeight: 'normal',
+	},
+	color: "#000",
+	top : 15,
+	width: "80%",
+}
+"#selectPackage":{
+	title : "Select Package",
+	height: 50,
+	top: 30,
+	width : 120,
+	backgroundColor: "#1BB4C6",
+	borderRadius :"10",
+}
+"#packageLabel":{
+	textAlign : 'center',
+	font:{
+		fontSize: 12,
+		fontWeight: 'normal',
+	},
+	color: "#000",
+	top : 15,
+	width: "80%",
+}
+
+"#apply":{
+	title : "Apply",
+	height: 50,
+	top: 20,
+	width : 120,
+	backgroundColor: "#1BB4C6",
+	borderRadius :"10",
+}

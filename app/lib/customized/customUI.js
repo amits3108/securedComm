@@ -1,8 +1,15 @@
 var courseRow = function(params) {
 	var params = params || {};
-	var containerTableViewRow = Ti.UI.createTableViewRow();
-	var containerView = Ti.UI.createView({
+	var containerTableViewRow = Ti.UI.createTableViewRow({
 		height : 130,
+		borderRadius : 4,
+		left : 3,
+		right : 3,
+		backgroundColor : "#FFF",
+		bottom : 10
+	});
+	var containerView = Ti.UI.createView({
+		height : 110,
 		//width:Ti.UI.SIZE,
 		left : 3,
 		right : 3,
