@@ -57,9 +57,11 @@ function callBackGetProfile(json) {
 
 function setValues() {
 	var user = Alloy.Globals.getData(appKey.USER);
-	$.name.value = user.name;
-	$.emailAddress.value = user.email;
-	$.contactNo.value = user.phone;
+	if(user){
+		$.name.value = user.name;
+		$.emailAddress.value = user.email;
+		$.contactNo.value = user.phone;
+	}
 };
 // name,emailAddress,address_permanent,contactNo,aboutYourSelf,subjects
 var onSubmit = function(e) {

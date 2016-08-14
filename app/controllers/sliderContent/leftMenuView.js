@@ -41,7 +41,9 @@ for (var i=0; i<length; i++){
  }
 
 var user = Alloy.Globals.getData(appKey.USER);
-$.name.text = user.name;	
+if(user && user.name){
+	$.name.text = user.name;
+}	
 //$.menuTable.data = tblData;
 //   Event Listener on Menu Table
 var lastIndex = null;

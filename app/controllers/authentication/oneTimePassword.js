@@ -15,8 +15,17 @@ function onResendClick () {
 }
 
 function onSubmitClick () {
-	Alloy.createController ("authentication/profileNavigator").getView ().open ();
-	closeOTPScreen ();
+	var otp = ($.otpCodeField.value).trim ();
+	if (otp.length == 6) {
+		if (otp == 123456 || 000000) {
+			Alloy.createController ("authentication/profileNavigator").getView ().open ();
+			closeOTPScreen ();
+		}else{
+			alert("Your OTP is not correct, Please Resend OTP or try again");
+		}
+	}else{
+		alert("Please enter valid OTP");
+	}
 }
 
 function closeOTPScreen () {
@@ -26,7 +35,6 @@ function closeOTPScreen () {
 $.otpScreen.addEventListener ('androidback', function () {
 	Ti.API.info ("you cannot go back");
 });
-
 
 //TODO : change submit button action by this function
 function onSubmitClick11 () {
@@ -62,41 +70,43 @@ function onSubmitClick11 () {
 
 function otpCallBack (json) {
 	var json = json || {};
-	utils.hideLoading();
-	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
+	utils.hideLoading ();
+	if (json && (parseInt (json.status_code) == 200) && (!json.error)) {
 		if (json.data) {
 			/*if (json.data && json.data.user_type && json.data.user_type == "1") {
-				Ti.API.info("student login");
-				Alloy.Globals.setData(appKey.KEYS.USERTYPE, "student");
-			} else {
-				Ti.API.info("tutor login");
-				Alloy.Globals.setData(appKey.KEYS.USERTYPE, "tutor");
-			}
+			 Ti.API.info("student login");
+			 Alloy.Globals.setData(appKey.KEYS.USERTYPE, "student");
+			 } else {
+			 Ti.API.info("tutor login");
+			 Alloy.Globals.setData(appKey.KEYS.USERTYPE, "tutor");
+			 }
 
-			setUserValues({
-				full_name : json.data.full_name,
-				email : json.data.email,
-				user_type : json.data.user_type,
-				phone : (json.data.phone) ? json.data.phone : "",
-				user_id : json.data.id,
-			});*/
+			 setUserValues({
+			 full_name : json.data.full_name,
+			 email : json.data.email,
+			 user_type : json.data.user_type,
+			 phone : (json.data.phone) ? json.data.phone : "",
+			 user_id : json.data.id,
+			 });*/
 		}
 
 		/*var win = Alloy.createController("sliderContent/slider", {
-			closeLoginScreen : closeLoginScreen
-		}).getView();
-		win.open();*/
-		Ti.API.info("callBackForgetPassword successfully  "+JSON.stringify(res));
-	} else {
+		 closeLoginScreen : closeLoginScreen
+		 }).getView();
+		 win.open();*/
+		Ti.API.info ("callBackForgetPassword successfully  " + JSON.stringify (res));
+	}
+	else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
-		_.isEmpty(json) && alert("Unable to connect. Please try again later.");
+		_.isEmpty (json) && alert ("Unable to connect. Please try again later.");
 		if (json && json.error) {
 			if (json.message) {
-				alert(json.message + "");
-			} else {
-				alert("Something went wrong, Please try again");
+				alert (json.message + "");
+			}
+			else {
+				alert ("Something went wrong, Please try again");
 			}
 		}
-		Ti.API.error("error found");
+		Ti.API.error ("error found");
 	}
 }
