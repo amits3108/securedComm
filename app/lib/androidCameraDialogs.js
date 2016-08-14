@@ -1,5 +1,6 @@
 var measurement = require('alloy/measurement');
 // workaround to 'alloy is not defined'
+Ti.API.info("456564654646");
 var Alloy = require('alloy'), _ = require("alloy/underscore")._;
 Alloy.Globals.platformWidthInPixels = measurement.dpToPX(Alloy.Globals.platformWidth);
 var callback = null;

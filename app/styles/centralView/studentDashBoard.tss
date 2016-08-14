@@ -105,7 +105,7 @@
 }
 
 "#subjectTypeText":{
-	text: "Subject Type",
+	text: "Select Subject",
 	color: "#fff",
 	font: {
 		fontSize: '15sp',
@@ -123,7 +123,7 @@
 	touchEnabled: true
 }
 "#coursesTypeText":{
-	text: "Courses Type",
+	text: "Select Courses ",
 	color: "#fff",
 	font: {
 		fontSize: '15sp',
@@ -141,7 +141,7 @@
 	touchEnabled: true
 }
 "#timeTypeText":{
-	text: "Time Type",
+	text: "Select Time",
 	color: "#fff",
 	font: {
 		fontSize: '15sp',

@@ -15,7 +15,7 @@
 }
 
 "#timeLineField":{
-	hintText: "write to your students here...",
+	hintText: "POST HERE...",
 	borderRadius: 2,
 	width: "65%",
 	height: Titanium.UI.FILL,

@@ -85,11 +85,11 @@ function callBack(json) {
 				user_id : json.data.id,
 			});
 		}
-
-		var win = Alloy.createController("sliderContent/slider", {
+Alloy.createController("authentication/profileNavigator").getView().open(); 
+/*		var win = Alloy.createController("sliderContent/slider", {
 			closeLoginScreen : closeLoginScreen
-		}).getView();
-		win.open();
+		}).getView();*/
+		//win.open();
 		Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);

@@ -4,7 +4,7 @@
 		<TableView id="filteredListTable" onClick="filteredTableClick"/>
 			<SearchView ns="Ti.UI.Android" platform="android"/>-->
 		<TableView id="filteredListTable"  onClick="filteredTableClick">
-			<SearchBar id="search" hintText="Search"/>
+			<SearchBar id="search" hintText="Search" showCancel="false"/>
 		</TableView>
 		<View id="profileView"/>
 	</Window>

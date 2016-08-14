@@ -2,9 +2,11 @@
 	zIndex: 1000
 }
 '#circle': {
-	opacity: 1.0,
-	touchEnabled: false
+	//opacity: 1.0,
+	touchEnabled: false,
+	
 }
 '#title': {
+	text : "A",
 	touchEnabled: false
 }

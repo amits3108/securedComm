@@ -5,7 +5,7 @@
 			<SearchBar id="search"  showCancel="true" hintText="   Search" height="43" top="5" left = "20" onReturn="doFiltering" />
 		</View> -->
 		<ImageView id = "mainImage" image="/images/mainBackground.png" width = "Ti.UI.FILL" height="Ti.UI.FILL" top="60" ></ImageView>
-		<View top="80" layout="vertical">
+		<View top="20" layout="vertical">
 			<View  id="optionSelectionView">
 				<View id="tutorType" onClick="tutorTypeClick">
 					<Label id="tutorTypeText"/>

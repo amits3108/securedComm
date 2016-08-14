@@ -20,6 +20,8 @@
 			<View class = "sapClass"/>
 			<TextField id="city" class="textFieldClass"/>
 			<View class = "sapClass"/>
+			<TextField id="cityPIN" class="textFieldClass"/>
+			<View class = "sapClass"/>
 			<TextField id="dateOfBirth" class="textFieldClass" editable="false" onClick="selectDate"/>
 			<View class = "sapClass"/>
 			<TextField id="contactNo" class="textFieldClass"/>
@@ -41,6 +43,9 @@
 			<View class = "sapClass"/>
 			<TextField id="aboutYourSelf" class="textFieldClass"/>
 			<View class = "sapClass"/>
+			<TextField id  = "id_proof" editable="false" hintText = 'Upload Id Proof Image' class="textFieldClass" top = "20" onClick="uploadIdProof"/>
+			<View class = "sapClass"/>
+			<ImageView id = "idProofImage" />
 			<Button id="submit" onClick="onSubmit"/>
 		</ScrollView>
 	</View>

@@ -4,7 +4,7 @@ var args = $.args;
 var Dialogs = require("yy.tidialogs");
 var network = require("network");
 var customtutorTypeDropDownTable = null;
-
+var utils = require("utils");
 var selectedTutorType = [];
 var selectedTime = [];
 var selectedCourses = [];
@@ -204,62 +204,75 @@ function timeTypeClick() {
 }
 
 function applyButtonclick() {
-	Alloy.createController("custom/filteredContentWindow").getView().open();
-	Ti.API.info(selectedTutorType,selectedTime,selectedCourses,selectedSubjects,selectedClass);
-	/*if (Titanium.Network.online) {
-		network.postRequest({
-			type : "GET",
-			url : Alloy.CFG.URL.getTimings,
-			requestData : {},
-			requestHeaders : {
-				"public-key" : "c8a1ad1332716aa15752422360e739a5",
-				"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
-			},
-			callBack : function(e) {
-				Ti.API.error(" ddd " + e + " getSubjects " + JSON.stringify(e));
-				Alloy.createController("custom/filteredContentWindow").getView().open();
-			},//params.callBack,
-		});
+	//Alloy.createController("custom/filteredContentWindow").getView().open();
+	if (selectedCourses.length == 0 || selectedTime.length || selectedSubjects.length > 0) {
+		Ti.API.info(selectedTutorType, selectedTime, selectedCourses, selectedSubjects, selectedClass);
+		if (Titanium.Network.online) {
+			utils.showLoading();
+			network.postRequest({
+				type : "POST",
+				url : "api.tutme.in/index.php/tutor/get_tutors_list",
+				//Alloy.CFG.URL.getFilteredTutorList,
+				requestData : {
+					tutor_type : "1",
+					courses : JSON.stringify(selectedCourses),
+					subjects : JSON.stringify(selectedSubjects),
+					timings : JSON.stringify(selectedTime)
+				},
+				requestHeaders : {
+					"public-key" : "c8a1ad1332716aa15752422360e739a5",
+					"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+				},
+				callBack : function(e) {
+					Ti.API.error(" ddd " + e + " getSubjects " + JSON.stringify(e));
+					Alloy.createController("custom/filteredContentWindow").getView().open();
+					utils.hideLoading();
+					selectedCourses.length = 0;
+					selectedTime.length = 0;
+					selectedSubjects.length = 0;
+				},//params.callBack,
+			});
 
+		} else {
+			alert("Internet is not available");
+		}
 	} else {
-		alert("Internet is not available");
-	}*/
-
+		alert("Please select the filter attributes");
+	}
 }
 
-
-function HighestQualificationTypeClick(){
+function HighestQualificationTypeClick() {
 	var qualificationDialog = Ti.UI.createOptionDialog({
 		cancel : 0,
-		options : ['Cancel','Doctorate', 'Post Graduate','Graduate','Senior Secondary','Higher Secondary','5th to 10th','1st to 4th'],
+		options : ['Cancel', 'Doctorate', 'Post Graduate', 'Graduate', 'Senior Secondary', 'Higher Secondary', '5th to 10th', '1st to 4th'],
 		title : 'Highest Qualification',
 		selectedIndex : 0
 	});
 	qualificationDialog.show();
 	qualificationDialog.addEventListener('click', function(e) {
-		switch(e.index){
-			case 0 : 
+		switch(e.index) {
+		case 0 :
 			break;
-			case 1 : 
+		case 1 :
 			break;
-			case 2 : 
+		case 2 :
 			break;
-			case 3 : 
+		case 3 :
 			break;
-			case 4 : 
+		case 4 :
 			break;
-			case 5 : 
+		case 5 :
 			break;
-			case 6 : 
+		case 6 :
 			break;
-			default:
+		default:
 			break;
 		}
-		Ti.API.info('The button was clicked'+e.index);
+		Ti.API.info('The button was clicked' + e.index);
 	});
 }
 
-function languageTypeClick(){
+function languageTypeClick() {
 	var languageDialog = Ti.UI.createOptionDialog({
 		cancel : 2,
 		options : ['English', 'Hindi', 'Cancel'],
@@ -268,16 +281,16 @@ function languageTypeClick(){
 	});
 	languageDialog.show();
 	languageDialog.addEventListener('click', function(e) {
-		switch(e.index){
-			case 0 : 
-			Ti.API.info('The button was clicked2'+e.index);
+		switch(e.index) {
+		case 0 :
+			Ti.API.info('The button was clicked2' + e.index);
 			break;
-			case 1 : 
-			Ti.API.info('The button was clicked2'+e.index);
+		case 1 :
+			Ti.API.info('The button was clicked2' + e.index);
 			break;
-			case 2 : 
-			Ti.API.info('The button was clicked2'+e.index);
+		case 2 :
+			Ti.API.info('The button was clicked2' + e.index);
 			break;
 		}
-	});	
+	});
 }

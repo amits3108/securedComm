@@ -4,9 +4,56 @@ var social = require("social");
 var utils = require("utils");
 var network = require("network");
 setValues();
+$.idProofImage.hide();
 var LinkedInClick = function() {
 	utils.accessLinkedInProfile();
 };
+var user = Alloy.Globals.getData(appKey.USER);
+var user_id;
+if (user && user.user_id)
+	user_id = user.user_id;
+getProfile();
+//api.tutme.in/index.php/user/get_profile
+
+//{"user":[{"id":"16","user_type":"1","email":"atutme57@gmail.com","full_name":"atutme57","dob":"0000-00-00","gender":null,"mobile":"4444422257","profile_pic":null}],"address":[],"courses":[],"subjects":[],"timings":[]},"message":"user complete profile","errors":"","status_code":200}
+function getProfile() {
+	Ti.API.error("getProfile");
+	if (Titanium.Network.online) {
+		network.postRequest({
+			type : "GET",
+			url : "api.tutme.in/index.php/user/get_profile" + "/:" + user_id, //"api.tutme.in/index.php/user/get_profile",
+			requestData : {},
+			requestHeaders : {
+				"public-key" : "c8a1ad1332716aa15752422360e739a5",
+				"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
+			},
+			callBack : callBackGetProfile
+		});
+
+	} else {
+		alert("Internet is not available");
+	}
+};
+function callBackGetProfile(json) {
+	Ti.API.info("get profile Callback : \n " + JSON.stringify(json));
+	utils.hideLoading();
+	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
+		utils.setLoginStatus();
+		if (json.data) {
+			Ti.API.info("get profile Callback success: \n " + JSON.stringify(json.data));
+		}
+	} else {
+		_.isEmpty(json) && alert("Unable to connect. Please try again later.");
+		if (json && json.error) {
+			if (json.message) {
+				alert(json.message + "");
+			} else {
+				alert("Something went wrong, Please try again");
+			}
+		}
+		Ti.API.error("error found");
+	}
+}
 
 function setValues() {
 	var user = Alloy.Globals.getData(appKey.USER);
@@ -17,63 +64,65 @@ function setValues() {
 // name,emailAddress,address_permanent,contactNo,aboutYourSelf,subjects
 var onSubmit = function(e) {
 	if (($.name.value.length > 0) && ($.emailAddress.value.length > 0) && ($.address_permanent.value.length > 0) /*&& ($.contactNo.value.length > 0) && ($.aboutYourSelf.length > 0) && ($.subjects.value.length > 0)*/) {
-		if (!Alloy.Globals.getData(appKey.KEYS.REGISTRATIONCOMPLETE)) {
-			utils.setRegistrationStatus();
-			//utils.showLoading();
-			var win = Alloy.createController("sliderContent/slider").getView();
-			win.open();
-			args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
+		//if (!Alloy.Globals.getData(appKey.KEYS.REGISTRATIONCOMPLETE)) {
+		/*utils.setRegistrationStatus();
 
-			/*if (Titanium.Network.online) {
-			 var requestData = {
-			 user_name : $.name.value,//"sandeep",
-			 user_email : $.emailAddress.value,//"sandeep@mailinator.com",
-			 user_dob : "1989-10-04",
-			 user_gender : "Male" ,
-			 user_mobile : $.contactNo.value,//"1234543454" ,
-			 user_profile_pic : "",
-			 address_address : $.address_permanent.value,//"shastri nagar, bahadurgarh, haryana",
-			 address_city : "bahadurgarh",
-			 address_zipcode : "124507",
-			 tutor_experience : "12" ,
-			 tutor_address_proof : "",
-			 tutor_medium : "english",
-			 tutor_mobile_visibility : "show/hide",
-			 tutor_linkedin_profile : "/pardeepk" ,
-			 tutor_free_class_days : "7",
-			 tutor_can_travel_distance : "4",
-			 tutor_id_proof : "" ,
-			 tutor_type : "1" ,
-			 courses : "[c1,c2,c3]",
-			 subjects : "[s1,s2,s3]",
-			 timings : "[]"
-			 };
-			 network.postRequest({
-			 type : "POST",
-			 url : Alloy.CFG.URL.update_profile,
-			 requestData : requestData,
-			 requestHeaders : {
-			 "public-key" : "c8a1ad1332716aa15752422360e739a5",
-			 "token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
-			 },
-			 callBack : callBack,
-			 });
-
-			 } else {
-			 alert("Check Internet Connection");
-			 }*/
+		 var win = Alloy.createController("sliderContent/slider").getView();
+		 win.open();
+		 args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();*/
+		Ti.API.error('Submitting the profile ');
+		if (Titanium.Network.online) {
+			utils.showLoading();
+			var requestData = {
+				user_id : user_id,
+				user_name : $.name.value, //"sandeep",
+				user_email : $.emailAddress.value, //"sandeep@mailinator.com",
+				user_dob : "1989-10-04",
+				user_gender : "",
+				user_mobile : $.contactNo.value, //"1234543454" ,
+				user_profile_pic : "",
+				address_address : $.address_permanent.value, //"shastri nagar, bahadurgarh, haryana",
+				address_city : $.city.value,
+				address_zipcode : $.cityPIN.value,
+				tutor_experience : $.experience.value,
+				tutor_address_proof : "",
+				tutor_medium : $.preferredLanguage.value,
+				tutor_mobile_visibility : "",
+				tutor_linkedin_profile : "",
+				tutor_free_class_days : "",
+				tutor_can_travel_distance : "",
+				tutor_id_proof : "",
+				tutor_type : "",
+				courses : "[]",
+				subjects : "[]",
+				timings : "[]"
+			};
+			network.postRequest({
+				type : "POST",
+				url : Alloy.CFG.URL.update_profile,
+				requestData : requestData,
+				requestHeaders : {
+					"public-key" : "c8a1ad1332716aa15752422360e739a5",
+					"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",
+				},
+				callBack : callBack,
+			});
 
 		} else {
-			alert("Profile updated successfully.");
+			alert("Check Internet Connection");
 		}
+
+		//} else {
+		//alert("Profile updated successfully.");
+		//}
 	} else {
-		//alert('Please fill the details to complete your Registration.');
-		alert('Please fill the name, email and permanent address field ');
+		alert('Please fill the details to complete request.');
+		//alert('Please fill the name, email and permanent address field ');
 	}
 };
 function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
-	//utils.hideLoading();
+	utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		var win = Alloy.createController("sliderContent/slider").getView();
 		win.open();
@@ -82,7 +131,7 @@ function callBack(json) {
 		Ti.API.info("Register successfully: Enter into the slider screen");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
-		_.isEmpty(json) && alert("Unable to complete registration. Please try again later.");
+		_.isEmpty(json) && alert("Unable to complete request. Please try again later.");
 		Ti.API.error("error found");
 	}
 }
@@ -147,7 +196,8 @@ if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 	$.scrollContainer.remove($.subjects);
 	$.scrollContainer.remove($.subjectsSap);
 	$.scrollContainer.remove($.sutaibleBatchTime);
-	$.scrollContainer.remove($.sutaibleBatchTimeSap);
+	$.scrollContainer.remove($.id_proof);
+
 }
 
 function onImageViewClick() {
@@ -242,8 +292,24 @@ function languageTypeClick() {
 			$.preferredLanguage.value = languageArray[e.index];
 			break;
 		case 2 :
-			
+
 			break;
 		}
 	});
+}
+
+function uploadIdProof() {
+	Ti.API.info("asnfjlgkl");
+	require('androidCameraDialogs').showDialogs({
+		success : recieveIdProofCallback
+	});
+}
+
+function recieveIdProofCallback(response) {
+	Ti.API.info(" recieveIdProofCallback " + JSON.stringify(response));
+	$.scrollContainer.add($.idProofImage);
+	$.idProofImage.show();
+	$.idProofImage.image = response.nativePath;
+	$.idProofImage.height = 200;
+	$.scrollContainer.height = Ti.UI.SIZE;
 }

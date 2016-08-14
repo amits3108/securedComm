@@ -144,8 +144,8 @@ function openTutorProfile() {
 
 	//setUserValues();
 
-	//Alloy.createController("authentication/profileNavigator").getView().open();  //TODO : commenting for the OTP screen opening.
-	Alloy.createController("authentication/oneTimePassword").getView().open();
+	Alloy.createController("authentication/profileNavigator").getView().open();  //TODO : commenting for the OTP screen opening.
+	//Alloy.createController("authentication/oneTimePassword").getView().open();
 	closeSignUpScreen();
 }
 // function setUserValues(res)

@@ -4,7 +4,7 @@ var args = $.args;
 var network = require("network");
 var appKey = require("appKey");
 var utils = require("utils");
-
+var hasTouch = true;
 function createtimeLineRow(params) {
 	var params = params || {};
 
@@ -54,13 +54,53 @@ function createtimeLineRow(params) {
 	});
 	viewContainer.add(timeLinePostLabel);
 
+	var likeView = Ti.UI.createView({
+		backgroundColor : 'transparent',
+		top : 10,
+		left : 5,
+		height : Ti.UI.SIZE,
+		width : Ti.UI.SIZE,
+	});
+	var likeButton = Ti.UI.createImageView({
+		image : "/images/like.png",
+		height : 20,
+		width : 20,
+		//top : 10,
+
+		//bottom : 10
+	});
+	likeView.add(likeButton);
+
+	var likeNumber = Ti.UI.createLabel({
+		text : params.postLikes,
+		height : 20,
+		width : 20,
+		//top : 10,
+		left : 50,
+		//bottom : 10
+	});
+	likeView.add(likeNumber);
+	viewContainer.add(likeView);
+	likeView.addEventListener('click', function(e) {
+
+		if (!hasTouch) {
+			Ti.API.info(hasTouch + " likeNumber.getText() " + likeNumber.getText());
+			var number = parseInt(likeNumber.getText()) + 1;
+		} else {
+			Ti.API.info(hasTouch + " likeNumber.getText() " + likeNumber.getText());
+			if (parseInt(likeNumber.getText()) > 0)
+				var number = parseInt(likeNumber.getText()) - 1;
+		}
+		likeNumber.setText(number);
+	});
+
 	var end_double_quotes = Ti.UI.createImageView({
 		image : "/images/end_double_quotes.png",
 		height : 20,
 		width : 20,
-		top : 10,
+		//top : 10,
 		right : 5,
-		bottom : 10
+		bottom : 5
 	});
 	viewContainer.add(end_double_quotes);
 	tableViewRow.add(viewContainer);
@@ -92,7 +132,8 @@ function postButtonClick() {
 function sendPostToServer(params) {
 	var params = params || {};
 	if (Titanium.Network.online) {
-		utils.showLoading();;
+		utils.showLoading();
+		;
 		var user = Alloy.Globals.getData(appKey.USER);
 		var requestData = {
 			tutor_id : user.user_id,
@@ -132,7 +173,8 @@ function sendPostToServerCallBack(json) {
 
 			var tableRow1 = createtimeLineRow({
 				timeLinePost : timeLinePost,
-				postCreationDate : "6:20pm June 15,2016"
+				postCreationDate : "6:20pm June 15,2016",
+				postLikes : '0'
 			});
 			$.timeLineTable.appendRow(tableRow1);
 			tableRow1 = null;
@@ -169,7 +211,7 @@ function getAllPostFromServer() {
 		};
 		network.postRequest({
 			type : "GET",
-			url : Alloy.CFG.URL.get_post+"/tutor_id/"+user.user_id,
+			url : Alloy.CFG.URL.get_post + "/" + user.user_id,
 			//requestData : {},
 			requestHeaders : {
 				"public-key" : "c8a1ad1332716aa15752422360e739a5",
@@ -190,11 +232,20 @@ function getAllPostFromServerCallBack(json) {
 	Ti.API.info(" getAllPostFromServerCallBack json " + JSON.stringify(json));
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		if (json.data) {
-			if (json.data) {
-				Ti.API.info("json data found");
-			} else {
-				Ti.API.info("json data not found");
+			Ti.API.info(JSON.stringify(json.data) + "asbasfabv" + json.data.length);
+			var len = json.data.length;
+			//var timeLinePost = ($.timeLineField.value != "" || null) ? $.timeLineField.value : "";
+			for (var i = 0; i < len; i++) {
+				Ti.API.info("json data found" + json.data[i].post_text);
+				var tableRow1 = createtimeLineRow({
+					timeLinePost : json.data[i].post_text, // timeLinePost,
+					postCreationDate : "6:20pm June 15,2016", //json.data[i].timestamp
+					postLikes : '5'//json.data[i].post_likes
+				});
+				$.timeLineTable.appendRow(tableRow1);
+				tableRow1 = null;
 			}
+
 		} else {
 			if (json.message)
 				alert(json.message + "");
@@ -202,7 +253,7 @@ function getAllPostFromServerCallBack(json) {
 		Ti.API.info("post completed");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
-		_.isEmpty(json) && alert("Unable to Post your message. Please try again later.");
+		_.isEmpty(json) && alert("Unable to fetch Posts.Please try again");
 		if (json && json.error) {
 			if (json.message) {
 				alert(json.message + "");

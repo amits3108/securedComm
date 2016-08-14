@@ -72,7 +72,10 @@
 "#city":{
 	hintText: "City"
 }
-
+"#cityPIN":{
+	hintText: "PINCODE",
+	keyboardType: Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD
+}
 "#dateOfBirth":{
 	hintText: "Date Of birth"
 }
@@ -159,4 +162,12 @@
 	right: '5%',
 	width: "200dp",
 	bottom: "5dp"
+}
+
+
+"#idProofImage":{
+	borderColor : Alloy.CFG.themeColor,
+	width: "80%",
+	height : '0',//'200dp',
+	top : '10'
 }

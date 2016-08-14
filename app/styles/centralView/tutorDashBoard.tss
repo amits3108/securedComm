@@ -16,9 +16,9 @@
 "#profile":{
 	text: "Profile",
 	font: {
-		fontSize: 10
+		fontSize: 15
 	},
-	color: "#000"
+	color: Alloy.CFG.themeColor
 }
 
 "#profileHighlighter":{
@@ -39,9 +39,9 @@
 "#timeLine":{
 	text: "TimeLine",
 	font: {
-		fontSize: 10
+		fontSize: 15
 	},
-	color: "#000"
+	color: Alloy.CFG.themeColor
 }
 
 "#timeLineHighlighter":{

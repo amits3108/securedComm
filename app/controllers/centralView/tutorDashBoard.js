@@ -33,7 +33,7 @@ function onScrollEndOFViews(res){
 	}
 }
 
-$.scrollableView.addEventListener('dragend',function(res){
+$.scrollableView.addEventListener('scrollend',function(res){
 	onScrollEndOFViews(res);
 });
 
