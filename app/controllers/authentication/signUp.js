@@ -142,15 +142,13 @@ function onRegisterClick() {
 function openTutorProfile() {
 	utils.setLoginStatus();
 
-	//setUserValues();
-
-	Alloy.createController("authentication/profileNavigator").getView().open();  //TODO : commenting for the OTP screen opening.
-	//Alloy.createController("authentication/oneTimePassword").getView().open();
+	//Alloy.createController("authentication/profileNavigator").getView().open();  //TODO : commenting for the OTP screen opening.
+	Alloy.createController("authentication/oneTimePassword").getView().open();
 	closeSignUpScreen();
 }
-// function setUserValues(res)
-function setUserValues() {
-	//var res = res || {};
+
+function setUserValues(res){
+	var res = res || {};
 	var user_type = null;
 	if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 		user_type = 1;
@@ -162,7 +160,7 @@ function setUserValues() {
 		name : $.name.value,
 		email : ($.emailAddress.value).trim(),
 		phone : $.phoneNo.value,
-		//user_id : res.id,
+		user_id : res.id,
 		user_type : user_type
 	};
 	Alloy.Globals.setData(appKey.USER, user);

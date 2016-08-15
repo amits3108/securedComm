@@ -119,7 +119,3 @@ function setUserValues(params) {
 function openForgetPasswordScreen() {
 	Alloy.createController("authentication/forgetPassword").getView().open();
 }
-
-//require("utils").getCourses();
-//require("utils").getSubjects();
-//require("utils").getTimings();

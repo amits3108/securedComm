@@ -9,7 +9,7 @@ if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "organisation") {
 } else {
 	// 
 	$.profile.add(Alloy.createController("centralView/profile", {
-		closeNewTutorProfileScreen : closeNewTutorProfileScreen
+		closeNewTutorProfileScreen : closeNewTutorProfileScreen,
 	}).getView());
 }
 

@@ -166,7 +166,7 @@ function onApplyCallBack (json) {
 		Ti.API.error ("error found");
 	}*/
 	$.batchAndPackageSelection.close ();
-	alert ("Congrats, Your timing and batch is Applied, Now Concentrate on your study");
+	alert ("Congrats, Your timing and batch is Applied");
 	
 }
 
