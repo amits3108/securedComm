@@ -79,7 +79,7 @@ var onSubmit = function(e) {
 				user_id : user_id,
 				user_name : $.name.value, //"sandeep",
 				user_email : $.emailAddress.value, //"sandeep@mailinator.com",
-				user_dob : "1989-10-04",
+				user_dob : ($.dateOfBirth.value) ? $.dateOfBirth.value : "1989-10-04",
 				user_gender : "",
 				user_mobile : $.contactNo.value, //"1234543454" ,
 				user_profile_pic : "",
@@ -126,10 +126,15 @@ function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
 	utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
-		var win = Alloy.createController("sliderContent/slider").getView();
-		win.open();
-		args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
-		utils.setRegistrationStatus();
+		if (!Alloy.Globals.getData (appKey.KEYS.REGISTRATIONCOMPLETE)) {
+			var win = Alloy.createController ("sliderContent/slider").getView ();
+			win.open ();
+			args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen ();
+			utils.setRegistrationStatus ();
+		}else{
+			alert("Profile updated successfully.");
+		}
+
 		Ti.API.info("Register successfully: Enter into the slider screen");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);

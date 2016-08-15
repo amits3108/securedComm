@@ -33,36 +33,43 @@ function filteredRowUI(params) {
 
 function dataOfRow() {
 	var data = [{
+		tutor_id : "1",
 		image : "",
 		name : "ravi",
 		experience : "6",
 		location : "Gurgaon",
 		intro : "Work Hard his nature",
 	}, {
+		tutor_id : "2",
 		image : "",
 		name : "David",
 		experience : "5",
 		location : "Gurgaon",
 		intro : "Do it perfect",
 	}, {
+		tutor_id : "3",
 		image : "",
 		name : "Juli",
 		experience : "4",
 		location : "Gurgaon",
 		intro : "Work Hard his nature",
 	}, {
+		
+		tutor_id : "4",
 		image : "",
 		name : "BakBoss",
 		experience : "3",
 		location : "Noida",
 		intro : "Work Hard his nature",
 	}, {
+		tutor_id : "5",
 		image : "",
 		name : "Sultan",
 		experience : "7",
 		location : "Noida",
 		intro : "Work Hard his nature",
 	}, {
+		tutor_id : "6",
 		image : "",
 		name : "Kumar Khan",
 		experience : "8",
@@ -75,6 +82,7 @@ function dataOfRow() {
 
 function addProfileView() {
 	var tutorProfileView = Alloy.createController("centralView/tutorProfileHome", {
+		tutor_id : args.tutor_id,
 		title : args.title,
 		exp : args.exp,
 		loc : args.loc,
@@ -106,6 +114,7 @@ function filteredTableClick(e) {
 	var index = e.index;
 	Alloy.createController("custom/filteredContentWindow", {
 		screenType : "tutorProfileScreen",
+		tutor_id : rowsData[index].tutor_id,
 		title : rowsData[index].name,
 		exp : rowsData[index].experience,
 		loc : rowsData[index].location,
@@ -114,9 +123,7 @@ function filteredTableClick(e) {
 }
 
 var actionBar;
-
 $.filteredContentWindow.addEventListener("open", function() {
-
 	actionBar = $.filteredContentWindow.activity.actionBar;
 	if (actionBar) {
 		actionBar.title = "Tutme";

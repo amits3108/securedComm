@@ -3,6 +3,11 @@ var args = $.args;
 var network = require("network");
 var appKey = require("appKey");
 
+var tutor_id = null;
+if (args && args.tutor_id)
+	tutor_id = args.tutor_id;
+	else
+	tutor_id = "1";
 
 if (args) {
 	$.name.text = args.title;
@@ -54,7 +59,9 @@ function onCoursesTableClick(e){
 	var index = e.index;
 	
 	if(Alloy.Globals.getData(appKey.KEYS.USERTYPE) =="student"){
-		Alloy.createController("custom/batchAndPackageSelection").getView().open();
+		Alloy.createController("custom/batchAndPackageSelection",{
+			tutor_id : tutor_id
+		}).getView().open();
 	}
 	
 }

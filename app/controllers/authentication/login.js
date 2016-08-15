@@ -85,8 +85,8 @@ function callBack(json) {
 				user_id : json.data.id,
 			});
 		}
-Alloy.createController("authentication/profileNavigator").getView().open(); 
-/*		var win = Alloy.createController("sliderContent/slider", {
+         Alloy.createController("authentication/profileNavigator").getView().open(); 
+        /*var win = Alloy.createController("sliderContent/slider", {
 			closeLoginScreen : closeLoginScreen
 		}).getView();*/
 		//win.open();
@@ -119,3 +119,7 @@ function setUserValues(params) {
 function openForgetPasswordScreen() {
 	Alloy.createController("authentication/forgetPassword").getView().open();
 }
+
+//require("utils").getCourses();
+//require("utils").getSubjects();
+//require("utils").getTimings();

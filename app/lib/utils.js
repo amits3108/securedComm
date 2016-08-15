@@ -73,6 +73,16 @@ var setPropertiesNull = function() {
 		Ti.API.error(" index " + index + "   key  " + key);
 		Alloy.Globals.setData(key, null);
 	});
+	
+	
+	//TODO: Convert these keys into the Alloy.Globals.setData keys
+	/*Ti.App.Properties.setObject ('courseList', null);
+	Ti.App.Properties.setObject ('coursesList', null);
+	Ti.App.Properties.setObject ('subjectList', null);
+	Ti.App.Properties.setObject ('subjectsArrayList', null);
+	Ti.App.Properties.setObject ('timeSlots', null);
+	Ti.App.Properties.setObject ('classTime', null); */
+
 };
 exports.setPropertiesNull = setPropertiesNull;
 

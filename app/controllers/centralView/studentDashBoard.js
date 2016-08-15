@@ -211,8 +211,7 @@ function applyButtonclick() {
 			utils.showLoading();
 			network.postRequest({
 				type : "POST",
-				url : "api.tutme.in/index.php/tutor/get_tutors_list",
-				//Alloy.CFG.URL.getFilteredTutorList,
+				url : Alloy.CFG.URL.getFilteredTutorList,//"api.tutme.in/index.php/tutor/get_tutors_list",
 				requestData : {
 					tutor_type : "1",
 					courses : JSON.stringify(selectedCourses),

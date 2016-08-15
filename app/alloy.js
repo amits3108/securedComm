@@ -41,21 +41,24 @@ Alloy.Globals.platformHeight = platformHeight;
 Alloy.Globals.setData = setData;
 Alloy.Globals.getData = getData;
 
-const baseURL = "api.tutme.in/index.php/";
-const baseURL_new = "api.tutme.loc/index.php/tutor";
 // Live Server
+//const baseURL = "api.tutme.in/index.php/";
+const baseURL = "http://52.66.93.46/index.php/";
+
 
 Alloy.CFG.URL = {
 	register : baseURL + "user/register",
 	login : baseURL + "user/login",
-	getProfile: "user/get_profile",
+	getProfile: baseURL + "user/get_profile",
 	update_profile : baseURL + "user/update_profile",
 	getCourses : baseURL + "cms/getCourses",
 	getSubjects : baseURL + "cms/getSubjects",
 	getTimings : baseURL + "cms/getTimings",
 	create_post : baseURL + "tutor/create_post",
 	get_post : baseURL + "tutor/get_post",
-	getFilteredTutorList : baseURL_new + "get_tutors_list"
+	getFilteredTutorList : baseURL + "tutor/get_tutors_list",
+	getPackages : baseURL + "cms/getPackages",
+	application : baseURL + "student/application",
 };
 
 // loader
