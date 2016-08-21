@@ -10,9 +10,14 @@
 					<Label id="experience"/>
 					<Label id="location"/>
 					<ImageView id="stars"/>
+
 				</View>
+
 			</View>
-			<Label id="intro"/>
+			<View height="Ti.UI.SIZE">
+				<Label id="intro"/>
+				<Label id = "markFav" onClick = "addToFavourite"/>
+			</View>
 			<TextArea id="introDetail"/>
 			<View layout="horizontal" height="20" top="15">
 				<ImageView id="callImage"/>

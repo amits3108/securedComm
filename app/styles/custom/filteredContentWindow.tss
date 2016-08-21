@@ -7,3 +7,17 @@
 	width:Titanium.UI.FILL,
 	backgroundColor : "#FFF"
 }
+'#fab': {
+    bottom: 20,
+    right: 10,
+    width: 60,
+    height: 60,
+    //backgroundColor: '#1BB4C6',
+    backgroundImage : "/images/GPS-e1427174833379.png",//"gps.png",
+    //focusedColor: '#B2DAF6',
+    borderWidth: 1,
+    borderColor: '#ececec',
+    //title: 'TM',
+    rotation: true,
+    direction: 'left',
+}

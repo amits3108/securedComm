@@ -25,7 +25,7 @@
 			<TextField id="dateOfBirth" class="textFieldClass" editable="false" onClick="selectDate"/>
 			<View class = "sapClass"/>
 			<TextField id="contactNo" class="textFieldClass"/>
-			<View class = "sapClass"/>
+			<View class = "sapClass" id = "contactNoSap"/>
 			<TextField id="label" class="textFieldClass" editable="false" onClick="LinkedInClick"/>
 			<View class = "sapClass" id = "labelSap"/>
 			<TextField id="canTravelTo" class="textFieldClass"/>
@@ -44,7 +44,7 @@
 			<TextField id="aboutYourSelf" class="textFieldClass"/>
 			<View class = "sapClass"/>
 			<TextField id  = "id_proof" editable="false" hintText = 'Upload Id Proof Image' class="textFieldClass" top = "20" onClick="uploadIdProof"/>
-			<View class = "sapClass"/>
+			<View class = "sapClass" id = "idProofSap"/>
 			<ImageView id = "idProofImage" />
 			<Button id="submit" onClick="onSubmit"/>
 		</ScrollView>

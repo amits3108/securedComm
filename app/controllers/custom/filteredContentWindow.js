@@ -134,4 +134,8 @@ $.filteredContentWindow.addEventListener("open", function() {
 		};
 	}
 
-}); 
+});
+
+function doToggle(e) {
+	map.showMap();
+} 

@@ -24,8 +24,8 @@ var aboutusLabel = Ti.UI.createLabel({
 	text : aboutLabel,
 	color : "#1BB4C6",
 	font : {
-		fontSize : 10,
-		fontWeight : 'bold'
+		fontSize : 8,
+		fontWeight : 'regular'
 	},
 	//left : 5,
 	top : 10,

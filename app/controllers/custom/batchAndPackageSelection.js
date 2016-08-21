@@ -118,12 +118,12 @@ function onApply () {
 				student_id : user_id,
 				tutor_id : tutor_id,
 				package_id : selectedPackageId,
-				batch_timing : $.batchtimeLabel.getText ()
+				batch_timing : selectedBatchTime//$.batchtimeLabel.getText()
 			};
 
 			network.postRequest ({
 				type : "POST",
-				url : Alloy.CFG.URL.update_profile,
+				url : Alloy.CFG.URL.application,
 				requestData : requestData,
 				requestHeaders : {
 					"public-key" : "c8a1ad1332716aa15752422360e739a5",
@@ -139,7 +139,7 @@ function onApply () {
 
 	}
 	else {
-		alert ("select required details first.");
+		alert ("Select required details.");
 	}
 }
 

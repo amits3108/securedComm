@@ -1,4 +1,7 @@
+var utils = require("utils");
 var rowtitle = [{
+	title : "Profile"
+},{
 	title : "About us"
 }, {
 	title : "Terms And Conditions "
@@ -68,14 +71,22 @@ function createSettingRow(params) {
 }
 $.settingsTable.addEventListener('click',function(e){
 	if(e.index == 0){
-		var aboutuswin = Alloy.createController("centralView/settings/Aboutus").getView();
-		aboutuswin.open();
+		var view = Alloy.createController("centralView/profile").getView();
+		title = "Profile";
+		utils.replaceCentralView({
+			view : view,
+			title : title
+		});
 	}
 	else if(e.index == 1){
 		var Agreementwin = Alloy.createController("centralView/settings/Aboutus").getView();
 		Agreementwin.open();
 	}
 	else if(e.index == 2){
+		var Policiesswin = Alloy.createController("centralView/settings/Aboutus").getView();
+		Policiesswin.open();
+	}
+	else if(e.index == 3){
 		var Policiesswin = Alloy.createController("centralView/settings/Aboutus").getView();
 		Policiesswin.open();
 	}

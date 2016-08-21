@@ -48,6 +48,12 @@
 	image: "/images/five_stars.jpg",
 	left: 0
 }
+"#markFav" :{
+	text : "Add to Favourites",
+	right : 5,
+	top : 0,
+	color: Alloy.CFG.lightBlueColor,
+}
 
 "#intro":{
 	text: "About",

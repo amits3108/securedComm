@@ -57,8 +57,8 @@ $.menuTable.addEventListener('click', function(e){
 	}
 	switch(index) {
 	case 0:
-		view = Alloy.createController("centralView/profile").getView();
-		title = "Profile";
+		view = Alloy.createController("centralView/timeLine").getView();
+		title = "Timeline";
 		break;
 	case 1:
 		if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {

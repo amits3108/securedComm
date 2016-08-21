@@ -3,6 +3,9 @@ var args = $.args;
 var network = require("network");
 var appKey = require("appKey");
 
+if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
+	$.introDetail.editable = false;
+}
 var tutor_id = null;
 if (args && args.tutor_id)
 	tutor_id = args.tutor_id;
@@ -65,3 +68,7 @@ function onCoursesTableClick(e){
 	}
 	
 }
+function addToFavourite(e){
+	Ti.API.info("add to favourite");
+}
+

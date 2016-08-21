@@ -52,7 +52,7 @@ var courseRow = function(params) {
 			fontSize : 15
 		},
 		color : Alloy.CFG.yellowColor,
-		top : 5,
+		top : 2,
 		right : 8,
 	});
 	containerView.add(courseName);

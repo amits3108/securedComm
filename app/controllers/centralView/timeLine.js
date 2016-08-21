@@ -5,6 +5,9 @@ var network = require("network");
 var appKey = require("appKey");
 var utils = require("utils");
 var hasTouch = true;
+if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
+	$.timelineView.remove($.topTimelineView);
+}
 function createtimeLineRow(params) {
 	var params = params || {};
 
@@ -248,7 +251,13 @@ function getAllPostFromServerCallBack(json) {
 
 		} else {
 			if (json.message)
-				alert(json.message + "");
+				alert("No Post to show.");
+				var tableRow1 = createtimeLineRow({
+				timeLinePost : "No Post to Show",
+				//postCreationDate : "6:20pm June 15,2016",
+				postLikes : '0'
+			});
+			$.timeLineTable.appendRow(tableRow1);
 		}
 		Ti.API.info("post completed");
 	} else {

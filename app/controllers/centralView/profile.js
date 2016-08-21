@@ -21,7 +21,7 @@ function getProfile() {
 	if (Titanium.Network.online) {
 		network.postRequest({
 			type : "GET",
-			url : "api.tutme.in/index.php/user/get_profile" + "/:" + user_id, //"api.tutme.in/index.php/user/get_profile",
+			url : "api.tutme.in/index.php/user/get_profile/" + user_id, //"api.tutme.in/index.php/user/get_profile",
 			requestData : {},
 			requestHeaders : {
 				"public-key" : "c8a1ad1332716aa15752422360e739a5",
@@ -56,6 +56,15 @@ function callBackGetProfile(json) {
 }
 
 function setValues() {
+	//   get profile response 
+	
+	//{"user":[{"id":"16","user_type":"1","email":"atutme57@gmail.com","full_name":"atutme57","dob":"0000-00-00","gender":"","mobile":"8689665566","profile_pic":null}],
+	//"address":[{"id":"34","user_id":"16","address":"New Colony","city":"Gurgaon","state":null,"country":null,"zipcode":"222555","coordinates":null,"created_on":"2016-08-11 11:08:52","updated_on":null}],
+	//"courses":[],"subjects":[],"timings":[]}
+	
+	
+	
+	//
 	var user = Alloy.Globals.getData(appKey.USER);
 	if(user){
 		$.name.value = user.name;
@@ -196,6 +205,7 @@ if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 	$.scrollContainer.remove($.experienceSap);
 	$.scrollContainer.remove($.label);
 	$.scrollContainer.remove($.labelSap);
+	$.scrollContainer.remove($.contactNoSap);
 	$.scrollContainer.remove($.canTravelTo);
 	$.scrollContainer.remove($.canTravelToSap);
 	$.scrollContainer.remove($.courses);
@@ -204,7 +214,7 @@ if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 	$.scrollContainer.remove($.subjectsSap);
 	$.scrollContainer.remove($.sutaibleBatchTime);
 	$.scrollContainer.remove($.id_proof);
-
+	$.scrollContainer.remove($.idProofSap);
 }
 
 function onImageViewClick() {

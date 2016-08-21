@@ -1,7 +1,7 @@
 <Alloy>
-	<View class="container" backgroundColor="#E3F1FA">
+	<View class="container" id  = "timelineView" backgroundColor="#E3F1FA">
 		<!--<ImageView id = "mainImage"/>-->
-		<View backgroundColor="#FFF" height="40" width="95%" top="15">
+		<View id = "topTimelineView" backgroundColor="#FFF" height="40" width="95%" top="15">
 			<ImageView id="cloudImage"/>
 			<TextField id="timeLineField"/>
 			<Button id="postButton" onClick="postButtonClick"/>
