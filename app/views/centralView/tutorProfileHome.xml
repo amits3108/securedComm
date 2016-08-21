@@ -1,5 +1,5 @@
 <Alloy>
-	<View backgroundColor="Alloy.CFG.lightBlueColor" height="Ti.UI.SIZE">
+	<View height="Ti.UI.SIZE">
 		<ScrollView id="scrollContainer" scrollType="vertical" >
 			<View layout="horizontal" height="100" width="Ti.UI.FILL">
 				<View width="30%">

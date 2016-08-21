@@ -2,6 +2,7 @@
 var args = $.args;
 var network = require("network");
 var appKey = require("appKey");
+var utils = require ("utils");
 
 if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 	$.introDetail.editable = false;
@@ -68,7 +69,31 @@ function onCoursesTableClick(e){
 	}
 	
 }
+
 function addToFavourite(e){
-	Ti.API.info("add to favourite");
+	/*Ti.API.info("add to favourite");
+			if (Titanium.Network.online) {
+			utils.showLoading();
+			network.postRequest({
+				type : "POST",
+				url : Alloy.CFG.URL.add_favorite,//"api.tutme.in/index.php/tutor/get_tutors_list",
+				requestData : {
+					tutor_id : "1",
+					student_id : ""
+				},
+				requestHeaders : {
+					"public-key" : "c8a1ad1332716aa15752422360e739a5",
+					"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
+				},
+				callBack : function(e) {
+					Ti.API.error(" ddd " + e + " getSubjects " + JSON.stringify(e));
+					utils.hideLoading();
+					alert('Tutor added to the favourite list.');
+				},//params.callBack,
+			});
+
+		} else {
+			alert("Internet is not available");
+		}*/
 }
 
