@@ -20,7 +20,7 @@
 }
 
 "#experience":{
-	text: "Experience : 2 years",
+	//text: "Experience : 2 years",
 	font: {
 		fontSize: 10
 	},

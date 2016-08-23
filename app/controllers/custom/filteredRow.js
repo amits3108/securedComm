@@ -3,8 +3,8 @@
 var args = $.args;
 
 if (args) {
-	$.name.text = args.name;
-	$.experience.text = "Experience : "+ args.experience+" years";
-	$.location.text = "Location : "+args.location;
-	$.intro.text = args.intro;
+	$.name.text = args.full_name;
+	$.experience.text = "N.A";//"Experience : "+ args.experience+" years";
+	$.location.text = "Location : "+args.city;
+	$.intro.text = args.email;
 } 

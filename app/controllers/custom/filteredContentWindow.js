@@ -12,8 +12,14 @@ if (args.screenType == "tutorProfileScreen") {
 	filteredRowUI();
 	showFilteredList();
 }
-$.filteredListTable.filterAttribute="title";
+$.filteredListTable.filterAttribute = "title";
 ////////////    require the UI of each List row in table   ///////////////
+Ti.API.error(JSON.stringify(Ti.App.Properties.getObject("tutorData")));
+function dataOfRow() {
+	var data = Ti.App.Properties.getObject("tutorData");
+	return data;
+}
+
 function filteredRowUI(params) {
 	var params = params || {};
 
@@ -27,13 +33,13 @@ function filteredRowUI(params) {
 			width : Titanium.UI.FILL,
 			backgroundColor : "transparent",
 		});
-		tableRow.title = rowsData[i].name;
+		tableRow.title = rowsData[i].full_name;
 		tableRow.add(filteredRow);
 		$.filteredListTable.appendRow(tableRow);
 	}
 }
 
-function dataOfRow() {
+/*function dataOfRow() {
 	var data = [{
 		tutor_id : "1",
 		image : "",
@@ -56,7 +62,7 @@ function dataOfRow() {
 		location : "Gurgaon",
 		intro : "Work Hard his nature",
 	}, {
-		
+
 		tutor_id : "4",
 		image : "",
 		name : "BakBoss",
@@ -80,13 +86,13 @@ function dataOfRow() {
 	}];
 
 	return data;
-}
+}*/
 
 function addProfileView() {
 	var tutorProfileView = Alloy.createController("centralView/tutorProfileHome", {
 		tutor_id : args.tutor_id,
 		title : args.title,
-		exp : args.exp,
+		exp : args.exp || "N.A",
 		loc : args.loc,
 		intro : args.intro,
 		closeFilteredContentWindow : closeFilteredContentWindow
@@ -117,10 +123,10 @@ function filteredTableClick(e) {
 	var index = e.index;
 	Alloy.createController("custom/filteredContentWindow", {
 		screenType : "tutorProfileScreen",
-		tutor_id : rowsData[index].tutor_id,
-		title : rowsData[index].name,
+		tutor_id : rowsData[index].id,
+		title : rowsData[index].full_name,
 		exp : rowsData[index].experience,
-		loc : rowsData[index].location,
+		loc : rowsData[index].city,
 		intro : rowsData[index].intro,
 		closeFilteredContentWindow : closeFilteredContentWindow
 	}).getView().open();
@@ -140,7 +146,7 @@ $.filteredContentWindow.addEventListener("open", function() {
 
 });
 
-function closeFilteredContentWindow(){
+function closeFilteredContentWindow() {
 	$.filteredContentWindow.close();
 }
 

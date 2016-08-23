@@ -205,7 +205,7 @@ function timeTypeClick() {
 
 function applyButtonclick() {
 	//Alloy.createController("custom/filteredContentWindow").getView().open();
-	if (selectedCourses.length == 0 || selectedTime.length || selectedSubjects.length > 0) {
+	if (selectedCourses.length || selectedTime.length || selectedSubjects.length > 0) {
 		Ti.API.info(selectedTutorType, selectedTime, selectedCourses, selectedSubjects, selectedClass);
 		if (Titanium.Network.online) {
 			utils.showLoading();
@@ -214,9 +214,9 @@ function applyButtonclick() {
 				url : Alloy.CFG.URL.getFilteredTutorList,//"api.tutme.in/index.php/tutor/get_tutors_list",
 				requestData : {
 					tutor_type : "1",
-					courses : JSON.stringify(selectedCourses),
-					subjects : JSON.stringify(selectedSubjects),
-					timings : JSON.stringify(selectedTime)
+					courses : "",//JSON.stringify(selectedCourses),
+					subjects : "",//JSON.stringify(selectedSubjects),
+					timings : "",//JSON.stringify(selectedTime)
 				},
 				requestHeaders : {
 					"public-key" : "c8a1ad1332716aa15752422360e739a5",
@@ -224,6 +224,7 @@ function applyButtonclick() {
 				},
 				callBack : function(e) {
 					Ti.API.error(" ddd " + e + " getSubjects " + JSON.stringify(e));
+					Ti.App.Properties.setObject("tutorData",e.data);
 					Alloy.createController("custom/filteredContentWindow").getView().open();
 					utils.hideLoading();
 					selectedCourses.length = 0;

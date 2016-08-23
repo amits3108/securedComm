@@ -3,7 +3,11 @@ var args = $.args;
 var network = require("network");
 var appKey = require("appKey");
 var utils = require ("utils");
-
+var user = Alloy.Globals.getData (appKey.USER);
+var user_id;
+if (user && user.user_id)
+	user_id = user.user_id;
+//used for Student ID
 if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 	$.introDetail.editable = false;
 }
@@ -72,22 +76,22 @@ function onCoursesTableClick(e){
 }
 
 function addToFavourite(e){
-	/*Ti.API.info("add to favourite");
+	Ti.API.info("add to favourite");
 			if (Titanium.Network.online) {
 			utils.showLoading();
 			network.postRequest({
 				type : "POST",
-				url : Alloy.CFG.URL.add_favorite,//"api.tutme.in/index.php/tutor/get_tutors_list",
+				url : Alloy.CFG.URL.add_favorite,
 				requestData : {
-					tutor_id : "1",
-					student_id : ""
+					tutor_id : tutor_id,
+					student_id : user_id
 				},
 				requestHeaders : {
 					"public-key" : "c8a1ad1332716aa15752422360e739a5",
 					"token" : "72dd0dbc65b5e19d4b086c6f89b16203_123",//"79c74e91e49b623f6ea02435e2725"
 				},
 				callBack : function(e) {
-					Ti.API.error(" ddd " + e + " getSubjects " + JSON.stringify(e));
+					Ti.API.error(" ddd " + e + JSON.stringify(e));
 					utils.hideLoading();
 					alert('Tutor added to the favourite list.');
 				},//params.callBack,
@@ -95,6 +99,26 @@ function addToFavourite(e){
 
 		} else {
 			alert("Internet is not available");
-		}*/
+		}
 }
 
+/*for marking tutor as favorite :
+url : api.tutme.in/index.php/student/add_favorite
+method : post
+params: tutor_id, student_id
+
+for getting post list of favorited tutor : 
+url : api.tutme.in/index.php/student/postsby_fav_tutors/:student_id
+method : get
+{"error":false,"data":null,"message":"No posts available by your favorite tutors","errors":null,"status_code":200}
+
+for liking a post by tutor:
+url : api.tutme.in/index.php/student/like_tutor_posts
+method : post
+params: post_id, student_id
+
+for adding a comment on post by tutor:
+url : api.tutme.in/index.php/student/comment_tutor_posts
+method : post
+params: post_id, student_id, comment_text
+ */
