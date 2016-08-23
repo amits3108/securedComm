@@ -64,7 +64,8 @@ function onCoursesTableClick(e){
 	
 	if(Alloy.Globals.getData(appKey.KEYS.USERTYPE) =="student"){
 		Alloy.createController("custom/batchAndPackageSelection",{
-			tutor_id : tutor_id
+			tutor_id : tutor_id,
+			closeFilteredContentWindow : args.closeFilteredContentWindow
 		}).getView().open();
 	}
 	

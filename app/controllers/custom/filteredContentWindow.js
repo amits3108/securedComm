@@ -88,7 +88,8 @@ function addProfileView() {
 		title : args.title,
 		exp : args.exp,
 		loc : args.loc,
-		intro : args.intro
+		intro : args.intro,
+		closeFilteredContentWindow : closeFilteredContentWindow
 	}).getView();
 	$.profileView.add(tutorProfileView);
 }
@@ -120,7 +121,8 @@ function filteredTableClick(e) {
 		title : rowsData[index].name,
 		exp : rowsData[index].experience,
 		loc : rowsData[index].location,
-		intro : rowsData[index].intro
+		intro : rowsData[index].intro,
+		closeFilteredContentWindow : closeFilteredContentWindow
 	}).getView().open();
 }
 
@@ -132,11 +134,15 @@ $.filteredContentWindow.addEventListener("open", function() {
 		actionBar.displayHomeAsUp = true;
 		actionBar.homeButtonEnabled = true;
 		actionBar.onHomeIconItemSelected = function() {
-			$.filteredContentWindow.close();
+			closeFilteredContentWindow();
 		};
 	}
 
 });
+
+function closeFilteredContentWindow(){
+	$.filteredContentWindow.close();
+}
 
 function doToggle(e) {
 	map.showMap();

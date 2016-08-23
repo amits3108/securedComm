@@ -150,7 +150,7 @@ function onApplyCallBack (json) {
 		if (json.data) {
 			Ti.API.info ("get profile Callback success: \n " + JSON.stringify (json.data));
 			alert ("Congrats, Your timing and batch is Applied, Now Concentrate on your study");
-			$.batchAndPackageSelection.close ();
+			closeBatchAndPackageScreen();
 		}
 	}
 	else {
@@ -165,9 +165,30 @@ function onApplyCallBack (json) {
 		}
 		Ti.API.error ("error found");
 	}*/
+	//closeBatchAndPackageScreen();
+	openAppliedDialog();
+}
+
+function openAppliedDialog(){
+	var dialog = Ti.UI.createAlertDialog({
+		buttonNames : ['Browse More Tutors', 'Cancel'],
+		message : 'Successfully applied . Continue Applying to more Tutors',
+		title : 'Tutme'
+	});
+	dialog.addEventListener('click', function(e) {
+		if (e.index == 0) {
+			closeBatchAndPackageScreen();
+		}else if(e.index == 1){
+			//Only Batch and package screen will be closed
+			$.batchAndPackageSelection.close ();
+		}
+	});
+	dialog.show();
+} 
+
+function closeBatchAndPackageScreen(){
 	$.batchAndPackageSelection.close ();
-	alert ("Congrats, Your timing and batch is Applied");
-	
+	args.closeFilteredContentWindow && args.closeFilteredContentWindow();
 }
 
 $.batchAndPackageSelection.addEventListener ("open", function () {
@@ -177,7 +198,7 @@ $.batchAndPackageSelection.addEventListener ("open", function () {
 		actionBar.displayHomeAsUp = true;
 		actionBar.homeButtonEnabled = true;
 		actionBar.onHomeIconItemSelected = function () {
-			$.batchAndPackageSelection.close ();
+			closeBatchAndPackageScreen();
 		};
 	}
 });

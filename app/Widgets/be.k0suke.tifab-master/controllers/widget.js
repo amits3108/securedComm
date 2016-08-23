@@ -164,15 +164,15 @@ function close () {
 
 var doClick = _.debounce (function () {
 	$.widget.applyProperties ({
-		touchEnabled : false
+		//touchEnabled : false
 	});
 
 	$.widget.fireEvent ('toggle', {
 		type : 'toggle',
-		expansion : TOGGLE ? 'close' : 'open'
+		//expansion : TOGGLE ? 'close' : 'open'
 	});
 
-	TOGGLE ? close () : open ();
+	//TOGGLE ? close () : open ();
 
 	if (_.has (args, 'rotation') && args.rotation) {
 		$.title.animate ({
