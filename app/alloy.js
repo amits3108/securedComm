@@ -59,7 +59,8 @@ Alloy.CFG.URL = {
 	getFilteredTutorList : baseURL + "tutor/get_tutors_list",
 	getPackages : baseURL + "cms/getPackages",
 	application : baseURL + "student/application",
-	add_favorite : baseURL+ "add_favorite"
+	add_favorite : baseURL+ "student/add_favorite",
+	getPostForStudent : baseURL+"student/postsby_fav_tutors/:student_id"
 };
 
 // loader

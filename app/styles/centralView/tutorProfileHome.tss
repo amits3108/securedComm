@@ -49,10 +49,13 @@
 	left: 0
 }
 "#markFav" :{
-	text : "Add to Favourites",
+	text : "  Add to Favourites  ",
 	right : 5,
 	top : 0,
-	color: Alloy.CFG.lightBlueColor,
+	width : 130,
+	color: "#000",
+	backgroundColor: "#E4E4E4",
+	borderRadius: 4
 }
 
 "#intro":{

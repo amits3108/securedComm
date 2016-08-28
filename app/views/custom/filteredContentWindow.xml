@@ -1,8 +1,5 @@
 <Alloy>
 	<Window id="filteredContentWindow" class="container">
-<!--
-		<TableView id="filteredListTable" onClick="filteredTableClick"/>
-			<SearchView ns="Ti.UI.Android" platform="android"/>-->
 		<Widget src="be.k0suke.tifab" id="fab" onToggle="doToggle"/>
 		<TableView id="filteredListTable"  onClick="filteredTableClick">
 			<SearchBar id="search" hintText="Search" showCancel="false"/>

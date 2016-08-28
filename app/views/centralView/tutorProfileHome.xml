@@ -14,7 +14,7 @@
 				</View>
 
 			</View>
-			<View height="Ti.UI.SIZE">
+			<View  id = "favView" height="Ti.UI.SIZE">
 				<Label id="intro"/>
 				<Label id = "markFav" onClick = "addToFavourite"/>
 			</View>

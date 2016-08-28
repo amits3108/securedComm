@@ -53,6 +53,7 @@
 
 "#emailAddress":{
 	hintText: "Email Address",
+	maxLength : 30,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 "#qualification":{
@@ -61,19 +62,24 @@
 
 "#experience":{
 	hintText: "Experience (in Months)",
+	maxLength : 30,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
 }
 "#address_permanent":{
-	hintText: "Permanent Address"
+	hintText: "Permanent Address",
+	maxLength : 100,
 }
 "#address_correspondance":{
-	hintText: "Correspondance Address"
+	hintText: "Correspondance Address",
+	maxLength : 100,
 }
 "#city":{
-	hintText: "City"
+	hintText: "City",
+	maxLength : 30,
 }
 "#cityPIN":{
 	hintText: "PINCODE",
+	maxLength : 6,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD
 }
 "#dateOfBirth":{
@@ -81,6 +87,7 @@
 }
 "#contactNo":{
 	hintText: "Mobile No",
+	maxLength : 10,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE_PAD
 }
 "#linkedInprofile":{
@@ -89,6 +96,7 @@
 }
 "#canTravelTo":{
 	hintText: "Can Travel to(Distance in kms.)",
+	maxLength : 5,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
 }
 "#courses":{
@@ -122,7 +130,9 @@
 	editable : false
 }
 "#preferredLanguage":{
-	hintText: "Preferred Language"
+	hintText: "Preferred Language",
+	
+	
 }
 "#aboutYourSelf":{
 	hintText: "About Yourself(Max. 100 words)",

@@ -15,6 +15,7 @@
 	width: "80%",
 	top: 50,
 	backgroundColor :'transparent',
+	maxLength : 30,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 "#password":{
@@ -22,6 +23,7 @@
 	width: "80%",
 	backgroundColor :'transparent',
 	top: 20,
+	maxLength : 30,
 	passwordMask: true
 }
 "#Login":{

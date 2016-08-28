@@ -34,7 +34,7 @@ var numberOfImages = 5,
     data = [];
 for ( i = 0; i < 5; i++) {
 	var view = Ti.UI.createView();
-	view.setBackgroundColor(getRandomColor());
+	//view.setBackgroundColor(getRandomColor());
 	data.push(view);
 };
 $.scrollableView.setViews(data);

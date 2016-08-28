@@ -29,12 +29,14 @@
 	width: "80%",
 	top: 20,
 	backgroundColor :'transparent',
+	maxLength : 30,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 "#password":{
 	hintText: "Password",
 	width: "80%",
 	top: 20,
+	maxLength : 30,
 	backgroundColor :'transparent',
 	passwordMask: true
 }

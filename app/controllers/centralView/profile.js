@@ -3,7 +3,7 @@ var appKey = require("appKey");
 var social = require("social");
 var utils = require("utils");
 var network = require("network");
-setValues();
+//setValues();
 $.idProofImage.hide();
 var LinkedInClick = function() {
 	utils.accessLinkedInProfile();
@@ -18,6 +18,7 @@ getProfile();
 //{"user":[{"id":"16","user_type":"1","email":"atutme57@gmail.com","full_name":"atutme57","dob":"0000-00-00","gender":null,"mobile":"4444422257","profile_pic":null}],"address":[],"courses":[],"subjects":[],"timings":[]},"message":"user complete profile","errors":"","status_code":200}
 function getProfile() {
 	Ti.API.error("getProfile");
+	utils.showLoading();
 	if (Titanium.Network.online) {
 		network.postRequest({
 			type : "GET",
@@ -40,6 +41,9 @@ function callBackGetProfile(json) {
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		utils.setLoginStatus();
 		if (json.data) {
+			setValues({
+				data : json.data
+			});
 			Ti.API.info("get profile Callback success: \n " + JSON.stringify(json.data));
 		}
 	} else {
@@ -55,21 +59,25 @@ function callBackGetProfile(json) {
 	}
 }
 
-function setValues() {
-	//   get profile response 
-	
+function setValues(params) {
+	var data = params.data;
+	//   get profile response
+
 	//{"user":[{"id":"16","user_type":"1","email":"atutme57@gmail.com","full_name":"atutme57","dob":"0000-00-00","gender":"","mobile":"8689665566","profile_pic":null}],
 	//"address":[{"id":"34","user_id":"16","address":"New Colony","city":"Gurgaon","state":null,"country":null,"zipcode":"222555","coordinates":null,"created_on":"2016-08-11 11:08:52","updated_on":null}],
 	//"courses":[],"subjects":[],"timings":[]}
-	
-	
-	
+
 	//
 	var user = Alloy.Globals.getData(appKey.USER);
-	if(user){
-		$.name.value = user.name;
-		$.emailAddress.value = user.email;
-		$.contactNo.value = user.phone;
+	if (data) {
+		$.name.value = data.user[0].full_name;
+		$.emailAddress.value = data.user[0].email;
+		$.contactNo.value = data.user[0].mobile;
+		$.address_permanent.value = data.address[0].address;
+		$.city.value = data.address[0].city;
+		$.cityPIN.value = data.address[0].zipcode;
+		$.experience.value = "";
+		$.preferredLanguage.value = "";
 	}
 };
 // name,emailAddress,address_permanent,contactNo,aboutYourSelf,subjects
@@ -135,12 +143,12 @@ function callBack(json) {
 	Ti.API.info("register callback : \n " + JSON.stringify(json));
 	utils.hideLoading();
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
-		if (!Alloy.Globals.getData (appKey.KEYS.REGISTRATIONCOMPLETE)) {
-			var win = Alloy.createController ("sliderContent/slider").getView ();
-			win.open ();
-			args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen ();
-			utils.setRegistrationStatus ();
-		}else{
+		if (!Alloy.Globals.getData(appKey.KEYS.REGISTRATIONCOMPLETE)) {
+			var win = Alloy.createController("sliderContent/slider").getView();
+			win.open();
+			args && args.closeNewTutorProfileScreen && args.closeNewTutorProfileScreen();
+			utils.setRegistrationStatus();
+		} else {
 			alert("Profile updated successfully.");
 		}
 
