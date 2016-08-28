@@ -31,7 +31,6 @@ exports.showMap = function(parmas) {
 		subtitle : locationValue,
 		animate : true,
 		pincolor : Map.ANNOTATION_RED,
-		
 	}), Map.createAnnotation({
 		latitude : destinationLatitude,
 		longitude : destinationLongitude,
