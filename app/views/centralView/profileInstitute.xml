@@ -2,7 +2,7 @@
 	<View id="profileView" backgroundColor="#B2DAF6" height="Ti.UI.SIZE" >
 		<ScrollView layout="vertical" id = "scrollContainer">
 			<ScrollableView id="scrollableView" showPagingControl="true" top = "0dp" height="200dp">
-				<ImageView id = "cameraIcon" image="/images/camera.png"/>
+				<ImageView id = "cameraIcon" image="images/camera.png"/>
 			</ScrollableView>
 			<TextField id="emailAddress" class="textFieldClass"/>
 			<View class = "sapClass"/>

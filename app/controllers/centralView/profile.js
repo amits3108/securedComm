@@ -5,6 +5,7 @@ var utils = require("utils");
 var network = require("network");
 //setValues();
 $.idProofImage.hide();
+$.secondIdProofImage.hide();
 var LinkedInClick = function() {
 	utils.accessLinkedInProfile();
 };
@@ -338,3 +339,35 @@ function recieveIdProofCallback(response) {
 	$.idProofImage.height = 200;
 	$.scrollContainer.height = Ti.UI.SIZE;
 }
+
+
+function recieveSecondIdProofCallback(response){
+	Ti.API.info(" recieveIdProofCallback " + JSON.stringify(response));
+	$.scrollContainer.add($.secondIdProofImage);
+	$.secondIdProofImage.show();
+	$.secondIdProofImage.image = response.nativePath;
+	$.secondIdProofImage.height = 200;
+	$.scrollContainer.height = Ti.UI.SIZE;
+}
+function addAnotherIdProof(){
+	var dialog = Ti.UI.createAlertDialog({
+    	cancel: 1,
+    	buttonNames: ['Confirm', 'Cancel'],
+    	message: 'Please upload the other side of id proof',
+    	title: 'Tutme'
+	});
+	dialog.show();
+	dialog.addEventListener('click',function(e){
+    	if (e.index === e.source.cancel){
+        	Ti.API.info('The cancel button was clicked');
+    	}else{
+    		require('androidCameraDialogs').showDialogs({
+				success : recieveSecondIdProofCallback
+			});
+    	}
+    	Ti.API.info('e.cancel: ' + e.cancel);
+    	Ti.API.info('e.source.cancel: ' + e.source.cancel);
+    	Ti.API.info('e.index: ' + e.index);
+	});
+}
+

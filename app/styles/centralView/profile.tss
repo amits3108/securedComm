@@ -181,3 +181,10 @@
 	height : '0',//'200dp',
 	top : '10'
 }
+
+"#secondIdProofImage":{
+	borderColor : Alloy.CFG.themeColor,
+	width: "80%",
+	height : '0',//'200dp',
+	top : '10'
+}

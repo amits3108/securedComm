@@ -46,6 +46,7 @@
 			<TextField id  = "id_proof" editable="false" hintText = 'Upload Id Proof Image' class="textFieldClass" top = "20" onClick="uploadIdProof"/>
 			<View class = "sapClass" id = "idProofSap"/>
 			<ImageView id = "idProofImage" />
+			<ImageView id="secondIdProofImage"/>
 			<Button id="submit" onClick="onSubmit"/>
 		</ScrollView>
 	</View>

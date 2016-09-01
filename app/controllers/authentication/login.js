@@ -85,7 +85,12 @@ function callBack(json) {
 				user_id : json.data.id,
 			});
 		}
-         Alloy.createController("authentication/profileNavigator").getView().open(); 
+		if (!Alloy.Globals.getData(appKey.FIRST_TIME_PROFILE_NAVIGATOR_OPEN)){
+        	Alloy.Globals.setData(appKey.FIRST_TIME_PROFILE_NAVIGATOR_OPEN,true);
+            Alloy.createController("authentication/profileNavigator").getView().open();
+        }
+		
+         //Alloy.createController("authentication/profileNavigator").getView().open(); 
         /*var win = Alloy.createController("sliderContent/slider", {
 			closeLoginScreen : closeLoginScreen
 		}).getView();*/

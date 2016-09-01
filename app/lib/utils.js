@@ -73,15 +73,14 @@ var setPropertiesNull = function() {
 		Ti.API.error(" index " + index + "   key  " + key);
 		Alloy.Globals.setData(key, null);
 	});
-	
-	
+
 	//TODO: Convert these keys into the Alloy.Globals.setData keys
 	/*Ti.App.Properties.setObject ('courseList', null);
-	Ti.App.Properties.setObject ('coursesList', null);
-	Ti.App.Properties.setObject ('subjectList', null);
-	Ti.App.Properties.setObject ('subjectsArrayList', null);
-	Ti.App.Properties.setObject ('timeSlots', null);
-	Ti.App.Properties.setObject ('classTime', null); */
+	 Ti.App.Properties.setObject ('coursesList', null);
+	 Ti.App.Properties.setObject ('subjectList', null);
+	 Ti.App.Properties.setObject ('subjectsArrayList', null);
+	 Ti.App.Properties.setObject ('timeSlots', null);
+	 Ti.App.Properties.setObject ('classTime', null); */
 
 };
 exports.setPropertiesNull = setPropertiesNull;
@@ -353,14 +352,90 @@ function parseDictionary(params) {
 	return arrayParsed;
 }
 
-
-function showLoading(){
-	Alloy.Globals.loading.show('Loading...', false);	
+function showLoading() {
+	Alloy.Globals.loading.show('Loading...', false);
 }
-function hideLoading()
-{
+
+function hideLoading() {
 	Alloy.Globals.loading.hide();
 }
+
 exports.showLoading = showLoading;
 exports.hideLoading = hideLoading;
 
+// Dailog to show the ratings
+
+function showRatingDailog(params) {
+	var params = params || {};
+	var ratingValuetoReturn;
+	var mainWindow = Titanium.UI.createWindow({
+		modal : true,
+		navBarHidden : true,
+		backgroundColor : 'grey'
+	});
+	var alertView = Ti.UI.createView({
+		width : 300,
+		height : 200,
+		borderColor : "grey",
+		borderWidth : 1,
+		backgroundColor : "white",
+	});
+
+	var buttonsWrapper = Ti.UI.createView({
+		top : 440,
+		height : 60,
+		widht : Ti.UI.FILL,
+		backgroundColor : "#848684"
+	});
+
+	alertView.add(buttonsWrapper);
+
+	var submitBtn = Ti.UI.createButton({
+		title : 'Submit',
+		bottom : 5,
+		width : 140,
+		height : 50,
+	});
+	alertView.add(submitBtn);
+	var ratingbar = require('titutorial.ratingbar');
+
+	/*
+	 * Dynamic rating bar
+	 */
+	var ratingBar1 = ratingbar.createRatingBar({
+		//top : '30dp',
+		//left : 15,
+		rating : 0,
+		stars : 5,
+		stepSize : 1,
+		isIndicator : false
+	});
+	alertView.add(ratingBar1);
+	var ratingValue = Ti.UI.createLabel({
+		text : 'Your Rating : ' + ratingBar1.getRating(),
+		color : '#000',
+		font : {
+			fontSize : '20dp'
+		},
+		height : Ti.UI.SIZE,
+		width : Ti.UI.SIZE,
+		top : '30dp',
+		textAlign : 'center'
+	});
+	alertView.add(ratingValue);
+
+	ratingBar1.addEventListener('change', function(e) {
+		ratingValue.text = "Rating Value : " + e.rating.toString();
+		ratingValuetoReturn = e.rating.toString();
+	});
+	submitBtn.addEventListener('click', function(e) {
+		alert('Rating Submitted Successfully');
+		params.callback && params.callback(ratingValuetoReturn);
+		mainWindow.close();	
+	});
+	mainWindow.add(alertView);
+	//mainWindow.open();
+	return mainWindow;
+}
+
+exports.showRatingDailog = showRatingDailog;

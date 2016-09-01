@@ -42,12 +42,12 @@
 	left: 0
 }
 
-"#stars":{
+/*"#stars":{
 	width: Titanium.UI.FILL,
 	height: 15,
 	image: "/images/five_stars.jpg",
 	left: 0
-}
+}*/
 "#markFav" :{
 	text : "  Add to Favourites  ",
 	right : 5,

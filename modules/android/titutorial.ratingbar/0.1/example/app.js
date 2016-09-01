@@ -20,8 +20,8 @@ var ratingBar1 = ratingbar.createRatingBar({
 	top : '30dp',
 	left:15,
 	rating : 2,
-	stars : 10,
-	stepSize : 1,
+	stars : 6,
+	stepSize : 1.5,
 	isIndicator : false
 });
 win.add(ratingBar1);

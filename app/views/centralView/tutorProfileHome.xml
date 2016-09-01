@@ -5,11 +5,11 @@
 				<View width="30%">
 					<ImageView id="userProfileImage"/>
 				</View>
-				<View layout="vertical" width="70%">
+				<View id = "tutorInitialDetails" layout="vertical" width="70%">
 					<Label id="name"/>
 					<Label id="experience"/>
 					<Label id="location"/>
-					<ImageView id="stars"/>
+					<!-- <ImageView id="stars" onClick="ratingforTutor"/> -->
 
 				</View>
 

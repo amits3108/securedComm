@@ -15,7 +15,6 @@ if (args.screenType == "tutorProfileScreen") {
 $.filteredListTable.filterAttribute = "title";
 ////////////    require the UI of each List row in table   ///////////////
 Ti.API.error(JSON.stringify(Ti.App.Properties.getObject("tutorData")));
-
 function dataOfRow() {
 	var data = Ti.App.Properties.getObject("tutorData");
 	return data;
