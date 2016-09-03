@@ -338,6 +338,7 @@ function recieveIdProofCallback(response) {
 	$.idProofImage.image = response.nativePath;
 	$.idProofImage.height = 200;
 	$.scrollContainer.height = Ti.UI.SIZE;
+	addAnotherIdProof();
 }
 
 
