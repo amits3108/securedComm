@@ -1,4 +1,4 @@
- 
+
 "#userProfileImage":{
 	width: 80,
 	height: 80,
@@ -42,17 +42,17 @@
 	left: 0
 }
 
-/*"#stars":{
+"#stars":{
 	width: Titanium.UI.FILL,
 	height: 15,
 	image: "/images/five_stars.jpg",
 	left: 0
-}*/
-"#markFav" :{
-	text : "  Add to Favourites  ",
-	right : 5,
-	top : 0,
-	width : 130,
+}
+"#markFav":{
+	text: "  Add to Favourites  ",
+	right: 5,
+	top: 0,
+	width: 130,
 	color: "#000",
 	backgroundColor: "#E4E4E4",
 	borderRadius: 4
@@ -73,7 +73,7 @@
 	scrollable: true,
 	borderColor: "#000",
 	borderRadius: 3,
-	maxLength : 100,
+	maxLength: 100,
 	backgroundColor: 'transparent',
 	font: {
 		fontSize: 14
@@ -149,9 +149,9 @@
 	},
 	color: "#000",
 	left: 10,
-	bottom : 10
+	bottom: 10
 }
 
 "#coursesTable":{
-	backgroundColor: "#E4E4E4",
+	backgroundColor: "#E4E4E4"
 }

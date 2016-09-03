@@ -11,8 +11,9 @@ if (user && user.user_id)
 if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
 	$.introDetail.editable = false;
 }
-if (!(Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student")) {
-	$.favView.remove($.markfav);
+if ((Alloy.Globals.getData(appKey.KEYS.USERTYPE) != "student")) {
+	$.favView.remove($.markFav);
+	//$.markFav.hide();
 }
 var tutor_id = null;
 if (args && args.tutor_id)
@@ -136,9 +137,11 @@ function setRatingValue(text){
 
 function ratingforTutor() {
 	//ratingBarforTutor.setIsIndicator(false);
-	utils.showRatingDailog({
-		callback : setRatingValue
-	}).open(); 
+	if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
+		utils.showRatingDailog({
+			callback : setRatingValue
+		}).open(); 
+	}
 
 	//Ti.API.info("afghjkakjfghajkg     "+ratingValue);
 	//

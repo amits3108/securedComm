@@ -63,6 +63,8 @@
         <module platform="iphone">ti.map</module>
         <module platform="android">ti.map</module>
         <module platform="android">yy.tidialogs</module>
+        <module platform="android">titutorial.gallerypicker</module>
+        <module platform="android">titutorial.ratingbar</module>
     </modules>
     <deployment-targets>
         <target device="windows">false</target>

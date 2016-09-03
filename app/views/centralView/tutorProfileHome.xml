@@ -10,13 +10,11 @@
 					<Label id="experience"/>
 					<Label id="location"/>
 					<!-- <ImageView id="stars" onClick="ratingforTutor"/> -->
-
 				</View>
-
 			</View>
-			<View  id = "favView" height="Ti.UI.SIZE">
+			<View  id="favView" height="Ti.UI.SIZE">
 				<Label id="intro"/>
-				<Label id = "markFav" onClick = "addToFavourite"/>
+				<Label id="markFav" onClick="addToFavourite"/>
 			</View>
 			<TextArea id="introDetail"/>
 			<View layout="horizontal" height="20" top="15">
@@ -34,7 +32,7 @@
 			<View id="coursesScrollContainer">
 				<Label id="coursesOffered"/>
 			</View>
-			<TableView id = "coursesTable" onClick="onCoursesTableClick"/>
+			<TableView id="coursesTable" onClick="onCoursesTableClick"/>
 		</ScrollView>
 	</View>
 </Alloy>

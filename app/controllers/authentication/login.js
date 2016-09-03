@@ -88,6 +88,12 @@ function callBack(json) {
 		if (!Alloy.Globals.getData(appKey.FIRST_TIME_PROFILE_NAVIGATOR_OPEN)){
         	Alloy.Globals.setData(appKey.FIRST_TIME_PROFILE_NAVIGATOR_OPEN,true);
             Alloy.createController("authentication/profileNavigator").getView().open();
+        }else{
+        	var win = Alloy.createController("sliderContent/slider", {
+				closeLoginScreen : closeLoginScreen
+			}).getView();
+			win.open();
+			Ti.API.info("Login successfully");
         }
 		
          //Alloy.createController("authentication/profileNavigator").getView().open(); 
@@ -95,7 +101,7 @@ function callBack(json) {
 			closeLoginScreen : closeLoginScreen
 		}).getView();*/
 		//win.open();
-		Ti.API.info("Register successfully");
+		//Ti.API.info("Register successfully");
 	} else {
 		//json && !(_.isEmpty(json)) && alert(json.message);
 		_.isEmpty(json) && alert("Unable to connect. Please try again later.");
