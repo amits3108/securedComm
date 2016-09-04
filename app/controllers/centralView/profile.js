@@ -14,7 +14,6 @@ var user_id;
 if (user && user.user_id)
 	user_id = user.user_id;
 getProfile();
-//api.tutme.in/index.php/user/get_profile
 
 //{"user":[{"id":"16","user_type":"1","email":"atutme57@gmail.com","full_name":"atutme57","dob":"0000-00-00","gender":null,"mobile":"4444422257","profile_pic":null}],"address":[],"courses":[],"subjects":[],"timings":[]},"message":"user complete profile","errors":"","status_code":200}
 function getProfile() {
@@ -23,7 +22,7 @@ function getProfile() {
 	if (Titanium.Network.online) {
 		network.postRequest({
 			type : "GET",
-			url : "api.tutme.in/index.php/user/get_profile/" + user_id, //"api.tutme.in/index.php/user/get_profile",
+			url : Alloy.CFG.URL.getProfile +"/" + user_id,
 			requestData : {},
 			requestHeaders : {
 				"public-key" : "c8a1ad1332716aa15752422360e739a5",
@@ -42,12 +41,14 @@ function callBackGetProfile(json) {
 	if (json && (parseInt(json.status_code) == 200) && (!json.error)) {
 		utils.setLoginStatus();
 		if (json.data) {
+			hideReloadButton();
 			setValues({
 				data : json.data
 			});
 			Ti.API.info("get profile Callback success: \n " + JSON.stringify(json.data));
 		}
 	} else {
+		visibleReloadButton();
 		_.isEmpty(json) && alert("Unable to connect. Please try again later.");
 		if (json && json.error) {
 			if (json.message) {
@@ -60,6 +61,22 @@ function callBackGetProfile(json) {
 	}
 }
 
+function visibleReloadButton(){
+	$.reload.visible = true;
+	$.reload.touchEnabled = true;
+}
+
+function hideReloadButton(){
+	$.reload.visible = false;
+	$.reload.touchEnabled = false;
+}
+hideReloadButton();
+
+function onReload(){
+	Ti.API.info("Reload");
+	getProfile();
+}
+
 function setValues(params) {
 	var data = params.data;
 	//   get profile response
@@ -70,15 +87,15 @@ function setValues(params) {
 
 	//
 	var user = Alloy.Globals.getData(appKey.USER);
-	if (data) {
-		$.name.value = data.user[0].full_name;
-		$.emailAddress.value = data.user[0].email;
-		$.contactNo.value = data.user[0].mobile;
-		$.address_permanent.value = data.address[0].address;
-		$.city.value = data.address[0].city;
-		$.cityPIN.value = data.address[0].zipcode;
+	if (data && data.user[0]) {
+		$.name.value = (data.user [0].full_name) ? data.user [0].full_name : "";
+		$.emailAddress.value = (data.user [0].email) ? data.user [0].email : "";
+		$.contactNo.value = (data.user [0].mobile) ? data.user [0].mobile : "";
+		$.address_permanent.value = (data.user [0].address) ? data.user [0].address : "";
+		$.city.value = (data.user [0].city) ? data.user [0].city : "";
+		$.cityPIN.value = (data.user [0].zipcode) ? data.user [0].zipcode : "";
 		$.experience.value = "";
-		$.preferredLanguage.value = "";
+		$.preferredLanguage.value = ""; 
 	}
 };
 // name,emailAddress,address_permanent,contactNo,aboutYourSelf,subjects

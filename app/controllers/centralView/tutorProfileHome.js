@@ -124,9 +124,10 @@ var ratingBarforTutor = ratingbar.createRatingBar({
 	stepSize : 1,
 	//isIndicator : false
 });
-ratingView.add(ratingBarforTutor);
-$.tutorInitialDetails.add(ratingView);
-
+if (Alloy.Globals.getData(appKey.KEYS.USERTYPE) == "student") {
+	ratingView.add(ratingBarforTutor);
+	$.tutorInitialDetails.add(ratingView);
+}
 ratingView.addEventListener('click',ratingforTutor);
 
 function setRatingValue(text){

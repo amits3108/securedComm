@@ -31,7 +31,7 @@
 	//width: 80,
 	//height: 80,
 	backgroundColor: Alloy.CFG.themeColor,
-	image: "/images/profile.png",
+	image: "/images/profile.png"
 }
 ".sapClass":{
 	backgroundColor: Alloy.CFG.themeColor,
@@ -53,7 +53,7 @@
 
 "#emailAddress":{
 	hintText: "Email Address",
-	maxLength : 30,
+	maxLength: 30,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_EMAIL
 }
 "#qualification":{
@@ -62,24 +62,24 @@
 
 "#experience":{
 	hintText: "Experience (in Months)",
-	maxLength : 30,
+	maxLength: 30,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
 }
 "#address_permanent":{
 	hintText: "Permanent Address",
-	maxLength : 100,
+	maxLength: 100
 }
 "#address_correspondance":{
 	hintText: "Correspondance Address",
-	maxLength : 100,
+	maxLength: 100
 }
 "#city":{
 	hintText: "City",
-	maxLength : 30,
+	maxLength: 30
 }
 "#cityPIN":{
 	hintText: "PINCODE",
-	maxLength : 6,
+	maxLength: 6,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD
 }
 "#dateOfBirth":{
@@ -87,7 +87,7 @@
 }
 "#contactNo":{
 	hintText: "Mobile No",
-	maxLength : 10,
+	maxLength: 10,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_PHONE_PAD
 }
 "#linkedInprofile":{
@@ -96,47 +96,45 @@
 }
 "#canTravelTo":{
 	hintText: "Can Travel to(Distance in kms.)",
-	maxLength : 5,
+	maxLength: 5,
 	keyboardType: Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD
 }
 "#courses":{
 	/*text: "Courses",
 	font: {
-		fontSize: 15
+	fontSize: 15
 	},
 	color: "#000",
 	height: 30*/
-	hintText : "Courses",
-	editable : false
+	hintText: "Courses",
+	editable: false
 }
 "#subjects":{
 	/*text: "Subjects",
 	font: {
-		fontSize: 15
+	fontSize: 15
 	},
 	color: "#000",
 	height: 30*/
-	hintText : "Subjects",
-	editable : false
+	hintText: "Subjects",
+	editable: false
 }
 "#sutaibleBatchTime":{
 	/*text: "Sutaible Batch No.",
 	font: {
-		fontSize: 15
+	fontSize: 15
 	},
 	color: "#000",
 	height: 30*/
-	hintText : "Sutaible Batch No.",
-	editable : false
+	hintText: "Sutaible Batch No.",
+	editable: false
 }
 "#preferredLanguage":{
-	hintText: "Preferred Language",
-	
-	
+	hintText: "Preferred Language"
 }
 "#aboutYourSelf":{
 	hintText: "About Yourself(Max. 100 words)",
-	maxLength : 100
+	maxLength: 100
 }
 "#submit":{
 	title: "Submit",
@@ -153,18 +151,35 @@
 		fontSize: "20sp"
 	}
 }
-"#label":{
-	/*font:{
+"#reload":{
+	title: "Reload",
+	backgroundColor: Alloy.CFG.themeColor,
+	backgroundSelectedColor: Alloy.CFG.lightBlueColor,
+	//borderColor: Alloy.CFG.themeColor,
+	height: 50,
+	width: "42%",
+	color: "#FFFFFF",
+	borderRadius: 8,
+	borderWidth: 3,
+	top: 10,
+	font:{
 		fontSize: "20sp"
 	},
+	visible : false
+}
+
+"#label":{
+	/*font:{
+	fontSize: "20sp"
+	},
 	left: '10%'*/
-	hintText : 'Access LinkedIn Profile ',
+	hintText: 'Access LinkedIn Profile '
 }
 /*"#sap":{
-	backgroundColor: Alloy.CFG.themeColor,
-	height: '1dp',
-	top: '0.5dp',
-	width: "80%"
+backgroundColor: Alloy.CFG.themeColor,
+height: '1dp',
+top: '0.5dp',
+width: "80%"
 }*/
 "#sapName":{
 	backgroundColor: Alloy.CFG.themeColor,
@@ -176,15 +191,15 @@
 
 
 "#idProofImage":{
-	borderColor : Alloy.CFG.themeColor,
+	borderColor: Alloy.CFG.themeColor,
 	width: "80%",
-	height : '0',//'200dp',
-	top : '10'
+	height: '0',//'200dp',
+	top: '10'
 }
 
 "#secondIdProofImage":{
-	borderColor : Alloy.CFG.themeColor,
+	borderColor: Alloy.CFG.themeColor,
 	width: "80%",
-	height : '0',//'200dp',
-	top : '10'
+	height: '0',//'200dp',
+	top: '10'
 }

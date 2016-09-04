@@ -1,7 +1,9 @@
-var utils = require("utils");
+var utils = require ("utils");
+var appKey = require ("appKey");
+
 var rowtitle = [{
 	title : "Profile"
-},{
+}, {
 	title : "About us"
 }, {
 	title : "Terms And Conditions "
@@ -12,19 +14,19 @@ var rowtitle = [{
 }];
 var len = rowtitle.length;
 for (var i = 0; i < len; i++) {
-	var tableRow = createSettingRow({
-		settingLabel : rowtitle[i].title,
+	var tableRow = createSettingRow ({
+		settingLabel : rowtitle [i].title,
 	});
-	$.settingsTable.appendRow(tableRow);
+	$.settingsTable.appendRow (tableRow);
 }
-function createSettingRow(params) {
+function createSettingRow (params) {
 	var params = params || {};
 
-	var tableViewRow = Ti.UI.createTableViewRow({
+	var tableViewRow = Ti.UI.createTableViewRow ({
 		height : Ti.UI.SIZE,
 		width : Ti.UI.FILL,
 	});
-	var viewContainer = Ti.UI.createView({
+	var viewContainer = Ti.UI.createView ({
 		height : Ti.UI.SIZE,
 		width : Ti.UI.FILL,
 		backgroundColor : "#FFF",
@@ -35,16 +37,16 @@ function createSettingRow(params) {
 		top : 15
 	});
 
-	var start_double_quotes = Ti.UI.createImageView({
+	var start_double_quotes = Ti.UI.createImageView ({
 		image : "/images/start_double_quotes.png",
 		height : 20,
 		width : 20,
 		top : 10,
 		left : 5,
 	});
-	viewContainer.add(start_double_quotes);
+	viewContainer.add (start_double_quotes);
 
-	var settingLabel = Ti.UI.createLabel({
+	var settingLabel = Ti.UI.createLabel ({
 		text : params.settingLabel,
 		color : "#1BB4C6",
 		font : {
@@ -55,9 +57,9 @@ function createSettingRow(params) {
 		top : 10,
 		textAlign : Titanium.UI.TEXT_ALIGNMENT_CENTER
 	});
-	viewContainer.add(settingLabel);
+	viewContainer.add (settingLabel);
 
-	var end_double_quotes = Ti.UI.createImageView({
+	var end_double_quotes = Ti.UI.createImageView ({
 		image : "/images/end_double_quotes.png",
 		height : 20,
 		width : 20,
@@ -65,33 +67,46 @@ function createSettingRow(params) {
 		right : 5,
 		bottom : 10
 	});
-	viewContainer.add(end_double_quotes);
-	tableViewRow.add(viewContainer);
+	viewContainer.add (end_double_quotes);
+	tableViewRow.add (viewContainer);
 	return tableViewRow;
 }
-$.settingsTable.addEventListener('click',function(e){
-	if(e.index == 0){
-		var view = Alloy.createController("centralView/profile").getView();
+
+$.settingsTable.addEventListener ('click', function (e) {
+	if (e.index == 0) {
+		var view;
+		if (Alloy.Globals.getData (appKey.KEYS.USERTYPE) == "organisation") {
+			//opening Institute Profile
+			view = Alloy.createController ("centralView/profileInstitute").getView ();
+		}
+		else {
+			view = Alloy.createController ("centralView/profile").getView ();
+		}
+
+		//var view = Alloy.createController ("centralView/profile").getView ();
 		title = "Profile";
-		utils.replaceCentralView({
+		utils.replaceCentralView ({
 			view : view,
 			title : title
 		});
 	}
-	else if(e.index == 1){
-		var Agreementwin = Alloy.createController("centralView/settings/Aboutus").getView();
-		Agreementwin.open();
+	else
+	if (e.index == 1) {
+		var Agreementwin = Alloy.createController ("centralView/settings/Aboutus").getView ();
+		Agreementwin.open ();
 	}
-	else if(e.index == 2){
-		var Policiesswin = Alloy.createController("centralView/settings/Aboutus").getView();
-		Policiesswin.open();
+	else
+	if (e.index == 2) {
+		var Policiesswin = Alloy.createController ("centralView/settings/Aboutus").getView ();
+		Policiesswin.open ();
 	}
-	else if(e.index == 3){
-		var Policiesswin = Alloy.createController("centralView/settings/Aboutus").getView();
-		Policiesswin.open();
+	else
+	if (e.index == 3) {
+		var Policiesswin = Alloy.createController ("centralView/settings/Aboutus").getView ();
+		Policiesswin.open ();
 	}
-	else{
-		var termsconditionswin = Alloy.createController("centralView/settings/Aboutus").getView();
-		termsconditionswin.open();
+	else {
+		var termsconditionswin = Alloy.createController ("centralView/settings/Aboutus").getView ();
+		termsconditionswin.open ();
 	}
 });

@@ -72,9 +72,12 @@ function callBack(json) {
 			if (json.data && json.data.user_type && json.data.user_type == "1") {
 				Ti.API.info("student login");
 				Alloy.Globals.setData(appKey.KEYS.USERTYPE, "student");
-			} else {
+			} else if(json.data.user_type && json.data.user_type == "2") {
 				Ti.API.info("tutor login");
 				Alloy.Globals.setData(appKey.KEYS.USERTYPE, "tutor");
+			}else if(json.data.user_type && json.data.user_type == "3"){
+				Ti.API.info("tutor login");
+				Alloy.Globals.setData(appKey.KEYS.USERTYPE, "organisation");
 			}
 
 			setUserValues({
